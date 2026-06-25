@@ -1,0 +1,38 @@
+name: YC GTM Monitor
+
+on:
+  schedule:
+    - cron: "30 3 * * *"  # 3:30am UTC = 9am IST, daily
+  workflow_dispatch: {}    # lets you trigger a manual test run from the Actions tab
+
+permissions:
+  contents: write   # needed to commit seen_jobs.json back to the repo
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run monitor
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
+        run: python3 yc_gtm_monitor.py
+
+      - name: Commit updated seen_jobs.json
+        run: |
+          git config user.name "yc-gtm-monitor-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add seen_jobs.json
+          git diff --quiet --cached || git commit -m "Update seen_jobs.json"
+          git push

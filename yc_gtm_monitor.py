@@ -1,0 +1,442 @@
+#!/usr/bin/env python3
+"""
+Daily YC GTM job monitor.
+
+Pulls every company from the YC public API, scrapes each company's YC page
+for open roles + founders, diffs new GTM-relevant roles against seen_jobs.json,
+generates a personalized outreach message per founder via Claude, and emails
+a digest via Gmail SMTP.
+
+Builds on the page-scraping logic (founder cards, job links) proven out in
+yc_prospector.py.
+"""
+
+import json
+import os
+import re
+import smtplib
+import sys
+import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from datetime import datetime, timezone
+from email.mime.text import MIMEText
+from pathlib import Path
+
+import requests
+from bs4 import BeautifulSoup
+
+# ── Config ────────────────────────────────────────────────────────────────────
+
+YC_API_BASE = "https://api.ycombinator.com/v0.1/companies"
+
+# Point this at a mounted Railway Volume path (e.g. /data/seen_jobs.json) so
+# state survives across cron runs — Railway cron containers do not retain a
+# local filesystem between invocations unless a Volume is attached.
+SEEN_JOBS_PATH = Path(os.environ.get("SEEN_JOBS_FILE", "seen_jobs.json"))
+
+SCRAPE_WORKERS = 20
+PAGE_TIMEOUT = 30
+SITE_TIMEOUT = 15
+API_SLEEP = 0.05
+
+HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/124.0.0.0 Safari/537.36"
+    ),
+    "Accept-Language": "en-US,en;q=0.9",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+}
+
+GTM_KEYWORDS = [
+    "growth", "gtm", "go-to-market", "sales", "marketing", "founding ae",
+    "sdr", "bdr", "revenue", "demand gen", "outbound", "automation",
+    "lead gen", "business development", "founding account executive",
+    "founding sales",
+]
+GTM_PATTERN = re.compile("|".join(re.escape(k) for k in GTM_KEYWORDS), re.IGNORECASE)
+
+ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
+GMAIL_ADDRESS = os.environ.get("GMAIL_ADDRESS", "")
+GMAIL_APP_PASSWORD = os.environ.get("GMAIL_APP_PASSWORD", "")
+RECIPIENT_EMAIL = os.environ.get("RECIPIENT_EMAIL", "")
+
+CLAUDE_MODEL = "claude-sonnet-4-6"
+
+MESSAGE_PROMPT = """You are writing a short LinkedIn outreach message on behalf of a GTM Engineer named Rajat.
+
+Context:
+- Founder name: {founder_name}
+- Company: {company_name}
+- YC Batch: {yc_batch}
+- Role they are hiring for: {role_title}
+- Product summary: {product_summary}
+
+Write a single LinkedIn message that:
+- Opens by referencing the specific role they are hiring for
+- Mentions that Rajat currently works with a few YC startups building their GTM infrastructure from scratch including signal systems, automated sequences, and GTM agents
+- Says he could have something running in a week
+- Ends with a soft yes or no ask
+- Sounds like a real person wrote it, not a template
+- No em dashes, no ampersands, no special characters that LinkedIn might mangle
+- Maximum 4 sentences
+- Do not use the words seamless, robust, leverage, streamline, innovative, or comprehensive"""
+
+
+# ── Step 1: Pull companies from YC API ────────────────────────────────────────
+
+def fetch_all_companies() -> list[dict]:
+    print("[1] Fetching all companies from YC API …")
+    companies: list[dict] = []
+    url = f"{YC_API_BASE}?page=1&per_page=100"
+    page_num = 1
+
+    while url:
+        try:
+            resp = requests.get(url, headers=HEADERS, timeout=PAGE_TIMEOUT)
+            resp.raise_for_status()
+            data = resp.json()
+        except Exception as e:
+            print(f"  ERROR fetching page {page_num}: {e} — stopping pagination")
+            break
+
+        batch = data.get("companies", [])
+        companies.extend(batch)
+
+        total_pages = data.get("totalPages", page_num)
+        if page_num % 20 == 0 or page_num == total_pages:
+            print(f"  Page {page_num}/{total_pages} — {len(companies)} companies so far")
+
+        url = data.get("nextPage")
+        page_num += 1
+        time.sleep(API_SLEEP)
+
+    print(f"  Total companies pulled: {len(companies)}")
+    return companies
+
+
+# ── Step 1b: Scrape each company's YC page for jobs + founders ───────────────
+
+def _parse_jobs(soup: BeautifulSoup, slug: str) -> list[dict]:
+    """Return [{title, url}] for GTM-relevant roles on a company page."""
+    jobs = []
+    seen_titles = set()
+    for a in soup.find_all("a", href=True):
+        href = a["href"]
+        if "/companies/" in href and "/jobs/" in href:
+            title = a.get_text(strip=True)
+            if not title or title in seen_titles:
+                continue
+            if not GTM_PATTERN.search(title):
+                continue
+            seen_titles.add(title)
+            full_url = href if href.startswith("http") else f"https://www.ycombinator.com{href}"
+            jobs.append({"title": title, "url": full_url})
+    return jobs
+
+
+def _parse_founders(soup: BeautifulSoup) -> list[dict]:
+    """Parse founder cards (name, title, linkedin) from a YC company page."""
+    founders = []
+    seen_names = set()
+
+    for a in soup.find_all("a", attrs={"aria-label": "LinkedIn profile"}):
+        linkedin = a.get("href", "").strip()
+        if linkedin and "/company/" in linkedin:
+            continue
+
+        card = a
+        for _ in range(6):
+            card = card.parent
+            if not card:
+                break
+            if card.find(class_=re.compile(r"text-xl")):
+                break
+        if not card:
+            continue
+
+        name_el = card.find(class_=re.compile(r"text-xl"))
+        title_el = card.find(class_=re.compile(r"text-gray-600"))
+        name = name_el.get_text(strip=True) if name_el else ""
+        title = title_el.get_text(strip=True) if title_el else "Founder"
+
+        if not name or name in seen_names or not re.search(r" ", name):
+            continue
+
+        seen_names.add(name)
+        founders.append({"name": name, "title": title, "linkedin": linkedin})
+
+    # Fallback: founders without a LinkedIn link, under "Active Founders"
+    for heading in soup.find_all(string=re.compile(r"Active Founders", re.I)):
+        section = heading.parent
+        for _ in range(5):
+            if not section:
+                break
+            section = section.parent
+            name_els = section.find_all(class_=re.compile(r"text-xl"))
+            for ne in name_els:
+                name = ne.get_text(strip=True)
+                if name and name not in seen_names and len(name) > 2:
+                    p = ne.parent
+                    title_el = p.find(class_=re.compile(r"text-gray-600")) if p else None
+                    title = title_el.get_text(strip=True) if title_el else "Founder"
+                    seen_names.add(name)
+                    founders.append({"name": name, "title": title, "linkedin": ""})
+            if founders:
+                break
+
+    return founders
+
+
+def scrape_company(company: dict) -> tuple[str, list[dict], list[dict]]:
+    """Returns (slug, gtm_jobs, founders). Empty lists on any failure/timeout."""
+    slug = company.get("slug", "")
+    yc_url = company.get("url") or f"https://www.ycombinator.com/companies/{slug}"
+    try:
+        resp = requests.get(yc_url, headers=HEADERS, timeout=SITE_TIMEOUT)
+        if resp.status_code != 200:
+            return slug, [], []
+        soup = BeautifulSoup(resp.text, "html.parser")
+    except Exception:
+        return slug, [], []
+
+    jobs = _parse_jobs(soup, slug)
+    founders = _parse_founders(soup) if jobs else []
+    return slug, jobs, founders
+
+
+def scrape_all_companies(companies: list[dict]) -> dict[str, dict]:
+    """Returns slug -> {"jobs": [...], "founders": [...]} for companies with GTM roles."""
+    print(f"\n[2] Scraping {len(companies)} company pages for GTM roles + founders …")
+    results: dict[str, dict] = {}
+    done = 0
+    skipped = 0
+    total = len(companies)
+
+    with ThreadPoolExecutor(max_workers=SCRAPE_WORKERS) as ex:
+        futures = {ex.submit(scrape_company, c): c for c in companies}
+        for fut in as_completed(futures):
+            done += 1
+            c = futures[fut]
+            try:
+                slug, jobs, founders = fut.result()
+                if jobs:
+                    results[slug] = {"jobs": jobs, "founders": founders}
+            except Exception as e:
+                skipped += 1
+                print(f"  SKIPPED {c.get('name', '?')}: {e}")
+            if done % 200 == 0 or done == total:
+                print(f"  [{done}/{total}] pages scraped … ({len(results)} companies with GTM roles)")
+
+    print(f"  Companies with GTM-relevant roles: {len(results)} | Skipped (timeout/error): {skipped}")
+    return results
+
+
+# ── Step 2: Diff against seen_jobs.json ───────────────────────────────────────
+
+def job_key(company_name: str, role_title: str) -> str:
+    return f"{company_name}::{role_title}"
+
+
+def load_seen() -> dict:
+    if SEEN_JOBS_PATH.exists():
+        try:
+            return json.loads(SEEN_JOBS_PATH.read_text())
+        except Exception as e:
+            print(f"  WARNING: could not parse {SEEN_JOBS_PATH}, treating as empty: {e}")
+            return {}
+    return {}
+
+
+def save_seen(seen: dict):
+    SEEN_JOBS_PATH.write_text(json.dumps(seen, indent=2))
+
+
+# ── Step 3 + 4: Founder enrichment + message generation ──────────────────────
+
+def generate_message(client, founder_name: str, company_name: str, yc_batch: str,
+                      role_title: str, product_summary: str) -> str:
+    prompt = MESSAGE_PROMPT.format(
+        founder_name=founder_name,
+        company_name=company_name,
+        yc_batch=yc_batch,
+        role_title=role_title,
+        product_summary=product_summary or "Not available",
+    )
+    try:
+        msg = client.messages.create(
+            model=CLAUDE_MODEL,
+            max_tokens=300,
+            messages=[{"role": "user", "content": prompt}],
+        )
+        return msg.content[0].text.strip()
+    except Exception as e:
+        print(f"  ERROR generating message for {founder_name} @ {company_name}: {e}")
+        return ""
+
+
+def build_entries(new_jobs: list[dict], scraped: dict[str, dict], client) -> list[dict]:
+    """One entry per (new role, founder). Companies with no founders get one placeholder entry."""
+    print(f"\n[4] Enriching {len(new_jobs)} new role(s) with founder data + generating messages …")
+    entries = []
+
+    for job in new_jobs:
+        slug = job["slug"]
+        company_name = job["company_name"]
+        yc_batch = job["yc_batch"]
+        role_title = job["title"]
+        product_summary = job["product_summary"]
+
+        founders = scraped.get(slug, {}).get("founders", [])
+
+        if not founders:
+            print(f"  No founder data found for {company_name} — including role without enrichment")
+            entries.append({
+                "company_name": company_name,
+                "yc_batch": yc_batch,
+                "role_title": role_title,
+                "founder_name": "Unknown",
+                "linkedin_url": "",
+                "product_summary": product_summary,
+                "message": "(no founder data found on YC page)",
+            })
+            continue
+
+        for f in founders:
+            founder_name = f.get("name", "Unknown")
+            print(f"  Generating message: {founder_name} @ {company_name} — {role_title}")
+            message = generate_message(
+                client, founder_name, company_name, yc_batch, role_title, product_summary
+            )
+            entries.append({
+                "company_name": company_name,
+                "yc_batch": yc_batch,
+                "role_title": role_title,
+                "founder_name": founder_name,
+                "linkedin_url": f.get("linkedin", ""),
+                "product_summary": product_summary,
+                "message": message,
+            })
+
+    print(f"  Built {len(entries)} outreach entries")
+    return entries
+
+
+# ── Step 5: Email digest ──────────────────────────────────────────────────────
+
+def format_entry(e: dict) -> str:
+    return (
+        f"Company: {e['company_name']} ({e['yc_batch']})\n"
+        f"Role: {e['role_title']}\n"
+        f"Founder: {e['founder_name']}\n"
+        f"LinkedIn: {e['linkedin_url']}\n"
+        f"Product: {e['product_summary']}\n\n"
+        f"Message:\n{e['message']}\n"
+    )
+
+
+def send_email(entries: list[dict]):
+    if not entries:
+        print("\n[5] No new roles — skipping email")
+        return
+
+    if not (GMAIL_ADDRESS and GMAIL_APP_PASSWORD and RECIPIENT_EMAIL):
+        print("\n[5] ERROR: GMAIL_ADDRESS, GMAIL_APP_PASSWORD, or RECIPIENT_EMAIL not set — skipping email")
+        return
+
+    date_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    subject = f"YC GTM Monitor - {len(entries)} new roles - {date_str}"
+    body = "\n---\n".join(format_entry(e) for e in entries)
+
+    print(f"\n[5] Sending email digest: {subject}")
+    try:
+        msg = MIMEText(body, "plain", "utf-8")
+        msg["Subject"] = subject
+        msg["From"] = GMAIL_ADDRESS
+        msg["To"] = RECIPIENT_EMAIL
+
+        with smtplib.SMTP("smtp.gmail.com", 587, timeout=30) as server:
+            server.starttls()
+            server.login(GMAIL_ADDRESS, GMAIL_APP_PASSWORD)
+            server.sendmail(GMAIL_ADDRESS, [RECIPIENT_EMAIL], msg.as_string())
+        print("  Email sent successfully")
+    except Exception as e:
+        print(f"  ERROR sending email: {e}")
+
+
+# ── Main ───────────────────────────────────────────────────────────────────────
+
+def main():
+    print("=" * 60)
+    print("YC GTM JOB MONITOR")
+    print(f"Run time: {datetime.now(timezone.utc).isoformat()}")
+    print("=" * 60)
+
+    first_run = not SEEN_JOBS_PATH.exists()
+
+    companies = fetch_all_companies()
+    if not companies:
+        print("ERROR: No companies fetched. Exiting.")
+        sys.exit(1)
+
+    slug_to_company = {c.get("slug", ""): c for c in companies}
+    scraped = scrape_all_companies(companies)
+
+    # Flatten into job records with company metadata attached
+    all_jobs = []
+    for slug, data in scraped.items():
+        c = slug_to_company.get(slug, {})
+        company_name = c.get("name", slug)
+        yc_batch = c.get("batch", "")
+        product_summary = c.get("oneLiner") or c.get("longDescription", "")
+        for job in data["jobs"]:
+            all_jobs.append({
+                "slug": slug,
+                "company_name": company_name,
+                "yc_batch": yc_batch,
+                "title": job["title"],
+                "url": job["url"],
+                "product_summary": product_summary,
+            })
+
+    print(f"\n[3] Diffing {len(all_jobs)} GTM-relevant roles against seen_jobs.json …")
+    seen = load_seen()
+
+    if first_run:
+        print("  First run detected — populating baseline, no email will be sent")
+        for job in all_jobs:
+            key = job_key(job["company_name"], job["title"])
+            seen[key] = datetime.now(timezone.utc).isoformat()
+        save_seen(seen)
+        print(f"  Baseline saved: {len(seen)} roles in {SEEN_JOBS_PATH}")
+        print("\nDONE (baseline run)")
+        return
+
+    new_jobs = [job for job in all_jobs if job_key(job["company_name"], job["title"]) not in seen]
+    print(f"  New roles found: {len(new_jobs)}")
+
+    if not new_jobs:
+        print("\nDONE — no new roles today")
+        return
+
+    if not ANTHROPIC_API_KEY:
+        print("ERROR: ANTHROPIC_API_KEY is not set — cannot generate messages. Exiting.")
+        sys.exit(1)
+
+    import anthropic
+    client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
+
+    entries = build_entries(new_jobs, scraped, client)
+    send_email(entries)
+
+    # Mark all current jobs as seen (new + previously seen) for next run's diff
+    for job in all_jobs:
+        key = job_key(job["company_name"], job["title"])
+        seen.setdefault(key, datetime.now(timezone.utc).isoformat())
+    save_seen(seen)
+    print(f"\nDONE — seen_jobs.json updated: {len(seen)} total roles tracked")
+
+
+if __name__ == "__main__":
+    main()

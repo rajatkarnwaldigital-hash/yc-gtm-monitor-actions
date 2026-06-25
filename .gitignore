@@ -1,0 +1,19 @@
+# Environment and secrets — never commit
+.env
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+env/
+venv/
+.venv/
+
+# macOS
+.DS_Store
+
+# NOTE: seen_jobs.json is intentionally NOT ignored here.
+# The workflow commits it back to the repo after every run — that's
+# how state persists between runs without needing a paid volume.
