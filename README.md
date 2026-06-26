@@ -17,13 +17,18 @@ This system does that grind for you:
 
 1. **Watches** all ~6,000 YC companies' pages daily for roles matching a GTM/sales/growth keyword
    list (see [Customizing the keyword list](#customizing-the-keyword-list) below).
-2. **Diffs** against what it saw yesterday, so you only ever hear about genuinely new postings.
-3. **Enriches** each new posting with the founder's name, title, and LinkedIn URL, pulled straight
-   off the company's YC page (one outreach entry per founder, if there are several).
-4. **Drafts** a short, non-templated LinkedIn message for each founder via Claude, referencing the
+2. **Diffs** against what it saw yesterday by each job's URL, not its title, so you only ever hear
+   about genuinely new postings, even if a company reuses a title or edits one later.
+3. **Enriches** each new posting with every founder's name, title, LinkedIn URL, and YC bio text,
+   pulled straight off the company's YC page (one outreach entry per founder, if there are
+   several).
+4. **Picks who to reach out to first** when there are multiple founders, based on their bio (see
+   [Picking who to reach out to first](#picking-who-to-reach-out-to-first) below) — you still get
+   every founder, but one is flagged as the best fit with a reason.
+5. **Drafts** a short, non-templated LinkedIn message for each founder via Claude, referencing the
    specific role and a one-week build timeline.
-5. **Emails you a digest** every morning with the role, the founder's LinkedIn, and the
-   ready-to-send message — you just need to decide who to actually message.
+6. **Emails you a digest** every morning with the role, the job link, the founder's LinkedIn, and
+   the ready-to-send message — you just need to decide who to actually message.
 
 ## How it runs
 
@@ -91,6 +96,29 @@ You can also adjust:
 - **The schedule** — edit the `cron:` line in `.github/workflows/yc_gtm_monitor.yml` (uses standard
   cron syntax, currently `30 3 * * *` = 3:30am UTC daily).
 
+## Picking who to reach out to first
+
+When a role has two or more founders, the script makes one extra Claude call before drafting any
+messages: it hands over every founder's name, title, and YC bio text, and asks for the single best
+fit to reach out to about that specific role, plus a one-sentence reason.
+
+A real example from a live run, Mastra hiring for Founding Sales with three co-founders:
+
+- **Sam Bhagwat** — Founder/CEO. Bio: "...scaled [Gatsby.js] to $5M ARR, sold to Netlify...
+  spent two years knocking doors."
+- **Abhi Aiyer** — Founder/CTO. Bio: "Principal eng & lead of >100 person eng org... built infra
+  that ran 10s of thousands of build nodes."
+- **Shane Thomas** — Founder/CPO. Bio: "Staff eng / head of product... 15+ years in open source."
+
+The system flagged Sam: a CEO with literal door-knocking sales experience called out in his own
+bio is a clearly better fit for a sales hire than either of the two technical co-founders. The
+digest still includes generated messages for all three (so you have a fallback if Sam doesn't
+respond), with Sam's entry labeled `[BEST FIT]` and the reasoning attached.
+
+This intentionally does not scrape LinkedIn itself (follower counts, post activity, etc.) to make
+this call — that's against LinkedIn's terms of service and fragile besides. The YC bio text is
+already a strong, freely available signal, so that's the ceiling of what this pulls.
+
 ## Required secrets
 
 Set these as GitHub Actions repository secrets (Settings → Secrets and variables → Actions) — see
@@ -123,6 +151,12 @@ Network is unreachable`, which the script caught and logged, but it still went a
 that day's new roles as seen, permanently losing them even though the email never arrived. The
 script now forces IPv4-only DNS resolution to avoid the failure in the first place, and as a second
 line of defense, only advances the seen-state when the send is confirmed successful.
+
+`seen_jobs.json` keys roles by their job URL rather than `company::title`, since two roles can
+share a title (or a company can edit one later), which would otherwise cause a missed or
+duplicate alert. If you're updating from an older version of this repo that used the
+`company::title` key, the script migrates existing entries onto their URL automatically on the
+next run, so you won't get a flood of false "new role" alerts for things you'd already seen.
 
 ## Local testing
 
