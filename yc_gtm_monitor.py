@@ -99,6 +99,22 @@ Write a single LinkedIn message that:
 - Maximum 4 sentences
 - Do not use the words seamless, robust, leverage, streamline, innovative, or comprehensive"""
 
+BEST_FOUNDER_PROMPT = """You are helping a GTM Engineer named Rajat decide which co-founder to
+reach out to first about a "{role_title}" role at {company_name}.
+
+Here are the co-founders, with their title and bio from YC's site:
+
+{founders_block}
+
+Pick the ONE founder who is the best fit to reach out to about this specific role. A founder
+with sales, GTM, growth, or commercial background, or a CEO/COO title, is usually a better fit
+for a sales or growth hire than a deeply technical CTO or engineering-focused founder. If nothing
+in the bios points clearly one way, default to whichever founder has the most senior or
+commercial-sounding title.
+
+Respond with ONLY valid JSON in this exact format, no other text before or after it:
+{{"founder": "<exact name as listed above>", "reason": "<one sentence, no more than 20 words>"}}"""
+
 
 # ── Step 1: Pull companies from YC API ────────────────────────────────────────
 
@@ -304,6 +320,29 @@ def generate_message(client, founder_name: str, company_name: str, yc_batch: str
         return ""
 
 
+def pick_best_founder(client, founders: list[dict], company_name: str, role_title: str) -> tuple[str, str]:
+    """Returns (founder_name, one_sentence_reason). Empty strings if it can't decide
+    or the call fails — callers should treat that as 'no recommendation', not crash."""
+    founders_block = "\n".join(
+        f"- {f.get('name', 'Unknown')} ({f.get('title', 'Founder')}): {f.get('bio') or 'no bio available'}"
+        for f in founders
+    )
+    prompt = BEST_FOUNDER_PROMPT.format(
+        role_title=role_title, company_name=company_name, founders_block=founders_block
+    )
+    try:
+        msg = client.messages.create(
+            model=CLAUDE_MODEL,
+            max_tokens=150,
+            messages=[{"role": "user", "content": prompt}],
+        )
+        data = json.loads(msg.content[0].text.strip())
+        return data.get("founder", ""), data.get("reason", "")
+    except Exception as e:
+        print(f"  WARNING: could not determine best-fit founder for {company_name}: {e}")
+        return "", ""
+
+
 def build_entries(new_jobs: list[dict], scraped: dict[str, dict], client) -> list[dict]:
     """One entry per (new role, founder). Companies with no founders get one placeholder entry."""
     print(f"\n[4] Enriching {len(new_jobs)} new role(s) with founder data + generating messages …")
@@ -330,8 +369,18 @@ def build_entries(new_jobs: list[dict], scraped: dict[str, dict], client) -> lis
                 "linkedin_url": "",
                 "product_summary": product_summary,
                 "message": "(no founder data found on YC page)",
+                "is_best_fit": False,
+                "best_fit_reason": "",
             })
             continue
+
+        best_founder_name, best_fit_reason = "", ""
+        if len(founders) > 1:
+            best_founder_name, best_fit_reason = pick_best_founder(
+                client, founders, company_name, role_title
+            )
+            if best_founder_name:
+                print(f"  Best-fit founder for {company_name}: {best_founder_name} — {best_fit_reason}")
 
         for f in founders:
             founder_name = f.get("name", "Unknown")
@@ -339,6 +388,7 @@ def build_entries(new_jobs: list[dict], scraped: dict[str, dict], client) -> lis
             message = generate_message(
                 client, founder_name, company_name, yc_batch, role_title, product_summary
             )
+            is_best_fit = bool(best_founder_name) and founder_name == best_founder_name
             entries.append({
                 "company_name": company_name,
                 "yc_batch": yc_batch,
@@ -347,6 +397,8 @@ def build_entries(new_jobs: list[dict], scraped: dict[str, dict], client) -> lis
                 "founder_name": founder_name,
                 "linkedin_url": f.get("linkedin", ""),
                 "product_summary": product_summary,
+                "is_best_fit": is_best_fit,
+                "best_fit_reason": best_fit_reason if is_best_fit else "",
                 "message": message,
             })
 
@@ -357,15 +409,24 @@ def build_entries(new_jobs: list[dict], scraped: dict[str, dict], client) -> lis
 # ── Step 5: Email digest ──────────────────────────────────────────────────────
 
 def format_entry(e: dict) -> str:
-    return (
-        f"Company: {e['company_name']} ({e['yc_batch']})\n"
-        f"Role: {e['role_title']}\n"
-        f"Job: {e['role_url']}\n"
-        f"Founder: {e['founder_name']}\n"
-        f"LinkedIn: {e['linkedin_url']}\n"
-        f"Product: {e['product_summary']}\n\n"
-        f"Message:\n{e['message']}\n"
-    )
+    founder_line = f"Founder: {e['founder_name']}"
+    if e.get("is_best_fit"):
+        founder_line += "  [BEST FIT]"
+
+    lines = [
+        f"Company: {e['company_name']} ({e['yc_batch']})",
+        f"Role: {e['role_title']}",
+        f"Job: {e['role_url']}",
+        founder_line,
+    ]
+    if e.get("is_best_fit") and e.get("best_fit_reason"):
+        lines.append(f"Why: {e['best_fit_reason']}")
+    lines.append(f"LinkedIn: {e['linkedin_url']}")
+    lines.append(f"Product: {e['product_summary']}")
+    lines.append("")
+    lines.append(f"Message:\n{e['message']}")
+
+    return "\n".join(lines) + "\n"
 
 
 def send_email(entries: list[dict]) -> bool:
