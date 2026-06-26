@@ -174,14 +174,16 @@ def _parse_founders(soup: BeautifulSoup) -> list[dict]:
 
         name_el = card.find(class_=re.compile(r"text-xl"))
         title_el = card.find(class_=re.compile(r"text-gray-600"))
+        bio_el = card.find(class_=re.compile(r"prose"))
         name = name_el.get_text(strip=True) if name_el else ""
         title = title_el.get_text(strip=True) if title_el else "Founder"
+        bio = bio_el.get_text(" ", strip=True) if bio_el else ""
 
         if not name or name in seen_names or not re.search(r" ", name):
             continue
 
         seen_names.add(name)
-        founders.append({"name": name, "title": title, "linkedin": linkedin})
+        founders.append({"name": name, "title": title, "linkedin": linkedin, "bio": bio})
 
     # Fallback: founders without a LinkedIn link, under "Active Founders"
     for heading in soup.find_all(string=re.compile(r"Active Founders", re.I)):
@@ -198,7 +200,7 @@ def _parse_founders(soup: BeautifulSoup) -> list[dict]:
                     title_el = p.find(class_=re.compile(r"text-gray-600")) if p else None
                     title = title_el.get_text(strip=True) if title_el else "Founder"
                     seen_names.add(name)
-                    founders.append({"name": name, "title": title, "linkedin": ""})
+                    founders.append({"name": name, "title": title, "linkedin": "", "bio": ""})
             if founders:
                 break
 
@@ -251,7 +253,17 @@ def scrape_all_companies(companies: list[dict]) -> dict[str, dict]:
 
 # ── Step 2: Diff against seen_jobs.json ───────────────────────────────────────
 
-def job_key(company_name: str, role_title: str) -> str:
+def job_key(url: str) -> str:
+    """The job's URL is the canonical identity for a posting — unlike a
+    company+title pair, it's unique even when two roles share a title, and
+    stable even if a company edits a role's title later."""
+    return url
+
+
+def legacy_job_key(company_name: str, role_title: str) -> str:
+    """Old key format (pre-URL-based matching). Used only to migrate
+    existing seen_jobs.json entries onto the new key without re-flagging
+    everything already tracked as 'new'."""
     return f"{company_name}::{role_title}"
 
 
@@ -302,6 +314,7 @@ def build_entries(new_jobs: list[dict], scraped: dict[str, dict], client) -> lis
         company_name = job["company_name"]
         yc_batch = job["yc_batch"]
         role_title = job["title"]
+        role_url = job["url"]
         product_summary = job["product_summary"]
 
         founders = scraped.get(slug, {}).get("founders", [])
@@ -312,6 +325,7 @@ def build_entries(new_jobs: list[dict], scraped: dict[str, dict], client) -> lis
                 "company_name": company_name,
                 "yc_batch": yc_batch,
                 "role_title": role_title,
+                "role_url": role_url,
                 "founder_name": "Unknown",
                 "linkedin_url": "",
                 "product_summary": product_summary,
@@ -329,6 +343,7 @@ def build_entries(new_jobs: list[dict], scraped: dict[str, dict], client) -> lis
                 "company_name": company_name,
                 "yc_batch": yc_batch,
                 "role_title": role_title,
+                "role_url": role_url,
                 "founder_name": founder_name,
                 "linkedin_url": f.get("linkedin", ""),
                 "product_summary": product_summary,
@@ -345,6 +360,7 @@ def format_entry(e: dict) -> str:
     return (
         f"Company: {e['company_name']} ({e['yc_batch']})\n"
         f"Role: {e['role_title']}\n"
+        f"Job: {e['role_url']}\n"
         f"Founder: {e['founder_name']}\n"
         f"LinkedIn: {e['linkedin_url']}\n"
         f"Product: {e['product_summary']}\n\n"
@@ -423,17 +439,41 @@ def main():
     print(f"\n[3] Diffing {len(all_jobs)} GTM-relevant roles against seen_jobs.json …")
     seen = load_seen()
 
+    # Migrate any entries still under the old company::title key onto the new
+    # URL-based key, so switching key formats doesn't re-flag everything
+    # already tracked as "new" on the next run.
+    migrated = 0
+    for job in all_jobs:
+        legacy_key = legacy_job_key(job["company_name"], job["title"])
+        new_key = job_key(job["url"])
+        if legacy_key in seen and new_key not in seen:
+            old_value = seen.pop(legacy_key)
+            first_seen = old_value["first_seen"] if isinstance(old_value, dict) else old_value
+            seen[new_key] = {
+                "company": job["company_name"],
+                "title": job["title"],
+                "first_seen": first_seen,
+            }
+            migrated += 1
+    if migrated:
+        print(f"  Migrated {migrated} role(s) from the old company::title key to the new URL-based key")
+        save_seen(seen)
+
     if first_run:
         print("  First run detected — populating baseline, no email will be sent")
         for job in all_jobs:
-            key = job_key(job["company_name"], job["title"])
-            seen[key] = datetime.now(timezone.utc).isoformat()
+            key = job_key(job["url"])
+            seen[key] = {
+                "company": job["company_name"],
+                "title": job["title"],
+                "first_seen": datetime.now(timezone.utc).isoformat(),
+            }
         save_seen(seen)
         print(f"  Baseline saved: {len(seen)} roles in {SEEN_JOBS_PATH}")
         print("\nDONE (baseline run)")
         return
 
-    new_jobs = [job for job in all_jobs if job_key(job["company_name"], job["title"]) not in seen]
+    new_jobs = [job for job in all_jobs if job_key(job["url"]) not in seen]
     print(f"  New roles found: {len(new_jobs)}")
 
     if not new_jobs:
@@ -458,8 +498,12 @@ def main():
     # Only mark today's new roles as seen now that they've actually been emailed.
     # Already-seen roles don't need re-marking.
     for job in new_jobs:
-        key = job_key(job["company_name"], job["title"])
-        seen[key] = datetime.now(timezone.utc).isoformat()
+        key = job_key(job["url"])
+        seen[key] = {
+            "company": job["company_name"],
+            "title": job["title"],
+            "first_seen": datetime.now(timezone.utc).isoformat(),
+        }
     save_seen(seen)
     print(f"\nDONE — seen_jobs.json updated: {len(seen)} total roles tracked")
 
