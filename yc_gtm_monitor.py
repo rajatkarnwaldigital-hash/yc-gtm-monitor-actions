@@ -441,7 +441,9 @@ def send_email(entries: list[dict]) -> bool:
         return False
 
     date_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-    subject = f"YC GTM Monitor - {len(entries)} new roles - {date_str}"
+    distinct_roles = len({e["role_url"] for e in entries})
+    role_word = "role" if distinct_roles == 1 else "roles"
+    subject = f"YC GTM Monitor - {distinct_roles} new {role_word} ({len(entries)} founders) - {date_str}"
     body = "\n---\n".join(format_entry(e) for e in entries)
 
     print(f"\n[5] Sending email digest: {subject}")
