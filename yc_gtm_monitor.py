@@ -15,6 +15,7 @@ import json
 import os
 import re
 import smtplib
+import socket
 import sys
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -24,6 +25,21 @@ from pathlib import Path
 
 import requests
 from bs4 import BeautifulSoup
+
+# Containerized hosts (Railway included) often have no outbound IPv6 route.
+# Gmail's SMTP hostname resolves to both an IPv6 and an IPv4 address, and
+# smtplib trying the IPv6 one first fails with "OSError: [Errno 101] Network
+# is unreachable" instead of falling back. Forcing IPv4-only DNS resolution
+# avoids that without affecting TLS hostname validation (smtplib still
+# connects using the hostname, never a raw IP).
+_orig_getaddrinfo = socket.getaddrinfo
+
+
+def _ipv4_only_getaddrinfo(host, port, family=0, type=0, proto=0, flags=0):
+    return _orig_getaddrinfo(host, port, socket.AF_INET, type, proto, flags)
+
+
+socket.getaddrinfo = _ipv4_only_getaddrinfo
 
 # ── Config ────────────────────────────────────────────────────────────────────
 
