@@ -108,6 +108,22 @@ exits without sending an email — there's nothing "new" to report yet. From the
 only roles that weren't in that baseline trigger founder enrichment, message generation, and the
 email digest.
 
+## Reliability: failed sends don't lose leads
+
+A role only gets marked as "seen" after the digest email actually sends successfully. If the
+email send fails for any reason (a transient network issue, bad credentials, Gmail being Gmail),
+that role is left out of `seen_jobs.json` on purpose, so the next run sees it as new again and
+retries the whole thing, founder enrichment and message generation included, instead of silently
+dropping it.
+
+This came from a real bug: on containerized hosts (Railway, and potentially GitHub Actions
+runners too) outbound IPv6 routing is often missing, and Gmail's SMTP hostname resolves to both
+an IPv6 and IPv4 address. `smtplib` trying the IPv6 one first failed with `OSError: [Errno 101]
+Network is unreachable`, which the script caught and logged, but it still went ahead and marked
+that day's new roles as seen, permanently losing them even though the email never arrived. The
+script now forces IPv4-only DNS resolution to avoid the failure in the first place, and as a second
+line of defense, only advances the seen-state when the send is confirmed successful.
+
 ## Local testing
 
 ```bash
