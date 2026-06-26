@@ -352,14 +352,16 @@ def format_entry(e: dict) -> str:
     )
 
 
-def send_email(entries: list[dict]):
+def send_email(entries: list[dict]) -> bool:
+    """Returns True only if the email was actually delivered — callers use this
+    to decide whether it's safe to mark these roles as seen."""
     if not entries:
         print("\n[5] No new roles — skipping email")
-        return
+        return False
 
     if not (GMAIL_ADDRESS and GMAIL_APP_PASSWORD and RECIPIENT_EMAIL):
         print("\n[5] ERROR: GMAIL_ADDRESS, GMAIL_APP_PASSWORD, or RECIPIENT_EMAIL not set — skipping email")
-        return
+        return False
 
     date_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     subject = f"YC GTM Monitor - {len(entries)} new roles - {date_str}"
@@ -377,8 +379,10 @@ def send_email(entries: list[dict]):
             server.login(GMAIL_ADDRESS, GMAIL_APP_PASSWORD)
             server.sendmail(GMAIL_ADDRESS, [RECIPIENT_EMAIL], msg.as_string())
         print("  Email sent successfully")
+        return True
     except Exception as e:
         print(f"  ERROR sending email: {e}")
+        return False
 
 
 # ── Main ───────────────────────────────────────────────────────────────────────
@@ -444,12 +448,18 @@ def main():
     client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
 
     entries = build_entries(new_jobs, scraped, client)
-    send_email(entries)
+    email_sent = send_email(entries)
 
-    # Mark all current jobs as seen (new + previously seen) for next run's diff
-    for job in all_jobs:
+    if not email_sent:
+        print("\nDONE — email did not send, so today's new roles were NOT marked as seen")
+        print("They'll be retried as 'new' on the next run instead of being silently lost.")
+        return
+
+    # Only mark today's new roles as seen now that they've actually been emailed.
+    # Already-seen roles don't need re-marking.
+    for job in new_jobs:
         key = job_key(job["company_name"], job["title"])
-        seen.setdefault(key, datetime.now(timezone.utc).isoformat())
+        seen[key] = datetime.now(timezone.utc).isoformat()
     save_seen(seen)
     print(f"\nDONE — seen_jobs.json updated: {len(seen)} total roles tracked")
 
