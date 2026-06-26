@@ -119,7 +119,7 @@ python3 yc_gtm_monitor.py
 
 ---
 
-Built by Rajat, a GTM Engineer who builds outbound and signal infrastructure for early-stage
-startups. If you're a founder hiring for GTM and want something like this running for your own
-company in a week, that's literally what the generated messages say — so feel free to take that
-seriously.
+Built by [Rajat](https://www.linkedin.com/in/rajat-karnwal/), a GTM Engineer who builds outbound
+and signal infrastructure for early-stage startups. If you're a founder hiring for GTM and want
+something like this running for your own company in a week, that's literally what the generated
+messages say — so feel free to take that seriously.
