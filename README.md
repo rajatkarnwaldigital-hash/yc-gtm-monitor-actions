@@ -144,14 +144,20 @@ that role is left out of `seen_jobs.json` on purpose, so the next run sees it as
 retries the whole thing, founder enrichment and message generation included, instead of silently
 dropping it.
 
-This came from a real bug hit in production, in two stages. First, containerized hosts often
-lack outbound IPv6 routing, and Gmail's SMTP hostname resolves to both an IPv6 and IPv4 address —
-`smtplib` trying the IPv6 one first failed with `OSError: [Errno 101] Network is unreachable`.
-After forcing IPv4-only resolution, the deeper issue surfaced: the host was blocking outbound SMTP
-entirely (both port 587 and 465 timed out, while plain HTTPS scraping worked the whole time). The
-script now sends through [Resend](https://resend.com)'s HTTP API instead of SMTP, since that
-travels over port 443, the same port already proven to work. Either way, the seen-state safeguard
-above means none of this cost any actual leads — failed sends just retried on the next run.
+This came from a real bug, but it's worth being precise about where: it showed up on the
+**Railway deployment** of this same script, not here. Railway has no outbound IPv6 route, and
+Gmail's SMTP hostname resolves to both an IPv6 and IPv4 address — `smtplib` trying the IPv6 one
+first failed with `OSError: [Errno 101] Network is unreachable`. After forcing IPv4-only
+resolution, a deeper issue surfaced: Railway blocks outbound SMTP entirely (both port 587 and 465
+timed out, while plain HTTPS scraping worked the whole time).
+
+GitHub Actions' hosted runners don't appear to have this restriction — Gmail SMTP works fine from
+a standard Actions workflow. So if you're deploying only on GitHub Actions, you may never have hit
+this at all. This repo still sends through [Resend](https://resend.com)'s HTTP API rather than
+Gmail SMTP, mainly for consistency with the Railway deployment (same script, same code path,
+one less thing to maintain twice) and because HTTPS-based sending has no equivalent class of
+port-blocking problem on any host. Either way, the seen-state safeguard above means a failed send
+never costs an actual lead — it just retries on the next run.
 
 `seen_jobs.json` keys roles by their job URL rather than `company::title`, since two roles can
 share a title (or a company can edit one later), which would otherwise cause a missed or
@@ -180,9 +186,10 @@ the honest version, in order:
    role would never be retried or reported again. Fixed: a role only gets marked seen once the
    email is confirmed delivered; failed sends retry on the next run instead of vanishing. See
    [Reliability](#reliability-failed-sends-dont-lose-leads) above.
-3. **Bug: SMTP failed with `Errno 101: Network is unreachable`** — the host had no outbound IPv6
-   route, and Gmail's SMTP hostname resolves to both an IPv6 and IPv4 address. Fixed (temporarily)
-   by forcing IPv4-only DNS resolution.
+3. **Bug (Railway-specific): SMTP failed with `Errno 101: Network is unreachable`** — Railway has
+   no outbound IPv6 route, and Gmail's SMTP hostname resolves to both an IPv6 and IPv4 address.
+   GitHub Actions' hosted runners don't appear to have this restriction. Fixed (temporarily) by
+   forcing IPv4-only DNS resolution.
 4. **Bug: job identity collisions** — roles were matched by `company::title`, which silently
    collides if two roles share a title, or breaks if a company edits a title later. Fixed: roles
    are matched by their unique job URL instead, with an automatic one-time migration so existing
@@ -194,11 +201,14 @@ the honest version, in order:
 6. **Bug: misleading subject line** — "3 new roles" for one role shared across three founders.
    Fixed: the subject now counts distinct roles and shows founder count separately, e.g.
    "1 new role (3 founders)".
-7. **Bug: SMTP was blocked outright** — even after the IPv6 fix, both port 587 and port 465 timed
-   out in production, while plain HTTPS scraping worked the entire time. That's the signature of a
-   host silently dropping outbound SMTP traffic rather than refusing it. Fixed: replaced SMTP
-   entirely with [Resend](https://resend.com)'s HTTP API, which sends over port 443, the same port
-   already proven to work.
+7. **Bug (Railway-specific): SMTP was blocked outright** — even after the IPv6 fix, both port 587
+   and port 465 timed out on Railway, while plain HTTPS scraping worked the entire time. That's
+   the signature of a host silently dropping outbound SMTP traffic rather than refusing it. A
+   public example of Gmail SMTP working fine from a standard GitHub Actions workflow suggests
+   Actions runners don't have this restriction, so this fix may not have been necessary here at
+   all. Replaced SMTP with [Resend](https://resend.com)'s HTTP API anyway, mainly to keep this
+   repo's code identical to the Railway deployment — see
+   [Reliability](#reliability-failed-sends-dont-lose-leads) above for the full story.
 
 ---
 
