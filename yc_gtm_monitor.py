@@ -447,21 +447,40 @@ def send_email(entries: list[dict]) -> bool:
     body = "\n---\n".join(format_entry(e) for e in entries)
 
     print(f"\n[5] Sending email digest: {subject}")
-    try:
-        msg = MIMEText(body, "plain", "utf-8")
-        msg["Subject"] = subject
-        msg["From"] = GMAIL_ADDRESS
-        msg["To"] = RECIPIENT_EMAIL
+    msg = MIMEText(body, "plain", "utf-8")
+    msg["Subject"] = subject
+    msg["From"] = GMAIL_ADDRESS
+    msg["To"] = RECIPIENT_EMAIL
 
-        with smtplib.SMTP("smtp.gmail.com", 587, timeout=30) as server:
-            server.starttls()
-            server.login(GMAIL_ADDRESS, GMAIL_APP_PASSWORD)
-            server.sendmail(GMAIL_ADDRESS, [RECIPIENT_EMAIL], msg.as_string())
-        print("  Email sent successfully")
-        return True
-    except Exception as e:
-        print(f"  ERROR sending email: {e}")
-        return False
+    # Some hosts silently drop outbound traffic on one SMTP port but allow the
+    # other (a timeout, not an immediate error, is the signature of this —
+    # the packets are dropped rather than refused). Try the standard port
+    # first, then fall back to the alternate before giving up.
+    attempts = [
+        ("587 (STARTTLS)", lambda: smtplib.SMTP("smtp.gmail.com", 587, timeout=20)),
+        ("465 (SSL)", lambda: smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=20)),
+    ]
+
+    last_error = None
+    for label, connect in attempts:
+        try:
+            print(f"  Trying port {label} …")
+            server = connect()
+            try:
+                if label.startswith("587"):
+                    server.starttls()
+                server.login(GMAIL_ADDRESS, GMAIL_APP_PASSWORD)
+                server.sendmail(GMAIL_ADDRESS, [RECIPIENT_EMAIL], msg.as_string())
+            finally:
+                server.quit()
+            print(f"  Email sent successfully via port {label}")
+            return True
+        except Exception as e:
+            print(f"  ERROR sending email via port {label}: {e}")
+            last_error = e
+
+    print(f"  All ports failed. Last error: {last_error}")
+    return False
 
 
 # ── Main ───────────────────────────────────────────────────────────────────────
