@@ -51,7 +51,7 @@ YC API (paginated) ──▶ scrape each company's YC page ──▶ filter to G
                  Claude drafts one outreach message per pair
                                │
                                ▼
-                    Gmail SMTP sends you one digest email
+                  Resend's HTTP API sends you one digest email
 ```
 
 ## Security note
@@ -125,8 +125,8 @@ Set these as GitHub Actions repository secrets (Settings → Secrets and variabl
 [DEPLOY.md](DEPLOY.md) for the full walkthrough.
 
 - `ANTHROPIC_API_KEY`
-- `GMAIL_ADDRESS`
-- `GMAIL_APP_PASSWORD` — a Gmail [App Password](https://myaccount.google.com/apppasswords), not your normal password
+- `RESEND_API_KEY` — from [resend.com](https://resend.com), after verifying a sending domain (or subdomain)
+- `FROM_EMAIL` — the verified sender address, e.g. `YC GTM Monitor <digest@yc-monitor.yourdomain.com>`
 - `RECIPIENT_EMAIL`
 
 ## First run
@@ -144,13 +144,14 @@ that role is left out of `seen_jobs.json` on purpose, so the next run sees it as
 retries the whole thing, founder enrichment and message generation included, instead of silently
 dropping it.
 
-This came from a real bug: on containerized hosts (Railway, and potentially GitHub Actions
-runners too) outbound IPv6 routing is often missing, and Gmail's SMTP hostname resolves to both
-an IPv6 and IPv4 address. `smtplib` trying the IPv6 one first failed with `OSError: [Errno 101]
-Network is unreachable`, which the script caught and logged, but it still went ahead and marked
-that day's new roles as seen, permanently losing them even though the email never arrived. The
-script now forces IPv4-only DNS resolution to avoid the failure in the first place, and as a second
-line of defense, only advances the seen-state when the send is confirmed successful.
+This came from a real bug hit in production, in two stages. First, containerized hosts often
+lack outbound IPv6 routing, and Gmail's SMTP hostname resolves to both an IPv6 and IPv4 address —
+`smtplib` trying the IPv6 one first failed with `OSError: [Errno 101] Network is unreachable`.
+After forcing IPv4-only resolution, the deeper issue surfaced: the host was blocking outbound SMTP
+entirely (both port 587 and 465 timed out, while plain HTTPS scraping worked the whole time). The
+script now sends through [Resend](https://resend.com)'s HTTP API instead of SMTP, since that
+travels over port 443, the same port already proven to work. Either way, the seen-state safeguard
+above means none of this cost any actual leads — failed sends just retried on the next run.
 
 `seen_jobs.json` keys roles by their job URL rather than `company::title`, since two roles can
 share a title (or a company can edit one later), which would otherwise cause a missed or

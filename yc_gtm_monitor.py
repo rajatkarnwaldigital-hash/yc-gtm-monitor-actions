@@ -5,7 +5,7 @@ Daily YC GTM job monitor.
 Pulls every company from the YC public API, scrapes each company's YC page
 for open roles + founders, diffs new GTM-relevant roles against seen_jobs.json,
 generates a personalized outreach message per founder via Claude, and emails
-a digest via Gmail SMTP.
+a digest via the Resend API.
 
 Builds on the page-scraping logic (founder cards, job links) proven out in
 yc_prospector.py.
@@ -14,32 +14,14 @@ yc_prospector.py.
 import json
 import os
 import re
-import smtplib
-import socket
 import sys
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
-from email.mime.text import MIMEText
 from pathlib import Path
 
 import requests
 from bs4 import BeautifulSoup
-
-# Containerized hosts (Railway included) often have no outbound IPv6 route.
-# Gmail's SMTP hostname resolves to both an IPv6 and an IPv4 address, and
-# smtplib trying the IPv6 one first fails with "OSError: [Errno 101] Network
-# is unreachable" instead of falling back. Forcing IPv4-only DNS resolution
-# avoids that without affecting TLS hostname validation (smtplib still
-# connects using the hostname, never a raw IP).
-_orig_getaddrinfo = socket.getaddrinfo
-
-
-def _ipv4_only_getaddrinfo(host, port, family=0, type=0, proto=0, flags=0):
-    return _orig_getaddrinfo(host, port, socket.AF_INET, type, proto, flags)
-
-
-socket.getaddrinfo = _ipv4_only_getaddrinfo
 
 # ── Config ────────────────────────────────────────────────────────────────────
 
@@ -74,8 +56,8 @@ GTM_KEYWORDS = [
 GTM_PATTERN = re.compile("|".join(re.escape(k) for k in GTM_KEYWORDS), re.IGNORECASE)
 
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
-GMAIL_ADDRESS = os.environ.get("GMAIL_ADDRESS", "")
-GMAIL_APP_PASSWORD = os.environ.get("GMAIL_APP_PASSWORD", "")
+RESEND_API_KEY = os.environ.get("RESEND_API_KEY", "")
+FROM_EMAIL = os.environ.get("FROM_EMAIL", "")  # e.g. "YC GTM Monitor <digest@yc-monitor.gtmdude.com>"
 RECIPIENT_EMAIL = os.environ.get("RECIPIENT_EMAIL", "")
 
 CLAUDE_MODEL = "claude-sonnet-4-6"
@@ -431,13 +413,20 @@ def format_entry(e: dict) -> str:
 
 def send_email(entries: list[dict]) -> bool:
     """Returns True only if the email was actually delivered — callers use this
-    to decide whether it's safe to mark these roles as seen."""
+    to decide whether it's safe to mark these roles as seen.
+
+    Sends via the Resend HTTP API (https://api.resend.com/emails) rather than
+    SMTP. Railway (and likely other containerized hosts) blocks outbound SMTP
+    on both port 587 and 465 entirely, silently dropping the packets instead
+    of refusing them — confirmed in production by both ports timing out while
+    plain HTTPS scraping worked the whole time. Resend goes over port 443,
+    the same port already proven to work."""
     if not entries:
         print("\n[5] No new roles — skipping email")
         return False
 
-    if not (GMAIL_ADDRESS and GMAIL_APP_PASSWORD and RECIPIENT_EMAIL):
-        print("\n[5] ERROR: GMAIL_ADDRESS, GMAIL_APP_PASSWORD, or RECIPIENT_EMAIL not set — skipping email")
+    if not (RESEND_API_KEY and FROM_EMAIL and RECIPIENT_EMAIL):
+        print("\n[5] ERROR: RESEND_API_KEY, FROM_EMAIL, or RECIPIENT_EMAIL not set — skipping email")
         return False
 
     date_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -446,41 +435,30 @@ def send_email(entries: list[dict]) -> bool:
     subject = f"YC GTM Monitor - {distinct_roles} new {role_word} ({len(entries)} founders) - {date_str}"
     body = "\n---\n".join(format_entry(e) for e in entries)
 
-    print(f"\n[5] Sending email digest: {subject}")
-    msg = MIMEText(body, "plain", "utf-8")
-    msg["Subject"] = subject
-    msg["From"] = GMAIL_ADDRESS
-    msg["To"] = RECIPIENT_EMAIL
-
-    # Some hosts silently drop outbound traffic on one SMTP port but allow the
-    # other (a timeout, not an immediate error, is the signature of this —
-    # the packets are dropped rather than refused). Try the standard port
-    # first, then fall back to the alternate before giving up.
-    attempts = [
-        ("587 (STARTTLS)", lambda: smtplib.SMTP("smtp.gmail.com", 587, timeout=20)),
-        ("465 (SSL)", lambda: smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=20)),
-    ]
-
-    last_error = None
-    for label, connect in attempts:
-        try:
-            print(f"  Trying port {label} …")
-            server = connect()
-            try:
-                if label.startswith("587"):
-                    server.starttls()
-                server.login(GMAIL_ADDRESS, GMAIL_APP_PASSWORD)
-                server.sendmail(GMAIL_ADDRESS, [RECIPIENT_EMAIL], msg.as_string())
-            finally:
-                server.quit()
-            print(f"  Email sent successfully via port {label}")
+    print(f"\n[5] Sending email digest via Resend: {subject}")
+    try:
+        resp = requests.post(
+            "https://api.resend.com/emails",
+            headers={
+                "Authorization": f"Bearer {RESEND_API_KEY}",
+                "Content-Type": "application/json",
+            },
+            json={
+                "from": FROM_EMAIL,
+                "to": [RECIPIENT_EMAIL],
+                "subject": subject,
+                "text": body,
+            },
+            timeout=30,
+        )
+        if resp.status_code in (200, 201):
+            print("  Email sent successfully via Resend")
             return True
-        except Exception as e:
-            print(f"  ERROR sending email via port {label}: {e}")
-            last_error = e
-
-    print(f"  All ports failed. Last error: {last_error}")
-    return False
+        print(f"  ERROR sending email via Resend: {resp.status_code} {resp.text}")
+        return False
+    except Exception as e:
+        print(f"  ERROR sending email via Resend: {e}")
+        return False
 
 
 # ── Main ───────────────────────────────────────────────────────────────────────
