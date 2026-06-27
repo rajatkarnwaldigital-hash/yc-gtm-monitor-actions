@@ -5,19 +5,27 @@ Daily YC GTM job monitor.
 Pulls every company from the YC public API, scrapes each company's YC page
 for open roles + founders, diffs new GTM-relevant roles against seen_jobs.json,
 generates a personalized outreach message per founder via Claude, and emails
-a digest via the Resend API.
+a digest via Gmail SMTP.
 
 Builds on the page-scraping logic (founder cards, job links) proven out in
 yc_prospector.py.
+
+Note: the Railway deployment of this same script (github.com/rajatkarnwaldigital-hash/yc-gtm-monitor)
+sends through Resend's HTTP API instead, because Railway blocks outbound SMTP
+entirely. GitHub Actions' hosted runners don't have that restriction, so plain
+Gmail SMTP works fine here and doesn't require anyone forking this repo to own
+a domain just to send themselves a digest email.
 """
 
 import json
 import os
 import re
+import smtplib
 import sys
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
+from email.mime.text import MIMEText
 from pathlib import Path
 
 import requests
@@ -56,8 +64,8 @@ GTM_KEYWORDS = [
 GTM_PATTERN = re.compile("|".join(re.escape(k) for k in GTM_KEYWORDS), re.IGNORECASE)
 
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
-RESEND_API_KEY = os.environ.get("RESEND_API_KEY", "")
-FROM_EMAIL = os.environ.get("FROM_EMAIL", "")  # e.g. "YC GTM Monitor <digest@yc-monitor.gtmdude.com>"
+GMAIL_ADDRESS = os.environ.get("GMAIL_ADDRESS", "")
+GMAIL_APP_PASSWORD = os.environ.get("GMAIL_APP_PASSWORD", "")
 RECIPIENT_EMAIL = os.environ.get("RECIPIENT_EMAIL", "")
 
 CLAUDE_MODEL = "claude-sonnet-4-6"
@@ -415,18 +423,17 @@ def send_email(entries: list[dict]) -> bool:
     """Returns True only if the email was actually delivered — callers use this
     to decide whether it's safe to mark these roles as seen.
 
-    Sends via the Resend HTTP API (https://api.resend.com/emails) rather than
-    SMTP. Railway (and likely other containerized hosts) blocks outbound SMTP
-    on both port 587 and 465 entirely, silently dropping the packets instead
-    of refusing them — confirmed in production by both ports timing out while
-    plain HTTPS scraping worked the whole time. Resend goes over port 443,
-    the same port already proven to work."""
+    Sends via Gmail SMTP. The Railway deployment of this same script uses
+    Resend's HTTP API instead because Railway blocks outbound SMTP entirely —
+    GitHub Actions' hosted runners don't have that restriction, so plain
+    Gmail SMTP works fine here without requiring anyone forking this repo to
+    own a domain just to send themselves a digest email."""
     if not entries:
         print("\n[5] No new roles — skipping email")
         return False
 
-    if not (RESEND_API_KEY and FROM_EMAIL and RECIPIENT_EMAIL):
-        print("\n[5] ERROR: RESEND_API_KEY, FROM_EMAIL, or RECIPIENT_EMAIL not set — skipping email")
+    if not (GMAIL_ADDRESS and GMAIL_APP_PASSWORD and RECIPIENT_EMAIL):
+        print("\n[5] ERROR: GMAIL_ADDRESS, GMAIL_APP_PASSWORD, or RECIPIENT_EMAIL not set — skipping email")
         return False
 
     date_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -435,29 +442,21 @@ def send_email(entries: list[dict]) -> bool:
     subject = f"YC GTM Monitor - {distinct_roles} new {role_word} ({len(entries)} founders) - {date_str}"
     body = "\n---\n".join(format_entry(e) for e in entries)
 
-    print(f"\n[5] Sending email digest via Resend: {subject}")
+    print(f"\n[5] Sending email digest: {subject}")
     try:
-        resp = requests.post(
-            "https://api.resend.com/emails",
-            headers={
-                "Authorization": f"Bearer {RESEND_API_KEY}",
-                "Content-Type": "application/json",
-            },
-            json={
-                "from": FROM_EMAIL,
-                "to": [RECIPIENT_EMAIL],
-                "subject": subject,
-                "text": body,
-            },
-            timeout=30,
-        )
-        if resp.status_code in (200, 201):
-            print("  Email sent successfully via Resend")
-            return True
-        print(f"  ERROR sending email via Resend: {resp.status_code} {resp.text}")
-        return False
+        msg = MIMEText(body, "plain", "utf-8")
+        msg["Subject"] = subject
+        msg["From"] = GMAIL_ADDRESS
+        msg["To"] = RECIPIENT_EMAIL
+
+        with smtplib.SMTP("smtp.gmail.com", 587, timeout=30) as server:
+            server.starttls()
+            server.login(GMAIL_ADDRESS, GMAIL_APP_PASSWORD)
+            server.sendmail(GMAIL_ADDRESS, [RECIPIENT_EMAIL], msg.as_string())
+        print("  Email sent successfully")
+        return True
     except Exception as e:
-        print(f"  ERROR sending email via Resend: {e}")
+        print(f"  ERROR sending email: {e}")
         return False
 
 

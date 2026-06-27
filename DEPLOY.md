@@ -23,18 +23,18 @@ Before touching GitHub settings, have these four things ready to paste in:
 1. **An Anthropic (Claude) API key** — sign up at [console.anthropic.com](https://console.anthropic.com),
    go to **API Keys**, create one. This is what generates the outreach messages — Claude API usage
    is billed by usage, a few cents a day for this volume.
-2. **A Resend API key** — sign up at [resend.com](https://resend.com) (free tier: 3,000 emails/month).
-   You'll need to verify a sending domain before Resend lets you send to arbitrary recipients:
-   - Go to **Domains** → **Add Domain**. If the domain is already used for other email (Google
-     Workspace, a cold outbound tool, etc.), use a dedicated subdomain instead of the root domain
-     — e.g. `yc-monitor.yourdomain.com` rather than `yourdomain.com` — so there's no risk of
-     touching whatever's already configured for your existing mail.
-   - Resend shows a table of DNS records (typically an MX record plus TXT/CNAME records for
-     SPF/DKIM) — add those exactly as shown at your domain registrar's DNS panel.
-   - Wait for the domain to show as verified (usually minutes, occasionally a couple hours).
-   - Go to **API Keys** → create one.
-3. **A sender address on that verified domain** — e.g. `YC GTM Monitor <digest@yc-monitor.yourdomain.com>`.
-4. **The email address you want the digest delivered to** — can be any inbox you check.
+2. **Your Gmail address** — whichever inbox you want the daily digest sent from.
+3. **A Gmail App Password** (NOT your normal Gmail password — Google blocks scripts from using
+   your real password):
+   - Go to [myaccount.google.com](https://myaccount.google.com) → **Security**.
+   - Turn on **2-Step Verification** if it isn't on already (the App Password option won't appear
+     until this is enabled).
+   - Go to [myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords).
+   - Name it something like "YC monitor" and click **Create**.
+   - Copy the 16-character password it shows you (remove the spaces) — you can't view it again
+     after this screen closes, so paste it somewhere safe for the next step.
+4. **The email address you want the digest delivered to** — can be the same Gmail address or a
+   different inbox entirely.
 
 ## Step 2: Add the four secrets to your fork
 
@@ -46,8 +46,8 @@ Before touching GitHub settings, have these four things ready to paste in:
    | Name (type exactly this, case matters) | Value |
    |---|---|
    | `ANTHROPIC_API_KEY` | the Claude key from Step 1 |
-   | `RESEND_API_KEY` | the Resend API key from Step 1 |
-   | `FROM_EMAIL` | your verified sender address, e.g. `YC GTM Monitor <digest@yc-monitor.yourdomain.com>` |
+   | `GMAIL_ADDRESS` | your Gmail address |
+   | `GMAIL_APP_PASSWORD` | the 16-character App Password (no spaces) |
    | `RECIPIENT_EMAIL` | where you want the digest sent |
 
 4. After all four are added, the **Secrets** list should show 4 entries (the values themselves

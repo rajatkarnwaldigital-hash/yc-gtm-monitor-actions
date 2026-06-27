@@ -51,7 +51,7 @@ YC API (paginated) ──▶ scrape each company's YC page ──▶ filter to G
                  Claude drafts one outreach message per pair
                                │
                                ▼
-                  Resend's HTTP API sends you one digest email
+                    Gmail SMTP sends you one digest email
 ```
 
 ## Security note
@@ -125,8 +125,8 @@ Set these as GitHub Actions repository secrets (Settings → Secrets and variabl
 [DEPLOY.md](DEPLOY.md) for the full walkthrough.
 
 - `ANTHROPIC_API_KEY`
-- `RESEND_API_KEY` — from [resend.com](https://resend.com), after verifying a sending domain (or subdomain)
-- `FROM_EMAIL` — the verified sender address, e.g. `YC GTM Monitor <digest@yc-monitor.yourdomain.com>`
+- `GMAIL_ADDRESS`
+- `GMAIL_APP_PASSWORD` — a Gmail [App Password](https://myaccount.google.com/apppasswords), not your normal password
 - `RECIPIENT_EMAIL`
 
 ## First run
@@ -145,19 +145,19 @@ retries the whole thing, founder enrichment and message generation included, ins
 dropping it.
 
 This came from a real bug, but it's worth being precise about where: it showed up on the
-**Railway deployment** of this same script, not here. Railway has no outbound IPv6 route, and
-Gmail's SMTP hostname resolves to both an IPv6 and IPv4 address — `smtplib` trying the IPv6 one
-first failed with `OSError: [Errno 101] Network is unreachable`. After forcing IPv4-only
-resolution, a deeper issue surfaced: Railway blocks outbound SMTP entirely (both port 587 and 465
-timed out, while plain HTTPS scraping worked the whole time).
+**Railway deployment** of this same script (a separate, private project, not this repo), not
+here. Railway has no outbound IPv6 route, and Gmail's SMTP hostname resolves to both an IPv6 and
+IPv4 address — `smtplib` trying the IPv6 one first failed with `OSError: [Errno 101] Network is
+unreachable`. After forcing IPv4-only resolution, a deeper issue surfaced there: Railway blocks
+outbound SMTP entirely (both port 587 and 465 timed out, while plain HTTPS scraping worked the
+whole time), so that deployment now sends through Resend's HTTP API instead.
 
-GitHub Actions' hosted runners don't appear to have this restriction — Gmail SMTP works fine from
-a standard Actions workflow. So if you're deploying only on GitHub Actions, you may never have hit
-this at all. This repo still sends through [Resend](https://resend.com)'s HTTP API rather than
-Gmail SMTP, mainly for consistency with the Railway deployment (same script, same code path,
-one less thing to maintain twice) and because HTTPS-based sending has no equivalent class of
-port-blocking problem on any host. Either way, the seen-state safeguard above means a failed send
-never costs an actual lead — it just retries on the next run.
+GitHub Actions' hosted runners don't have that restriction — a public example confirms plain
+Gmail SMTP sends fine from a standard Actions workflow — so **this repo keeps Gmail SMTP**. That
+also keeps setup lower-friction for anyone forking this: a Gmail App Password needs nothing more
+than a Gmail account, while Resend would require owning a domain to verify, which most people
+asking for this don't have lying around. Either way, the seen-state safeguard above means a
+failed send never costs an actual lead — it just retries on the next run.
 
 `seen_jobs.json` keys roles by their job URL rather than `company::title`, since two roles can
 share a title (or a company can edit one later), which would otherwise cause a missed or
@@ -201,14 +201,14 @@ the honest version, in order:
 6. **Bug: misleading subject line** — "3 new roles" for one role shared across three founders.
    Fixed: the subject now counts distinct roles and shows founder count separately, e.g.
    "1 new role (3 founders)".
-7. **Bug (Railway-specific): SMTP was blocked outright** — even after the IPv6 fix, both port 587
-   and port 465 timed out on Railway, while plain HTTPS scraping worked the entire time. That's
-   the signature of a host silently dropping outbound SMTP traffic rather than refusing it. A
-   public example of Gmail SMTP working fine from a standard GitHub Actions workflow suggests
-   Actions runners don't have this restriction, so this fix may not have been necessary here at
-   all. Replaced SMTP with [Resend](https://resend.com)'s HTTP API anyway, mainly to keep this
-   repo's code identical to the Railway deployment — see
-   [Reliability](#reliability-failed-sends-dont-lose-leads) above for the full story.
+7. **Bug (Railway-specific, not this repo): SMTP was blocked outright** — even after the IPv6 fix,
+   both port 587 and port 465 timed out on the Railway deployment, while plain HTTPS scraping
+   worked the entire time. That's the signature of a host silently dropping outbound SMTP traffic
+   rather than refusing it. A public example of Gmail SMTP working fine from a standard GitHub
+   Actions workflow confirmed Actions runners don't have this restriction, so **this repo stays on
+   plain Gmail SMTP** — lower setup friction for anyone forking it, since it needs nothing beyond a
+   Gmail account. See [Reliability](#reliability-failed-sends-dont-lose-leads) above for the full
+   story.
 
 ---
 
