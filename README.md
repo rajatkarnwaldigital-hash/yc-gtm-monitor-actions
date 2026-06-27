@@ -65,7 +65,7 @@ forking or cloning this for your own use.
 ## Customizing the keyword list
 
 The roles this watches for are controlled by one list near the top of
-[yc_gtm_monitor.py](yc_gtm_monitor.py#L52):
+[yc_gtm_monitor.py](yc_gtm_monitor.py#L50):
 
 ```python
 GTM_KEYWORDS = [
@@ -167,6 +167,38 @@ cp .env.example .env   # fill in your keys
 export $(grep -v '^#' .env | xargs)
 python3 yc_gtm_monitor.py
 ```
+
+## Build log: what broke and what we fixed
+
+This didn't work perfectly on the first deploy. Most "I built X" posts skip this part, so here's
+the honest version, in order:
+
+1. **First working version** — YC company scrape, GTM keyword filter, founder enrichment,
+   Claude-drafted messages, digest email.
+2. **Bug: failed sends silently lost leads** — the script marked a day's new roles as "seen"
+   right after attempting to email them, even if the send failed. A single bad send meant that
+   role would never be retried or reported again. Fixed: a role only gets marked seen once the
+   email is confirmed delivered; failed sends retry on the next run instead of vanishing. See
+   [Reliability](#reliability-failed-sends-dont-lose-leads) above.
+3. **Bug: SMTP failed with `Errno 101: Network is unreachable`** — the host had no outbound IPv6
+   route, and Gmail's SMTP hostname resolves to both an IPv6 and IPv4 address. Fixed (temporarily)
+   by forcing IPv4-only DNS resolution.
+4. **Bug: job identity collisions** — roles were matched by `company::title`, which silently
+   collides if two roles share a title, or breaks if a company edits a title later. Fixed: roles
+   are matched by their unique job URL instead, with an automatic one-time migration so existing
+   tracked roles don't get reflagged as new.
+5. **Feature: best-fit founder flagging** — when a role has multiple founders, one extra Claude
+   call uses each founder's YC bio text to recommend who to contact first (e.g. a CEO with
+   explicit sales background over a technical co-founder), with a one-sentence reason. See
+   [Picking who to reach out to first](#picking-who-to-reach-out-to-first) above.
+6. **Bug: misleading subject line** — "3 new roles" for one role shared across three founders.
+   Fixed: the subject now counts distinct roles and shows founder count separately, e.g.
+   "1 new role (3 founders)".
+7. **Bug: SMTP was blocked outright** — even after the IPv6 fix, both port 587 and port 465 timed
+   out in production, while plain HTTPS scraping worked the entire time. That's the signature of a
+   host silently dropping outbound SMTP traffic rather than refusing it. Fixed: replaced SMTP
+   entirely with [Resend](https://resend.com)'s HTTP API, which sends over port 443, the same port
+   already proven to work.
 
 ---
 
