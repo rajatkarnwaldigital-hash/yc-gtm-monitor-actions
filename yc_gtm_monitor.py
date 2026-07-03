@@ -27,6 +27,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from email.mime.text import MIMEText
 from pathlib import Path
+from urllib.parse import urlparse
 
 import requests
 from bs4 import BeautifulSoup
@@ -67,6 +68,8 @@ ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 GMAIL_ADDRESS = os.environ.get("GMAIL_ADDRESS", "")
 GMAIL_APP_PASSWORD = os.environ.get("GMAIL_APP_PASSWORD", "")
 RECIPIENT_EMAIL = os.environ.get("RECIPIENT_EMAIL", "")
+HUNTER_API_KEY = os.environ.get("HUNTER_API_KEY", "")
+HUNTER_MIN_CONFIDENCE = 70  # only include emails at or above this score
 
 CLAUDE_MODEL = "claude-sonnet-4-6"
 
@@ -104,6 +107,43 @@ commercial-sounding title.
 
 Respond with ONLY valid JSON in this exact format, no other text before or after it:
 {{"founder": "<exact name as listed above>", "reason": "<one sentence, no more than 20 words>"}}"""
+
+
+# ── Hunter email enrichment ───────────────────────────────────────────────────
+
+def _company_domain(website: str) -> str:
+    """Strip a company website URL down to its bare domain."""
+    if not website:
+        return ""
+    parsed = urlparse(website if "//" in website else f"https://{website}")
+    host = parsed.hostname or ""
+    return host.removeprefix("www.")
+
+
+def find_email(domain: str, first_name: str, last_name: str) -> tuple[str, int]:
+    """Return (email, confidence_score) from Hunter's email-finder API.
+    Returns ('', 0) when the key is unset, the domain is empty, or the lookup fails."""
+    if not HUNTER_API_KEY or not domain or not first_name or not last_name:
+        return "", 0
+    try:
+        resp = requests.get(
+            "https://api.hunter.io/v2/email-finder",
+            params={
+                "domain": domain,
+                "first_name": first_name,
+                "last_name": last_name,
+                "api_key": HUNTER_API_KEY,
+            },
+            timeout=10,
+        )
+        if resp.status_code != 200:
+            return "", 0
+        data = resp.json().get("data", {})
+        email = data.get("email") or ""
+        score = int(data.get("score") or 0)
+        return email, score
+    except Exception:
+        return "", 0
 
 
 # ── Step 1: Pull companies from YC API ────────────────────────────────────────
@@ -345,6 +385,7 @@ def build_entries(new_jobs: list[dict], scraped: dict[str, dict], client) -> lis
         role_title = job["title"]
         role_url = job["url"]
         product_summary = job["product_summary"]
+        domain = _company_domain(job.get("website", ""))
 
         founders = scraped.get(slug, {}).get("founders", [])
 
@@ -357,6 +398,8 @@ def build_entries(new_jobs: list[dict], scraped: dict[str, dict], client) -> lis
                 "role_url": role_url,
                 "founder_name": "Unknown",
                 "linkedin_url": "",
+                "email_address": "",
+                "email_confidence": 0,
                 "product_summary": product_summary,
                 "message": "(no founder data found on YC page)",
                 "is_best_fit": False,
@@ -379,6 +422,14 @@ def build_entries(new_jobs: list[dict], scraped: dict[str, dict], client) -> lis
                 client, founder_name, company_name, yc_batch, role_title, product_summary
             )
             is_best_fit = bool(best_founder_name) and founder_name == best_founder_name
+
+            name_parts = founder_name.split(None, 1)
+            first_name = name_parts[0] if name_parts else ""
+            last_name = name_parts[1] if len(name_parts) > 1 else ""
+            email_addr, email_score = find_email(domain, first_name, last_name)
+            if email_addr and email_score >= HUNTER_MIN_CONFIDENCE:
+                print(f"    Email found: {email_addr} ({email_score}% confidence)")
+
             entries.append({
                 "company_name": company_name,
                 "yc_batch": yc_batch,
@@ -386,6 +437,8 @@ def build_entries(new_jobs: list[dict], scraped: dict[str, dict], client) -> lis
                 "role_url": role_url,
                 "founder_name": founder_name,
                 "linkedin_url": f.get("linkedin", ""),
+                "email_address": email_addr if email_score >= HUNTER_MIN_CONFIDENCE else "",
+                "email_confidence": email_score if email_score >= HUNTER_MIN_CONFIDENCE else 0,
                 "product_summary": product_summary,
                 "is_best_fit": is_best_fit,
                 "best_fit_reason": best_fit_reason if is_best_fit else "",
@@ -412,6 +465,8 @@ def format_entry(e: dict) -> str:
     if e.get("is_best_fit") and e.get("best_fit_reason"):
         lines.append(f"Why: {e['best_fit_reason']}")
     lines.append(f"LinkedIn: {e['linkedin_url']}")
+    if e.get("email_address"):
+        lines.append(f"Email: {e['email_address']} ({e['email_confidence']}% confidence)")
     lines.append(f"Product: {e['product_summary']}")
     lines.append("")
     lines.append(f"Message:\n{e['message']}")
@@ -485,6 +540,7 @@ def main():
         company_name = c.get("name", slug)
         yc_batch = c.get("batch", "")
         product_summary = c.get("oneLiner") or c.get("longDescription", "")
+        website = c.get("website", "")
         for job in data["jobs"]:
             all_jobs.append({
                 "slug": slug,
@@ -493,6 +549,7 @@ def main():
                 "title": job["title"],
                 "url": job["url"],
                 "product_summary": product_summary,
+                "website": website,
             })
 
     print(f"\n[3] Diffing {len(all_jobs)} GTM-relevant roles against seen_jobs.json …")

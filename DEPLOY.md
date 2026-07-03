@@ -16,9 +16,9 @@ specific repo, not shared across forks).
 3. You now have your own copy at `github.com/<your-username>/yc-gtm-monitor-actions`. Do
    everything below on **your fork**, not the original.
 
-## Step 1: Get the four values you'll need
+## Step 1: Get the values you'll need
 
-Before touching GitHub settings, have these four things ready to paste in:
+Before touching GitHub settings, have these ready to paste in (the first four are required; Hunter is optional):
 
 1. **An Anthropic (Claude) API key** — sign up at [console.anthropic.com](https://console.anthropic.com),
    go to **API Keys**, create one. This is what generates the outreach messages — Claude API usage
@@ -35,6 +35,9 @@ Before touching GitHub settings, have these four things ready to paste in:
      after this screen closes, so paste it somewhere safe for the next step.
 4. **The email address you want the digest delivered to** — can be the same Gmail address or a
    different inbox entirely.
+5. _(Optional)_ **A Hunter.io API key** — sign up at [hunter.io](https://hunter.io). When set,
+   the digest includes each founder's work email if Hunter finds one with at least 70% confidence.
+   Skip this entirely if you don't have a Hunter account — the rest of the script works without it.
 
 ## Step 2: Add the four secrets to your fork
 
@@ -49,6 +52,7 @@ Before touching GitHub settings, have these four things ready to paste in:
    | `GMAIL_ADDRESS` | your Gmail address |
    | `GMAIL_APP_PASSWORD` | the 16-character App Password (no spaces) |
    | `RECIPIENT_EMAIL` | where you want the digest sent |
+   | `HUNTER_API_KEY` _(optional)_ | your Hunter.io API key — omit entirely if you don't have one |
 
 4. After all four are added, the **Secrets** list should show 4 entries (the values themselves
    stay hidden — that's expected, GitHub never shows secret values again after you save them).

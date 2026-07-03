@@ -128,6 +128,7 @@ Set these as GitHub Actions repository secrets (Settings → Secrets and variabl
 - `GMAIL_ADDRESS`
 - `GMAIL_APP_PASSWORD` — a Gmail [App Password](https://myaccount.google.com/apppasswords), not your normal password
 - `RECIPIENT_EMAIL`
+- `HUNTER_API_KEY` _(optional)_ — from [hunter.io](https://hunter.io). When set, each digest entry includes the founder's work email if Hunter finds one at ≥70% confidence. Omit entirely to skip email enrichment.
 
 ## First run
 
@@ -201,6 +202,11 @@ the honest version, in order:
 6. **Bug: misleading subject line** — "3 new roles" for one role shared across three founders.
    Fixed: the subject now counts distinct roles and shows founder count separately, e.g.
    "1 new role (3 founders)".
+8. **Feature: Hunter email enrichment** — when `HUNTER_API_KEY` is set as a secret, the script
+   looks up each founder's work email via Hunter's email-finder API and includes it in the digest
+   entry if confidence is ≥70%. Below that threshold the field is omitted rather than shown as a
+   low-confidence guess. Fully optional — the script works identically without this secret.
+
 7. **Bug (Railway-specific, not this repo): SMTP was blocked outright** — even after the IPv6 fix,
    both port 587 and port 465 timed out on the Railway deployment, while plain HTTPS scraping
    worked the entire time. That's the signature of a host silently dropping outbound SMTP traffic
