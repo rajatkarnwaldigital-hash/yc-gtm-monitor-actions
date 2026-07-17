@@ -1,574 +1,3000 @@
 {
-  "Mount::GTM": "2026-06-25T23:53:02.750321+00:00",
-  "Standout::Founding Sales": "2026-06-25T23:53:02.750336+00:00",
-  "Cardinal::Founding AE": "2026-06-25T23:53:02.750339+00:00",
-  "Unifold::Founding GTM/BD Lead": "2026-06-25T23:53:02.750341+00:00",
-  "VOYGR::Sales Development Representative (SDR) \u2013 VOYGR (Remote) | YC W26": "2026-06-25T23:53:02.750344+00:00",
-  "Booko::Founding Growth Lead": "2026-06-25T23:53:02.750346+00:00",
-  "Chasi::Founding GTM": "2026-06-25T23:53:02.750349+00:00",
-  "Balance::Founding GTM / AEs": "2026-06-25T23:53:02.750351+00:00",
-  "Fort::Growth Marketing Lead": "2026-06-25T23:53:02.750353+00:00",
-  "Pocket::Performance Marketing Manager": "2026-06-25T23:53:02.750355+00:00",
   "Oximy::Founding GTM": "2026-06-25T23:53:02.750357+00:00",
   "Samora AI::Sales Lead - GTM": "2026-06-25T23:53:02.750359+00:00",
   "Samora AI::Sales Lead - GTM (US Market)": "2026-06-25T23:53:02.750362+00:00",
-  "Stilta::Founding GTM": "2026-06-25T23:53:02.750364+00:00",
   "Moritz::Founding SDR": "2026-06-25T23:53:02.750366+00:00",
   "Moritz::Performance Marketing Engineer": "2026-06-25T23:53:02.750367+00:00",
-  "RamAIn::Founding GTM Engineer": "2026-06-25T23:53:02.750369+00:00",
-  "Salus::Founding GTM / BDR \u2014 AI Agent Infrastructure": "2026-06-25T23:53:02.750372+00:00",
   "Lucent::Founding GTM": "2026-06-25T23:53:02.750374+00:00",
-  "Lance::Product Marketing Manager": "2026-06-25T23:53:02.750376+00:00",
-  "Didit::Growth Marketer": "2026-06-25T23:53:02.750378+00:00",
-  "CatchBack Cards::GTM": "2026-06-25T23:53:02.750380+00:00",
-  "CatchBack Cards::Growth Intern (Fall, Winter cycles)": "2026-06-25T23:53:02.750383+00:00",
-  "Clicks::Founding SDR (Healthcare) @ Clicks (YC F25)": "2026-06-25T23:53:02.750386+00:00",
-  "Vector Legal::Founding GTM Manager": "2026-06-25T23:53:02.750388+00:00",
-  "Jarmin::Founding Sales - Account Executive": "2026-06-25T23:53:02.750390+00:00",
-  "Karumi::Growth": "2026-06-25T23:53:02.750392+00:00",
-  "Unsiloed AI::Founding GTM Lead": "2026-06-25T23:53:02.750394+00:00",
-  "Flick::GTM Intern": "2026-06-25T23:53:02.750397+00:00",
-  "Aspect::Founding GTM": "2026-06-25T23:53:02.750399+00:00",
-  "Uplane::AI Marketing Strategist - San Francisco": "2026-06-25T23:53:02.750400+00:00",
-  "Uplane::AI Marketing Strategist Intern - San Francisco": "2026-06-25T23:53:02.750403+00:00",
   "Uplane::AI Marketing Strategist Intern - Berlin / Remote (German Speaking)": "2026-06-25T23:53:02.750404+00:00",
-  "Brickanta::GTM Engineer \u2014 build the bridge between product and revenue": "2026-06-25T23:53:02.750406+00:00",
   "Avent::Founding Growth Operator": "2026-06-25T23:53:02.750408+00:00",
-  "Vulcan Technologies::SDR / BDR": "2026-06-25T23:53:02.750411+00:00",
-  "Reacher::Founding Account Executive": "2026-06-25T23:53:02.750413+00:00",
-  "stagewise::Growth Hacker Intern (Mandatory Internship)": "2026-06-25T23:53:02.750415+00:00",
-  "Juxta::Growth Engineer": "2026-06-25T23:53:02.750417+00:00",
   "Iron Grid::Underwriter, Manufacturing & Automation": "2026-06-25T23:53:02.750419+00:00",
-  "Nozomio::Founding Member of Marketing Staff": "2026-06-25T23:53:02.750421+00:00",
-  "Nozomio::Founding Growth": "2026-06-25T23:53:02.750423+00:00",
   "Embedder::Founding Business Development Representative": "2026-06-25T23:53:02.750425+00:00",
-  "Comena::Founding GTM Associate": "2026-06-25T23:53:02.750428+00:00",
-  "Comena::GTM Associate Intern": "2026-06-25T23:53:02.750431+00:00",
-  "Tesora::GTM Insurance Executive": "2026-06-25T23:53:02.750433+00:00",
-  "CareSwift::Founding EMS Sales Development Representative": "2026-06-25T23:53:02.750435+00:00",
   "DeepAware AI::Business Development Manager": "2026-06-25T23:53:02.750437+00:00",
-  "Humwork::GTM Engineer (AI-Native Outbound & Sales)": "2026-06-25T23:53:02.750439+00:00",
-  "Lanesurf::Founding Sales Development Representative (SDR/BDR)": "2026-06-25T23:53:02.750441+00:00",
-  "AgentMail::Founding GTM Lead": "2026-06-25T23:53:02.750443+00:00",
-  "The Prompting Company::Founding Account Executive": "2026-06-25T23:53:02.750445+00:00",
-  "Shor::Founding Growth/GTM Lead": "2026-06-25T23:53:02.750447+00:00",
   "GETASAP::GTM": "2026-06-25T23:53:02.750449+00:00",
-  "MindFort::Founding SDR": "2026-06-25T23:53:02.750451+00:00",
-  "Na\u00efve::Growth Engineer": "2026-06-25T23:53:02.750454+00:00",
-  "Na\u00efve::Growth Engineer Intern": "2026-06-25T23:53:02.750456+00:00",
-  "Scalar Field::Digital Native Community, Social & Creator Growth Internship": "2026-06-25T23:53:02.750458+00:00",
-  "Sygaldry Technologies::Partnerships Manager (Technical), GTM Team": "2026-06-25T23:53:02.750461+00:00",
-  "Besimple AI::Growth Operations Lead, Contributor Supply": "2026-06-25T23:53:02.750463+00:00",
-  "Lucis::Head of acquisition & growth": "2026-06-25T23:53:02.750465+00:00",
-  "throxy::Sales Development Representative (SDR)": "2026-06-25T23:53:02.750467+00:00",
-  "Casco::Growth Engineer": "2026-06-25T23:53:02.750469+00:00",
-  "Parsewise::Founding GTM": "2026-06-25T23:53:02.750471+00:00",
   "Bluejay::Founding GTM": "2026-06-25T23:53:02.750473+00:00",
-  "Sim::Founding GTM Engineer": "2026-06-25T23:53:02.750475+00:00",
-  "Claim Health::Content Marketing Intern": "2026-06-25T23:53:02.750477+00:00",
-  "Ralo::Performance Marketing Lead": "2026-06-25T23:53:02.750479+00:00",
-  "Synthio Labs::GTM / Growth Lead": "2026-06-25T23:53:02.750481+00:00",
-  "Bloom::Founding Growth Engineer": "2026-06-25T23:53:02.750483+00:00",
   "GroundControl::Founding Growth Marketer": "2026-06-25T23:53:02.750485+00:00",
-  "Wayline::Founding GTM Lead": "2026-06-25T23:53:02.750487+00:00",
-  "Ergo::Founding Account Executive": "2026-06-25T23:53:02.750488+00:00",
-  "Rebolt::Founding Growth Engineer": "2026-06-25T23:53:02.750490+00:00",
   "Mastra::Founding Sales": "2026-06-25T23:53:02.750492+00:00",
-  "FuseAI::Growth & Operations Summer Associate": "2026-06-25T23:53:02.750494+00:00",
-  "Orbital Operations::Head of Business Development": "2026-06-25T23:53:02.750496+00:00",
-  "Harper::GTM Engineer": "2026-06-25T23:53:02.750498+00:00",
-  "Confident AI::Founding GTM": "2026-06-25T23:53:02.750500+00:00",
   "Pluto::Head of Compute Sales": "2026-06-25T23:53:02.750502+00:00",
-  "AthenaHQ::Growth Engineer": "2026-06-25T23:53:02.750503+00:00",
-  "AthenaHQ::Founding Growth Marketer": "2026-06-25T23:53:02.750505+00:00",
-  "Macadamia::Founding GTM Lead": "2026-06-25T23:53:02.750507+00:00",
-  "hud::Marketing & Events Lead": "2026-06-25T23:53:02.750509+00:00",
-  "HealthKey::Account Executive (Founding GTM)": "2026-06-25T23:53:02.750511+00:00",
-  "Mosaic::Growth & Marketing Intern": "2026-06-25T23:53:02.750513+00:00",
-  "Paragon::Founding Sales": "2026-06-25T23:53:02.750516+00:00",
-  "Maritime Fusion::Business Development & Strategic Partnerships Lead": "2026-06-25T23:53:02.750518+00:00",
-  "Weave::Founding Account Executive": "2026-06-25T23:53:02.750519+00:00",
-  "a0.dev::Founding Growth Lead (Contract-to-Hire)": "2026-06-25T23:53:02.750521+00:00",
-  "Contrario::Founding GTM": "2026-06-25T23:53:02.750523+00:00",
   "Scout::Founding Account Executive": "2026-06-25T23:53:02.750525+00:00",
-  "SubImage::Founding GTM at SubImage": "2026-06-25T23:53:02.750527+00:00",
-  "Hey Telo::Founding Founders Associate (Sales)": "2026-06-25T23:53:02.750529+00:00",
-  "Hey Telo::Founders Associate Intern (Sales)": "2026-06-25T23:53:02.750530+00:00",
-  "Revise Robotics::Business Development Intern \u2013 Summer/Fall 2026": "2026-06-25T23:53:02.750532+00:00",
-  "Canvas::Growth Sales & Ops": "2026-06-25T23:53:02.750534+00:00",
-  "Ember::Healthcare SDR": "2026-06-25T23:53:02.750536+00:00",
-  "Ember::B2B Marketing": "2026-06-25T23:53:02.750538+00:00",
-  "Careforce::Enterprise Sales Lead": "2026-06-25T23:53:02.750539+00:00",
   "Origami::Founding GTM": "2026-06-25T23:53:02.750541+00:00",
-  "CollectWise::Founding Account Executive": "2026-06-25T23:53:02.750543+00:00",
-  "Fresco::Sales Development Representative": "2026-06-25T23:53:02.750545+00:00",
   "Dexter::GTM & Growth Marketing Intern @ Dexter": "2026-06-25T23:53:02.750547+00:00",
-  "vly.ai::Technical Marketing Intern": "2026-06-25T23:53:02.750549+00:00",
-  "Unusual::Founding GTM Lead": "2026-06-25T23:53:02.750550+00:00",
-  "Cekura::Founding Account Executive": "2026-06-25T23:53:02.750552+00:00",
-  "Cekura::Founding BDR (Track Role)": "2026-06-25T23:53:02.750554+00:00",
-  "Raycaster::Founding GTM @ Raycaster - Life Sciences": "2026-06-25T23:53:02.750556+00:00",
-  "Streamable::Growth / Marketing / Social Media Intern": "2026-06-25T23:53:02.750558+00:00",
-  "Streamable::Social Media / Growth Intern (Remote)": "2026-06-25T23:53:02.750560+00:00",
-  "telli::Founding SDR": "2026-06-25T23:53:02.750562+00:00",
-  "telli::Growth Intern": "2026-06-25T23:53:02.750563+00:00",
-  "Candle::Growth Lead \u2013 Creator Program & Paid Social": "2026-06-25T23:53:02.750565+00:00",
-  "Syntra::Healthcare SMB Outbound Sales Development Representative": "2026-06-25T23:53:02.750567+00:00",
-  "Anglera::Growth Lead": "2026-06-25T23:53:02.750569+00:00",
-  "Capitol AI::Founding Account Executive": "2026-06-25T23:53:02.750570+00:00",
-  "No Logo::Founding Growth Lead, Paid Media": "2026-06-25T23:53:02.750572+00:00",
-  "Usul::Founding Account Executive": "2026-06-25T23:53:02.750574+00:00",
-  "Usul::Head of Growth": "2026-06-25T23:53:02.750576+00:00",
-  "Oway::Carrier Sales Representative": "2026-06-25T23:53:02.750577+00:00",
-  "Cartage::Sales Development Representative": "2026-06-25T23:53:02.750579+00:00",
-  "Brighterway::Sales Associate": "2026-06-25T23:53:02.750581+00:00",
   "Soff::AI-Native Sales Development Representative (SDR)": "2026-06-25T23:53:02.750583+00:00",
-  "Intryc::Head of Marketing": "2026-06-25T23:53:02.750585+00:00",
-  "David AI::Growth Operations Lead": "2026-06-25T23:53:02.750586+00:00",
-  "Mage Legal::Founding Marketer/Head of Growth": "2026-06-25T23:53:02.750588+00:00",
   "Clearly AI::Founding GTM Engineer": "2026-06-25T23:53:02.750590+00:00",
-  "Clearly AI::Founding Account Executive": "2026-06-25T23:53:02.750592+00:00",
-  "CreativeMode::Founding Growth & Content": "2026-06-25T23:53:02.750593+00:00",
-  "Conveo::Client Growth Manager - UK/Europe": "2026-06-25T23:53:02.750595+00:00",
-  "Dench.com::Chief Growth Strat": "2026-06-25T23:53:02.750597+00:00",
-  "Gauge::Founding Sales": "2026-06-25T23:53:02.750599+00:00",
-  "Tandem::GTM & Biz Ops @ Tandem": "2026-06-25T23:53:02.750601+00:00",
-  "Offstream::Founding Account Executive": "2026-06-25T23:53:02.750603+00:00",
-  "Willow::Founding Growth & Content Lead": "2026-06-25T23:53:02.750605+00:00",
-  "Willow::Founding Account Executive": "2026-06-25T23:53:02.750607+00:00",
-  "Unbound::Founding growth engineer": "2026-06-25T23:53:02.750608+00:00",
-  "Phonely::Founding Account Executive": "2026-06-25T23:53:02.750610+00:00",
-  "Phonely::Founding Marketing Lead": "2026-06-25T23:53:02.750611+00:00",
-  "FirstWork::VP Marketing": "2026-06-25T23:53:02.750613+00:00",
-  "Corgi Insurance::GTM Associate": "2026-06-25T23:53:02.750615+00:00",
-  "Tabula::Founding Account Executive": "2026-06-25T23:53:02.750617+00:00",
-  "mdhub::Growth Strategist": "2026-06-25T23:53:02.750619+00:00",
   "Educato::Go\u2011to\u2011Market (GTM) Manager - Turkey \ud83c\uddf9\ud83c\uddf7": "2026-06-25T23:53:02.750621+00:00",
-  "ClaimSorted::Founding GTM (Go-to-Market Sales)": "2026-06-25T23:53:02.750623+00:00",
-  "Saphira AI::Founding Account Executive - Enterprise Safety & Compliance (Hardware + AI)": "2026-06-25T23:53:02.750625+00:00",
-  "Apten::Founding SDR": "2026-06-25T23:53:02.750626+00:00",
-  "Domu Technology Inc.::Founding SDR or AE (Cash + Equity + Comission)": "2026-06-25T23:53:02.750628+00:00",
-  "Roger::Founding Account Executive (Senior \u2013 US)": "2026-06-25T23:53:02.750631+00:00",
-  "Roger::Head of Sales": "2026-06-25T23:53:02.750632+00:00",
   "Coval::Head of Sales": "2026-06-25T23:53:02.750634+00:00",
-  "Reprompt::Founding SDR": "2026-06-25T23:53:02.750635+00:00",
-  "Senso::Head of Sales": "2026-06-25T23:53:02.750637+00:00",
-  "xPay::Founding Sales lead": "2026-06-25T23:53:02.750639+00:00",
-  "Rove::Director of Business Development, Earn": "2026-06-25T23:53:02.750641+00:00",
-  "Terrakotta::Founding Sales Development Representative": "2026-06-25T23:53:02.750643+00:00",
-  "Spark::operations/growth": "2026-06-25T23:53:02.750644+00:00",
-  "Spark::Growth + Operations (BizOps) Associate / Manager": "2026-06-25T23:53:02.750646+00:00",
-  "Stacksync::Full-Cycle Forward Deployed Sales Engineer - The Closer of All Closers!": "2026-06-25T23:53:02.750648+00:00",
-  "Openmart::Enterprise sales (SDR)": "2026-06-25T23:53:02.750650+00:00",
-  "Model ML::Product Growth": "2026-06-25T23:53:02.750652+00:00",
-  "Model ML::Growth": "2026-06-25T23:53:02.750654+00:00",
-  "Model ML::Marketing Lead": "2026-06-25T23:53:02.750656+00:00",
-  "JustAI::Founding BDR": "2026-06-25T23:53:02.750658+00:00",
-  "JustAI::Lifecycle Marketing Manager (for JustAI customers)": "2026-06-25T23:53:02.750660+00:00",
-  "JustAI::Marketing Operations Manager": "2026-06-25T23:53:02.750661+00:00",
-  "Brainbase Labs::Founding Growth": "2026-06-25T23:53:02.750663+00:00",
-  "Yondu::Founding Business Development Representative, Robotics": "2026-06-25T23:53:02.750665+00:00",
-  "Conduit::Sales Development Representative": "2026-06-25T23:53:02.750667+00:00",
-  "CodeAnt AI::Founding Account Executive (Full-Cycle GTM)": "2026-06-25T23:53:02.750669+00:00",
-  "CodeAnt AI::Founding Business Development Representative": "2026-06-25T23:53:02.750672+00:00",
-  "Tamarind Bio::Founding Sales Development Representative": "2026-06-25T23:53:02.750674+00:00",
-  "14.ai::Founding GTM": "2026-06-25T23:53:02.750676+00:00",
-  "Scout::Growth & Operations Intern": "2026-06-25T23:53:02.750677+00:00",
-  "Clarion::Marketing Lead": "2026-06-25T23:53:02.750679+00:00",
-  "PromptArmor::Growth": "2026-06-25T23:53:02.750681+00:00",
-  "Respan::Founding Technical GTM": "2026-06-25T23:53:02.750682+00:00",
-  "Respan::Sales Development Representative": "2026-06-25T23:53:02.750684+00:00",
-  "Respan::Marketing": "2026-06-25T23:53:02.750686+00:00",
-  "Greenboard::Founding Account Executive": "2026-06-25T23:53:02.750688+00:00",
-  "FurtherAI::Sales Development Representative": "2026-06-25T23:53:02.750689+00:00",
-  "AveryIQ::Business Development Representative - BDR / SDR / Sales": "2026-06-25T23:53:02.750691+00:00",
-  "PointOne::PointOne Growth Fellowship": "2026-06-25T23:53:02.750693+00:00",
-  "PointOne::GTM Engineer": "2026-06-25T23:53:02.750695+00:00",
-  "Garage::Growth Operations": "2026-06-25T23:53:02.750696+00:00",
-  "Newton::Founding Business Development Representative": "2026-06-25T23:53:02.750698+00:00",
   "Poka Labs::Founding GTM": "2026-06-25T23:53:02.750700+00:00",
-  "Duckie::Founding Business Development Representative": "2026-06-25T23:53:02.750701+00:00",
-  "DryMerge::Sales Development Representative": "2026-06-25T23:53:02.750703+00:00",
-  "Onyx::Founding Account Executive": "2026-06-25T23:53:02.750705+00:00",
-  "Healthtech 1::Sales Development Representative": "2026-06-25T23:53:02.750707+00:00",
-  "Coba::Coba.ai Hiring | Marketing/G2M for US-MX cross-border fintech (remote US or MX)": "2026-06-25T23:53:02.750709+00:00",
-  "Morph::Founding Account Executive": "2026-06-25T23:53:02.750711+00:00",
-  "Nowadays::Founding Account Executive": "2026-06-25T23:53:02.750712+00:00",
-  "Shadeform::Founding Sales": "2026-06-25T23:53:02.750714+00:00",
-  "Shadeform::Chief of Staff & Automation Lead": "2026-06-25T23:53:02.750716+00:00",
-  "Cargo::Founding Full stack AE / Founding AE": "2026-06-25T23:53:02.750718+00:00",
-  "Quill Bills::Founding Business Development": "2026-06-25T23:53:02.750719+00:00",
   "Cair Health::Business/Sales Analyst Intern": "2026-06-25T23:53:02.750721+00:00",
-  "dili::Founding Business Development Representative": "2026-06-25T23:53:02.750723+00:00",
   "Strada::Senior Business Development Representative (BDR)": "2026-06-25T23:53:02.750725+00:00",
-  "HappyRobot::Growth Strategist": "2026-06-25T23:53:02.750726+00:00",
-  "HappyRobot::Sales Development Representative (SDR)": "2026-06-25T23:53:02.750728+00:00",
   "Fiber AI::Marketing Strategy & Operations Lead (international, remote)": "2026-06-25T23:53:02.750730+00:00",
-  "Sant\u00e9::Sales Development Representative": "2026-06-25T23:53:02.750731+00:00",
-  "Roundtable::Sales Development Representative / Account Executive": "2026-06-25T23:53:02.750733+00:00",
   "SyntheticFi::Head of Growth and Content": "2026-06-25T23:53:02.750735+00:00",
-  "Sendblue::Director of Marketing": "2026-06-25T23:53:02.750737+00:00",
-  "SafetyKit::Business Development Representative (BDR)": "2026-06-25T23:53:02.750738+00:00",
-  "SafetyKit::Growth Lead": "2026-06-25T23:53:02.750740+00:00",
-  "Inlet::Founding SDR": "2026-06-25T23:53:02.750742+00:00",
-  "Flint::Business Development Representative (BDR)": "2026-06-25T23:53:02.750744+00:00",
-  "Surface Labs::AI GTM Engineer Intern": "2026-06-25T23:53:02.750745+00:00",
   "Surface Labs::Founding GTM (SDR)": "2026-06-25T23:53:02.750747+00:00",
   "Surface Labs::Tech Sales (SDR)": "2026-06-25T23:53:02.750749+00:00",
   "maintouch::Founding Growth Lead": "2026-06-25T23:53:02.750750+00:00",
   "maintouch::Founding Account Executive": "2026-06-25T23:53:02.750752+00:00",
-  "Margin::Founding Account Executive": "2026-06-25T23:53:02.750754+00:00",
-  "Skyvern::Founding SDR, AI-Powered Outbound": "2026-06-25T23:53:02.750756+00:00",
-  "Skyvern::Founding Account Executive - AI Infrastructure": "2026-06-25T23:53:02.750758+00:00",
-  "Skyvern::Founding Developer Marketing \u2013 Open Source AI": "2026-06-25T23:53:02.750762+00:00",
-  "Terminal::Founding Account Executive": "2026-06-25T23:53:02.750766+00:00",
-  "Electric Air::Heat Pump Sales Engineer": "2026-06-25T23:53:02.750769+00:00",
-  "Electric Air::Founding Growth & Brand Lead": "2026-06-25T23:53:02.750773+00:00",
-  "Prosper::Founding Business Development Representative": "2026-06-25T23:53:02.750776+00:00",
   "Craftwork::Sales Development Representative (Weekend Shift)": "2026-06-25T23:53:02.750780+00:00",
-  "Airgoods::Growth - Retailers": "2026-06-25T23:53:02.750783+00:00",
-  "AIVideo.com::Marketing Consultant (Meta Ads)": "2026-06-25T23:53:02.750786+00:00",
-  "Sohar Health::Head of Marketing": "2026-06-25T23:53:02.750789+00:00",
-  "Hyperbound::Senior Product Marketing Manager": "2026-06-25T23:53:02.750792+00:00",
-  "Accend::Founding GTM (Account Executive)": "2026-06-25T23:53:02.750795+00:00",
-  "Clearest Health::Sale Engineer/Lead Generation, Healthcare": "2026-06-25T23:53:02.750798+00:00",
   "Artie::Sales/Solutions Engineer": "2026-06-25T23:53:02.750801+00:00",
-  "kapa.ai::Marketing Lead": "2026-06-25T23:53:02.750805+00:00",
-  "kapa.ai::Business Development Representative (US)": "2026-06-25T23:53:02.750808+00:00",
   "HyLight::Head of Business Development": "2026-06-25T23:53:02.750811+00:00",
-  "LiteLLM::Founding Account Executive": "2026-06-25T23:53:02.750814+00:00",
-  "Speedy Labs::Founding Senior Business Development Representative": "2026-06-25T23:53:02.750817+00:00",
-  "Automat::Sales Development Representative": "2026-06-25T23:53:02.750821+00:00",
-  "Yuma AI::Mid-Market Sales Development Representative UK/Nordics \ud83c\uddec\ud83c\udde7(Barcelona)": "2026-06-25T23:53:02.750824+00:00",
-  "Yuma AI::Mid-Market Sales Development Representative - Boston": "2026-06-25T23:53:02.750828+00:00",
-  "Persana AI::Founding Growth/GTM": "2026-06-25T23:53:02.750831+00:00",
-  "Escape::Sales Engineer Cybersecurity - Hybrid Role, NYC": "2026-06-25T23:53:02.750835+00:00",
-  "Escape::Head of Sales": "2026-06-25T23:53:02.750838+00:00",
-  "Escape::Business Development Representative (BDR) - Hybrid Role, NYC or Boston": "2026-06-25T23:53:02.750839+00:00",
-  "Pier::Business Development Representative": "2026-06-25T23:53:02.750841+00:00",
-  "Dill::Sales Development Representative": "2026-06-25T23:53:02.750844+00:00",
-  "Hindsight::GTM Lead": "2026-06-25T23:53:02.750846+00:00",
   "Clad::Founding BDR": "2026-06-25T23:53:02.750847+00:00",
   "Pylon::Sales Development Representative": "2026-06-25T23:53:02.750849+00:00",
-  "Loula::Head of Revenue Cycle Management": "2026-06-25T23:53:02.750851+00:00",
-  "Loula::Provider Growth Associate (Sales)": "2026-06-25T23:53:02.750853+00:00",
-  "Sirdab::Business Development Specialist": "2026-06-25T23:53:02.750855+00:00",
   "Finic::Founding Account Executive / Head of Revenue": "2026-06-25T23:53:02.750857+00:00",
-  "Infinia::Business Development Director": "2026-06-25T23:53:02.750859+00:00",
-  "Hadrius::VP of Sales": "2026-06-25T23:53:02.750860+00:00",
-  "Hadrius::Revenue Enablement Lead": "2026-06-25T23:53:02.750862+00:00",
-  "Variance::Business Development Representative": "2026-06-25T23:53:02.750864+00:00",
   "Truewind::Growth BDR": "2026-06-25T23:53:02.750866+00:00",
   "Truewind::Field Marketing": "2026-06-25T23:53:02.750867+00:00",
-  "Relace::GTM Engineer": "2026-06-25T23:53:02.750869+00:00",
-  "PoloTab::Sales & Business Development Representative": "2026-06-25T23:53:02.750871+00:00",
-  "Gooseworks::Founding Growth Engineer": "2026-06-25T23:53:02.750873+00:00",
-  "GovEagle::Sr. Sales Development Representative": "2026-06-25T23:53:02.750875+00:00",
   "JustPaid::Remote Sales Representative (work anywhere in world)": "2026-06-25T23:53:02.750879+00:00",
   "Salient::Product & Growth Lead (Customer Facing)": "2026-06-25T23:53:02.750883+00:00",
-  "Tennr::Sales Development Representative": "2026-06-25T23:53:02.750887+00:00",
-  "Nango::Head of Growth & Developer Relations": "2026-06-25T23:53:02.750891+00:00",
-  "FlexDesk::Sales Development Representative": "2026-06-25T23:53:02.750894+00:00",
-  "Magic Patterns::Head of Growth": "2026-06-25T23:53:02.750898+00:00",
-  "Rollstack::Business Development Representative": "2026-06-25T23:53:02.750901+00:00",
-  "Rollstack::Product Marketing Manager": "2026-06-25T23:53:02.750905+00:00",
-  "Credal.ai::Founding GTM - Deployment Strategist": "2026-06-25T23:53:02.750909+00:00",
-  "Reflex::Growth Associate, SEO": "2026-06-25T23:53:02.750910+00:00",
-  "Reflex::Growth Lead": "2026-06-25T23:53:02.750913+00:00",
-  "Middleware::Founding Account Executive": "2026-06-25T23:53:02.750915+00:00",
-  "zudo.work::Marketing Lead, Realtor Product": "2026-06-25T23:53:02.750917+00:00",
   "Coverage Cat::Growth Engineer (Contract)": "2026-06-25T23:53:02.750919+00:00",
-  "Chima::Senior Sales Development Representative": "2026-06-25T23:53:02.750920+00:00",
-  "Cambio::Senior SDR": "2026-06-25T23:53:02.750922+00:00",
-  "Cambio::Senior Marketing Manager": "2026-06-25T23:53:02.750924+00:00",
-  "Axle::Enterprise Sales Director, Automotive": "2026-06-25T23:53:02.750926+00:00",
-  "Pump.co::Business Development Representative": "2026-06-25T23:53:02.750928+00:00",
   "Oneleet::Technical Sales - (must have background in CS or cybersecurity)": "2026-06-25T23:53:02.750930+00:00",
-  "Solum Health::Founding Full Stack Engineer \u2013 Build the Future of Healthcare Automation": "2026-06-25T23:53:02.750933+00:00",
-  "Solum Health::SDR": "2026-06-25T23:53:02.750935+00:00",
-  "Firecrawl::Web Automation Engineer": "2026-06-25T23:53:02.750937+00:00",
-  "PrimeVault::Marketing & Growth Lead": "2026-06-25T23:53:02.750939+00:00",
-  "HOMLI::Sales Operations Specialist - Athens, Greece": "2026-06-25T23:53:02.750941+00:00",
   "HOMLI::Sales Operations Specialist": "2026-06-25T23:53:02.750943+00:00",
-  "Roforco::Cracked Growth Marketer": "2026-06-25T23:53:02.750945+00:00",
   "Kombo::Business Development Representative US (Mid-Market)": "2026-06-25T23:53:02.750947+00:00",
   "Kombo::Business Development Representative US (Enterprise)": "2026-06-25T23:53:02.750949+00:00",
-  "Feather::Founding BDR": "2026-06-25T23:53:02.750951+00:00",
-  "Quindar::Senior Director of Business Development - US Government": "2026-06-25T23:53:02.750953+00:00",
-  "AviaryAI::Software Engineer, QA & Test Automation": "2026-06-25T23:53:02.750955+00:00",
-  "Hedgehog::Director of Sales, Foodservice": "2026-06-25T23:53:02.750957+00:00",
-  "Hedgehog::Southeast Territory Sales Representative": "2026-06-25T23:53:02.750959+00:00",
-  "Thera::GTM Lead": "2026-06-25T23:53:02.750961+00:00",
-  "Thera::Marketing Lead": "2026-06-25T23:53:02.750963+00:00",
-  "Flair Labs::Founding Product Marketing - Flair Labs": "2026-06-25T23:53:02.750965+00:00",
-  "Typewise::AI Growth Engineer": "2026-06-25T23:53:02.750967+00:00",
-  "Malama Health::Head of Business Development": "2026-06-25T23:53:02.750969+00:00",
   "MaverickX::Business Development Associate": "2026-06-25T23:53:02.750971+00:00",
-  "Tank Payments::Generalist \u2013 Sales / Success / Growth": "2026-06-25T23:53:02.750973+00:00",
-  "Capix::Social Media & Growth Intern": "2026-06-25T23:53:02.750975+00:00",
-  "Juicebox::Sales Strategy & Operations Lead": "2026-06-25T23:53:02.750977+00:00",
-  "Juicebox::Growth Lead": "2026-06-25T23:53:02.750979+00:00",
-  "Windmill::Founding SDR": "2026-06-25T23:53:02.750981+00:00",
-  "Windmill::DevTool Growth Lead": "2026-06-25T23:53:02.750983+00:00",
-  "Blee::Pre-Sales Solutions Engineer": "2026-06-25T23:53:02.750985+00:00",
-  "Paragon AI::Founding Account Executive": "2026-06-25T23:53:02.750986+00:00",
-  "TrueBiz::Senior Sales Development Representative": "2026-06-25T23:53:02.750988+00:00",
-  "TrueBiz::Director of Enterprise Outbound": "2026-06-25T23:53:02.750990+00:00",
-  "TrueBiz::Business Development Manager": "2026-06-25T23:53:02.750992+00:00",
-  "Two Dots::Sales Development Representative": "2026-06-25T23:53:02.750994+00:00",
-  "Julius::Growth Marketing Manager": "2026-06-25T23:53:02.750996+00:00",
   "Paces::Software Engineer, AI Automation": "2026-06-25T23:53:02.750998+00:00",
-  "Mindbase::Sales Executive (Consultant)": "2026-06-25T23:53:02.751000+00:00",
-  "GoSats::VP, Growth": "2026-06-25T23:53:02.751002+00:00",
-  "GoSats::Performance Marketing Manager": "2026-06-25T23:53:02.751004+00:00",
-  "Postal::Founding SDR and Customer Success": "2026-06-25T23:53:02.751006+00:00",
-  "Blink::Founding Growth Marketer": "2026-06-25T23:53:02.751008+00:00",
-  "Blink::Social Media Marketing Manager": "2026-06-25T23:53:02.751009+00:00",
-  "Fleek::Business Development at Fleek": "2026-06-25T23:53:02.751011+00:00",
-  "Arpari::Sales Development Representative (NYC)": "2026-06-25T23:53:02.751013+00:00",
   "Shaped::Sales Development Representative (SDR)": "2026-06-25T23:53:02.751015+00:00",
   "Shaped::Growth marketer": "2026-06-25T23:53:02.751017+00:00",
-  "Joon Health::Founding Growth Manager": "2026-06-25T23:53:02.751019+00:00",
-  "Material Depot::Pre-sales Business Development Executive": "2026-06-25T23:53:02.751021+00:00",
-  "Material Depot::Business Development Manager": "2026-06-25T23:53:02.751023+00:00",
-  "Sprites::Founding GTM Associate": "2026-06-25T23:53:02.751025+00:00",
-  "Sprites::Founding BDR": "2026-06-25T23:53:02.751027+00:00",
-  "Agency::Sales Development Representative / Business Development Rep": "2026-06-25T23:53:02.751029+00:00",
-  "Posh::Social Media Marketing Intern": "2026-06-25T23:53:02.751030+00:00",
-  "Cogram::Growth Lead": "2026-06-25T23:53:02.751032+00:00",
-  "Cotera::Future Founder - Growth": "2026-06-25T23:53:02.751034+00:00",
-  "Velt::Founding Test Automation Engineer": "2026-06-25T23:53:02.751036+00:00",
-  "PermitFlow::Business Development Representative": "2026-06-25T23:53:02.751038+00:00",
-  "Mintlify::Field Marketing Manager": "2026-06-25T23:53:02.751039+00:00",
-  "Mintlify::Senior Solutions Engineer - Pre Sales (NYC)": "2026-06-25T23:53:02.751041+00:00",
-  "Mintlify::Product Marketing Manager": "2026-06-25T23:53:02.751048+00:00",
-  "Complete::Founding AE": "2026-06-25T23:53:02.751050+00:00",
-  "HOKALI::EdTech Sales Executive": "2026-06-25T23:53:02.751051+00:00",
-  "Flagright::Senior Enterprise Business Development Representative - London": "2026-06-25T23:53:02.751054+00:00",
-  "Flagright::Business Development Representative - London": "2026-06-25T23:53:02.751056+00:00",
-  "Flagright::Business Development Representative - Singapore": "2026-06-25T23:53:02.751058+00:00",
-  "Flagright::Business Development Representative - New York": "2026-06-25T23:53:02.751060+00:00",
   "Beam::Software Engineer, Growth": "2026-06-25T23:53:02.751061+00:00",
   "Beam::Growth": "2026-06-25T23:53:02.751063+00:00",
-  "Ankr Health::Sales Development Representative (Houston)": "2026-06-25T23:53:02.751065+00:00",
-  "Ankr Health::Sales Development Representative (Health IT)-Chicago": "2026-06-25T23:53:02.751067+00:00",
-  "Ankr Health::Senior Sales Development Representative (Health IT)-Minneapolis": "2026-06-25T23:53:02.751068+00:00",
-  "Ankr Health::Sales Development Representative (Health IT)": "2026-06-25T23:53:02.751070+00:00",
-  "Ankr Health::Senior Sales Development Representative -Atlanta": "2026-06-25T23:53:02.751072+00:00",
-  "Seabound::Head of Business Development": "2026-06-25T23:53:02.751073+00:00",
-  "Axross Pte Ltd::Business Development": "2026-06-25T23:53:02.751075+00:00",
-  "Cozmo AI::Sales Executive (Consultant)": "2026-06-25T23:53:02.751077+00:00",
-  "Cozmo AI::GTM Engineer (Internship -> Fulltime)": "2026-06-25T23:53:02.751078+00:00",
-  "Peakflo::Business Development Intern (Paid - India/Remote)": "2026-06-25T23:53:02.751080+00:00",
-  "Peakflo::Sales Development Representative (SDR) Intern (Paid - India/Remote)": "2026-06-25T23:53:02.751082+00:00",
-  "Tr\u00e9bol::Marketing Sr. Analyst": "2026-06-25T23:53:02.751084+00:00",
-  "Tr\u00e9bol::Sales Account Executive": "2026-06-25T23:53:02.751086+00:00",
-  "Strac::Sales Development Representative (SDR)": "2026-06-25T23:53:02.751088+00:00",
-  "Strac::Head of Marketing": "2026-06-25T23:53:02.751089+00:00",
-  "GrowthBook::Demand Generation Manager": "2026-06-25T23:53:02.751091+00:00",
-  "Spot Health::Growth Operations": "2026-06-25T23:53:02.751093+00:00",
-  "Elevate (formerly Bloom)::Head of Growth, Egypt": "2026-06-25T23:53:02.751095+00:00",
-  "Elevate (formerly Bloom)::Head of Growth, Philippines": "2026-06-25T23:53:02.751097+00:00",
-  "Elevate (formerly Bloom)::Head of Growth, Jordan": "2026-06-25T23:53:02.751099+00:00",
-  "Elevate (formerly Bloom)::Head of Growth, Algeria": "2026-06-25T23:53:02.751100+00:00",
-  "Attack Capital::Head of Sales/GTM (Venture Studio Team)": "2026-06-25T23:53:02.751102+00:00",
-  "Attack Capital::Product/ Growth Manager (Venture Studio)": "2026-06-25T23:53:02.751104+00:00",
-  "Emerge Career::Founding Growth Marketer": "2026-06-25T23:53:02.751106+00:00",
-  "Lightly::Business Development Representative in a fast-growing AI Startup": "2026-06-25T23:53:02.751107+00:00",
-  "Nash::Product Marketing Lead": "2026-06-25T23:53:02.751109+00:00",
-  "Sully.ai::Head of Sales": "2026-06-25T23:53:02.751111+00:00",
   "Synder::Business development representative / Lead generation specialist": "2026-06-25T23:53:02.751113+00:00",
-  "Storylane::Sales Development Representative (SDR)": "2026-06-25T23:53:02.751115+00:00",
-  "Telmai::Technical Sales Engineering": "2026-06-25T23:53:02.751117+00:00",
-  "Writesonic::Head of Growth Marketing": "2026-06-25T23:53:02.751119+00:00",
-  "Meticulous::Founding Account Executive": "2026-06-25T23:53:02.751121+00:00",
-  "Zensors::Product Marketing Lead - Spatial AI": "2026-06-25T23:53:02.751123+00:00",
-  "Zensors::Account Executive, GTM Strategy": "2026-06-25T23:53:02.751124+00:00",
-  "CoLoop::Business Development Representative": "2026-06-25T23:53:02.751126+00:00",
-  "OneSchema::Business Development Representative": "2026-06-25T23:53:02.751128+00:00",
-  "Coinrule::Digital Marketing Manager": "2026-06-25T23:53:02.751130+00:00",
-  "Formance::Business Development Representative": "2026-06-25T23:53:02.751132+00:00",
-  "Shimmer::Social Media Manager & Growth Hacker": "2026-06-25T23:53:02.751134+00:00",
-  "Nira Energy::Account Executive & Growth - Utilities": "2026-06-25T23:53:02.751136+00:00",
-  "DigiBuild::Sales Lead | The \u201cPromota\" Gauntlet": "2026-06-25T23:53:02.751138+00:00",
-  "Enerjazz::Field Sales Executive/Manager": "2026-06-25T23:53:02.751140+00:00",
-  "Aqua::Founding Account Executive\u2014Distribution Channels": "2026-06-25T23:53:02.751141+00:00",
-  "Aqua::Founding Account Executive\u2014Asset Manager/Sponsor Channel": "2026-06-25T23:53:02.751143+00:00",
-  "Aqua::GTM Associate": "2026-06-25T23:53:02.751145+00:00",
-  "Hyperbrowser::Growth Engineer Intern": "2026-06-25T23:53:02.751147+00:00",
-  "SafeBeat::Sales Development Representative": "2026-06-25T23:53:02.751149+00:00",
-  "SafeBeat::Head of Growth": "2026-06-25T23:53:02.751151+00:00",
-  "Zen::Growth iOS Swift Engineer": "2026-06-25T23:53:02.751153+00:00",
   "Anakin::GTM Automation Engineer": "2026-06-25T23:53:02.751155+00:00",
-  "Double::Sales Development Representative": "2026-06-25T23:53:02.751157+00:00",
-  "AlgoUniversity::Sales Executive, GTM Strategy (Intern)": "2026-06-25T23:53:02.751159+00:00",
-  "AlgoUniversity::Digital Marketing Specialist": "2026-06-25T23:53:02.751160+00:00",
-  "Parallel Bio::Head of Sales": "2026-06-25T23:53:02.751162+00:00",
-  "Confido::Senior Sales Development Representative": "2026-06-25T23:53:02.751164+00:00",
-  "Confido::Founding Growth": "2026-06-25T23:53:02.751166+00:00",
   "Karbon Card::Digital Marketing Specialist": "2026-06-25T23:53:02.751168+00:00",
-  "Replo::Sales (0 > 1 Leader)": "2026-06-25T23:53:02.751170+00:00",
-  "Varos::Sales Development Representative (SDR)": "2026-06-25T23:53:02.751172+00:00",
   "Archbee::Head of Marketing": "2026-06-25T23:53:02.751174+00:00",
   "Archbee::Marketing Manager": "2026-06-25T23:53:02.751176+00:00",
-  "Agap\u00e9::Social Media Marketing Intern - Content Creator": "2026-06-25T23:53:02.751177+00:00",
-  "Slope::Sales Development Representative": "2026-06-25T23:53:02.751180+00:00",
   "Reframe (Glucobit)::Marketing Manager": "2026-06-25T23:53:02.751182+00:00",
-  "Terra API::Sales Strategist": "2026-06-25T23:53:02.751183+00:00",
-  "SwiftSku::Founding Head of Growth": "2026-06-25T23:53:02.751205+00:00",
-  "Waydev AI::Head of Sales": "2026-06-25T23:53:02.751209+00:00",
-  "Waydev AI::Head of Growth": "2026-06-25T23:53:02.751213+00:00",
   "Authologic::VP of Marketing": "2026-06-25T23:53:02.751217+00:00",
-  "Jiga::Sales Development Representative (SDR) - Remote": "2026-06-25T23:53:02.751220+00:00",
-  "Prospa::Marketing Manager": "2026-06-25T23:53:02.751222+00:00",
-  "Prospa::Marketing Intern": "2026-06-25T23:53:02.751224+00:00",
-  "Gigs::Partner Marketing, Fintech": "2026-06-25T23:53:02.751226+00:00",
-  "Svix::Founding Marketing Lead": "2026-06-25T23:53:02.751228+00:00",
-  "Infracost::Marketing Lead": "2026-06-25T23:53:02.751230+00:00",
-  "Haystack::Influencer Marketing": "2026-06-25T23:53:02.751232+00:00",
   "Soraban::Demand Generation Manager": "2026-06-25T23:53:02.751233+00:00",
   "Soraban::Marketing Manager": "2026-06-25T23:53:02.751235+00:00",
-  "Betterhalf::Senior Technical Growth Product Manager/ Growth Hacker": "2026-06-25T23:53:02.751237+00:00",
-  "Lamar Health::Founding AE - Enterprise Experience Required": "2026-06-25T23:53:02.751239+00:00",
-  "Codingal::Senior Business Development Associate": "2026-06-25T23:53:02.751241+00:00",
-  "Codingal::Business Development Associate": "2026-06-25T23:53:02.751243+00:00",
-  "Codingal::Business Development Associate (Renewals)": "2026-06-25T23:53:02.751244+00:00",
-  "Solo::Growth Marketing Manager": "2026-06-25T23:53:02.751246+00:00",
-  "Solo::Senior Growth Marketing Manager": "2026-06-25T23:53:02.751248+00:00",
-  "Solo::Senior Growth Marketing Executive": "2026-06-25T23:53:02.751250+00:00",
-  "Tractian::Sales Development Representative": "2026-06-25T23:53:02.751252+00:00",
-  "Tractian::Sales Account Executive": "2026-06-25T23:53:02.751253+00:00",
-  "Topline Pro::Lead Generation Manager": "2026-06-25T23:53:02.751255+00:00",
-  "Topline Pro::Performance Marketing Manager": "2026-06-25T23:53:02.751257+00:00",
-  "Text Blaze::Product Marketing": "2026-06-25T23:53:02.751259+00:00",
   "LiveFlow::GTM Engineer": "2026-06-25T23:53:02.751260+00:00",
-  "Anima::Account Executive / Manager (Fullstack Sales)": "2026-06-25T23:53:02.751262+00:00",
-  "Fathom::Senior Growth Marketing Manager": "2026-06-25T23:53:02.751264+00:00",
   "Popl::Sales Development Representative (SDR)": "2026-06-25T23:53:02.751266+00:00",
-  "Popl::Head of Revenue Operations (RevOps)": "2026-06-25T23:53:02.751268+00:00",
-  "Pangea.app::Growth Marketing Manager": "2026-06-25T23:53:02.751270+00:00",
-  "Topkey::Senior Sales Development Representative": "2026-06-25T23:53:02.751272+00:00",
-  "Camber::Sales Development Representative": "2026-06-25T23:53:02.751274+00:00",
-  "Firstbase.io::Growth Manager, Paid and Lifecycle": "2026-06-25T23:53:02.751275+00:00",
-  "Cyble::Sales Engineer - Singapore": "2026-06-25T23:53:02.751277+00:00",
-  "Axle Health::Head of Growth Marketing": "2026-06-25T23:53:02.751279+00:00",
-  "Encord::GTM Special Projects, Physical AI": "2026-06-25T23:53:02.751281+00:00",
-  "GroMo::Growth Marketer": "2026-06-25T23:53:02.751282+00:00",
-  "arnata::Business Development Representative": "2026-06-25T23:53:02.751284+00:00",
-  "SigNoz::Growth Marketing (Remote)(US based)": "2026-06-25T23:53:02.751286+00:00",
-  "SigNoz::Growth Marketing (India/EU)": "2026-06-25T23:53:02.751287+00:00",
-  "MedMe Health::QA Automation Engineer (APAC/LATAM)": "2026-06-25T23:53:02.751289+00:00",
-  "MedMe Health::Revenue Cycle Management (RCM) Manager": "2026-06-25T23:53:02.751291+00:00",
-  "Abacum::Lead Product Marketing Manager": "2026-06-25T23:53:02.751293+00:00",
-  "Abacum::Growth Strategist Lead": "2026-06-25T23:53:02.751294+00:00",
-  "Abacum::Business Development Representative (BDR)": "2026-06-25T23:53:02.751297+00:00",
-  "Abacum::Content & Marketing Operations Specialist": "2026-06-25T23:53:02.751299+00:00",
-  "Abacum::Head of Demand Generation": "2026-06-25T23:53:02.751300+00:00",
-  "Zuddl::Sales Development Representative (SDR)- US Location": "2026-06-25T23:53:02.751302+00:00",
-  "Zuddl::Lead - Growth Engineering": "2026-06-25T23:53:02.751304+00:00",
-  "Fieldguide::Senior Product Marketing Manager": "2026-06-25T23:53:02.751306+00:00",
-  "Rally::Marketing Intern": "2026-06-25T23:53:02.751308+00:00",
-  "Glimpse::GTM Engineer": "2026-06-25T23:53:02.751310+00:00",
-  "Taktile::Business Development Representative": "2026-06-25T23:53:02.751312+00:00",
-  "Arketa::Sales Development Representative": "2026-06-25T23:53:02.751314+00:00",
-  "Arketa::Sales Account Executive - SMB, UK": "2026-06-25T23:53:02.751315+00:00",
   "Arketa::Sales Account Executive - SMB": "2026-06-25T23:53:02.751317+00:00",
-  "Arketa::Sales Development Representative,  UK": "2026-06-25T23:53:02.751319+00:00",
-  "Kingdom::GTM Systems Lead": "2026-06-25T23:53:02.751321+00:00",
-  "Notabene::Sales Director, Americas (Institutional)": "2026-06-25T23:53:02.751323+00:00",
-  "BIK::Founding Account Executive": "2026-06-25T23:53:02.751325+00:00",
-  "Vitable Health::Sales Development Representative": "2026-06-25T23:53:02.751327+00:00",
-  "Hellometer::Founding Sales Hire (SDR / AE Hybrid) at Hellometer": "2026-06-25T23:53:02.751329+00:00",
-  "Nextera Robotics::Sr. Business Development Manager": "2026-06-25T23:53:02.751330+00:00",
-  "Seal::Business Development Reprentative (BDR / SDR)": "2026-06-25T23:53:02.751332+00:00",
-  "Hypotenuse AI::Enterprise Account Executive (Full Cycle Sales)": "2026-06-25T23:53:02.751334+00:00",
-  "Hypotenuse AI::Founding Account Executive (Full Cycle Sales)": "2026-06-25T23:53:02.751336+00:00",
-  "Explorex::Sales Executive": "2026-06-25T23:53:02.751338+00:00",
-  "QuestDB::Head of Growth": "2026-06-25T23:53:02.751340+00:00",
-  "AtoB::Partner Marketing Manager": "2026-06-25T23:53:02.751342+00:00",
-  "Blue Onion::Growth Marketing Manager (AI-Native)": "2026-06-25T23:53:02.751344+00:00",
-  "Roboflow::Sales Development Representative": "2026-06-25T23:53:02.751346+00:00",
-  "Stable::Growth Engineer": "2026-06-25T23:53:02.751348+00:00",
   "Avion::Sales Development Representative": "2026-06-25T23:53:02.751350+00:00",
-  "Junction::Sales Development Representative": "2026-06-25T23:53:02.751352+00:00",
-  "AIOS::Head of Product Growth (Referrals & Viral Loops) at AIOS \u2014 Remote, $200k-$400k/yr + 0.15%-0.50%": "2026-06-25T23:53:02.751354+00:00",
-  "Candid Health::Revenue Cycle Customer Success": "2026-06-25T23:53:02.751356+00:00",
-  "Vori::Founding Sales Rep": "2026-06-25T23:53:02.751358+00:00",
-  "Turing Labs Inc.::Sales / GTM Hacker": "2026-06-25T23:53:02.751360+00:00",
-  "Eze::Head of Sales": "2026-06-25T23:53:02.751362+00:00",
   "Aden::Sales Lead": "2026-06-25T23:53:02.751364+00:00",
   "Aden::Growth Lead": "2026-06-25T23:53:02.751365+00:00",
-  "Taiv::VP National Ad Sales": "2026-06-25T23:53:02.751367+00:00",
-  "Taiv::National Ad Salesperson": "2026-06-25T23:53:02.751369+00:00",
-  "Porter::Growth/Product Engineer": "2026-06-25T23:53:02.751371+00:00",
-  "Paragon::Revenue Operations Manager": "2026-06-25T23:53:02.751373+00:00",
-  "Paragon::Product Marketing Lead": "2026-06-25T23:53:02.751375+00:00",
   "Paragon::Solutions Engineer (Post-Sales | Implementation)": "2026-06-25T23:53:02.751377+00:00",
-  "Karat Financial::Growth Engineer": "2026-06-25T23:53:02.751379+00:00",
   "Curri::Outside Sales Representative (Orlando, Florida)": "2026-06-25T23:53:02.751381+00:00",
   "Curri::Outside Sales Representative (Philadelphia, PA)": "2026-06-25T23:53:02.751383+00:00",
   "Curri::Outside Sales Representative (San Antonio, TX)": "2026-06-25T23:53:02.751385+00:00",
   "Curri::Outside Sales Representative (Vancouver, WA)": "2026-06-25T23:53:02.751387+00:00",
-  "InEvent::Sales Account Executive": "2026-06-25T23:53:02.751389+00:00",
-  "InEvent::Sales Manager": "2026-06-25T23:53:02.751391+00:00",
   "Outtalent::Founding Sales Manager": "2026-06-25T23:53:02.751392+00:00",
-  "Embrace::Business Development Lead": "2026-06-25T23:53:02.751394+00:00",
-  "Dex::Founding Growth and Marketing Lead - AI Product": "2026-06-25T23:53:02.751396+00:00",
-  "Vouch::Business Development Representative": "2026-06-25T23:53:02.751398+00:00",
-  "Verto::Enterprise Sales Manager": "2026-06-25T23:53:02.751400+00:00",
-  "Verto::Sales Manager": "2026-06-25T23:53:02.751402+00:00",
-  "Cityfurnish::Marketing Intern": "2026-06-25T23:53:02.751404+00:00",
-  "Cityfurnish::Marketing Intern ( Social Media)": "2026-06-25T23:53:02.751405+00:00",
   "Cityfurnish::Brand Content and Social Media Marketing Intern": "2026-06-25T23:53:02.751407+00:00",
-  "Dover::Marketing Leader": "2026-06-25T23:53:02.751409+00:00",
-  "Deel::Sales Development Representative (SMB - MM- ENT)": "2026-06-25T23:53:02.751411+00:00",
-  "Deel::SDR Manager (SMB - MM - ENT)": "2026-06-25T23:53:02.751413+00:00",
-  "Swadesh::Sales & Marketing Intern": "2026-06-25T23:53:02.751415+00:00",
-  "GoLinks::Sr. Sales Development Representative": "2026-06-25T23:53:02.751416+00:00",
-  "GoLinks::Sales Development Representative (Remote)": "2026-06-25T23:53:02.751418+00:00",
-  "GoLinks::Sr. Sales Development Representative (Remote)": "2026-06-25T23:53:02.751420+00:00",
-  "GoLinks::Sales Development Representative (Hybrid)": "2026-06-25T23:53:02.751422+00:00",
   "Community Phone Company::Sr Product Marketing Manager": "2026-06-25T23:53:02.751424+00:00",
-  "Community Phone Company::Sr Growth Product Manager": "2026-06-25T23:53:02.751426+00:00",
-  "Dyneti Technologies::Marketing Intern": "2026-06-25T23:53:02.751427+00:00",
-  "Leena AI::Sales Manager": "2026-06-25T23:53:02.751430+00:00",
-  "Nestor::Sales Development Representative (SDR)": "2026-06-25T23:53:02.751432+00:00",
-  "Pine Park Health::Sales Enrollment Director": "2026-06-25T23:53:02.751433+00:00",
-  "Alpha Vantage::GTM team (Various roles available)": "2026-06-25T23:53:02.751435+00:00",
-  "Alpha Vantage::Growth Manager": "2026-06-25T23:53:02.751437+00:00",
-  "Klarity::Product Marketing Manager": "2026-06-25T23:53:02.751439+00:00",
-  "OWNY::Head of Business Development, Global Banking Services": "2026-06-25T23:53:02.751441+00:00",
-  "Aspire::Senior Growth & Community Marketing Manager US": "2026-06-25T23:53:02.751443+00:00",
-  "Aspire::Business Development Manager, US": "2026-06-25T23:53:02.751445+00:00",
-  "Orangewood Labs::Marketing and BDA Intern": "2026-06-25T23:53:02.751447+00:00",
-  "Substack::Growth Engineer": "2026-06-25T23:53:02.751448+00:00",
-  "BioRender::Business Development Representative": "2026-06-25T23:53:02.751450+00:00",
-  "Muzz::Marketing Executive - US": "2026-06-25T23:53:02.751452+00:00",
-  "NanoNets::Sales Engineer": "2026-06-25T23:53:02.751454+00:00",
-  "Veryfi, Inc.::Sales Engineer": "2026-06-25T23:53:02.751455+00:00",
-  "Collectly::Director of Enterprise Sales (Hybrid - San Francisco)": "2026-06-25T23:53:02.751457+00:00",
-  "Mednet::Lifecycle Marketing Manager": "2026-06-25T23:53:02.751459+00:00",
-  "Mednet::Growth Marketing Manager": "2026-06-25T23:53:02.751461+00:00",
-  "Wright Electric::Business Development Lead to the CEO (Chief of Staff \u2013 BD)": "2026-06-25T23:53:02.751463+00:00",
-  "Ambient.ai::Regional Sales Manager, Strategic Accounts": "2026-06-25T23:53:02.751465+00:00",
-  "Clipboard::Sales Development Representative - New Verticals": "2026-06-25T23:53:02.751467+00:00",
-  "MDalgorithms Inc.::Growth Marketer for a Rapidly Growing Consumer AI Healthcare Company \ud83d\ude80": "2026-06-25T23:53:02.751469+00:00",
-  "MDalgorithms Inc.::Head of Growth for a Rapidly Growing Consumer AI Healthcare Company \ud83d\ude80": "2026-06-25T23:53:02.751471+00:00",
-  "Speak::Japan Growth Marketing Manager": "2026-06-25T23:53:02.751473+00:00",
-  "HiOperator::Business Development Representative": "2026-06-25T23:53:02.751474+00:00",
-  "Joy::Digital Marketing Manager": "2026-06-25T23:53:02.751477+00:00",
-  "PocketSuite::Lead Generalist Engineer": "2026-06-25T23:53:02.751478+00:00",
-  "PocketSuite::Marketing Generalist - SMB Growth & Strategy": "2026-06-25T23:53:02.751480+00:00",
-  "Deepgram::Sales Development Representative": "2026-06-25T23:53:02.751482+00:00",
-  "Bitmovin::Sales Director": "2026-06-25T23:53:02.751483+00:00",
   "Scope AR::AI Test Automation Developer": "2026-06-25T23:53:02.751485+00:00",
   "SnapMagic::Senior Sales Development Representative": "2026-06-25T23:53:02.751487+00:00",
-  "SnapMagic::Head of Sales": "2026-06-25T23:53:02.751488+00:00",
-  "Tara AI::Founding Account Executive \u2014 San Francisco, CA": "2026-06-25T23:53:02.751490+00:00",
-  "Tara AI::Founding Account Executive \u2014 Remote": "2026-06-25T23:53:02.751492+00:00",
-  "AptDeco::Marketing Manager": "2026-06-25T23:53:02.751494+00:00",
-  "Wefunder::Head of Sales, Syndicates": "2026-06-25T23:53:02.751496+00:00",
-  "Zentail::Business Development Representative - Hybrid": "2026-06-25T23:53:02.751497+00:00",
-  "OneSignal::Product Marketing Manager": "2026-06-25T23:53:02.751499+00:00",
-  "Apollo::Enterprise Sales Executive - West": "2026-06-25T23:53:02.751501+00:00"
+  "https://www.ycombinator.com/companies/mount/jobs/pwlMhK6-gtm": {
+    "company": "Mount",
+    "title": "GTM",
+    "first_seen": "2026-06-25T23:53:02.750321+00:00"
+  },
+  "https://www.ycombinator.com/companies/standout/jobs/QR7sNTK-founding-sales": {
+    "company": "Standout",
+    "title": "Founding Sales",
+    "first_seen": "2026-06-25T23:53:02.750336+00:00"
+  },
+  "https://www.ycombinator.com/companies/trycardinal-ai/jobs/OsZ1pMy-founding-ae": {
+    "company": "Cardinal",
+    "title": "Founding AE",
+    "first_seen": "2026-06-25T23:53:02.750339+00:00"
+  },
+  "https://www.ycombinator.com/companies/unifold/jobs/5GToVuG-founding-gtm-bd-lead": {
+    "company": "Unifold",
+    "title": "Founding GTM/BD Lead",
+    "first_seen": "2026-06-25T23:53:02.750341+00:00"
+  },
+  "https://www.ycombinator.com/companies/voygr/jobs/OgW9P9g-sales-development-representative-sdr-voygr-remote-yc-w26": {
+    "company": "VOYGR",
+    "title": "Sales Development Representative (SDR) \u2013 VOYGR (Remote) | YC W26",
+    "first_seen": "2026-06-25T23:53:02.750344+00:00"
+  },
+  "https://www.ycombinator.com/companies/fort/jobs/1fmqkTt-growth-marketing-lead": {
+    "company": "Fort",
+    "title": "Growth Marketing Lead",
+    "first_seen": "2026-06-25T23:53:02.750353+00:00"
+  },
+  "https://www.ycombinator.com/companies/booko/jobs/7yAOw07-founding-growth-lead": {
+    "company": "Booko",
+    "title": "Founding Growth Lead",
+    "first_seen": "2026-06-25T23:53:02.750346+00:00"
+  },
+  "https://www.ycombinator.com/companies/chasi/jobs/1s5N2yC-founding-gtm": {
+    "company": "Chasi",
+    "title": "Founding GTM",
+    "first_seen": "2026-06-25T23:53:02.750349+00:00"
+  },
+  "https://www.ycombinator.com/companies/getbalance/jobs/RYuBXyQ-founding-gtm-aes": {
+    "company": "Balance",
+    "title": "Founding GTM / AEs",
+    "first_seen": "2026-06-25T23:53:02.750351+00:00"
+  },
+  "https://www.ycombinator.com/companies/pocket/jobs/qTAJfsx-performance-marketing-manager": {
+    "company": "Pocket",
+    "title": "Performance Marketing Manager",
+    "first_seen": "2026-06-25T23:53:02.750355+00:00"
+  },
+  "https://www.ycombinator.com/companies/stilta/jobs/ZkPwXbt-founding-gtm": {
+    "company": "Stilta",
+    "title": "Founding GTM",
+    "first_seen": "2026-06-25T23:53:02.750364+00:00"
+  },
+  "https://www.ycombinator.com/companies/salus/jobs/S2nl2Hx-founding-gtm-bdr-ai-agent-infrastructure": {
+    "company": "Salus",
+    "title": "Founding GTM / BDR \u2014 AI Agent Infrastructure",
+    "first_seen": "2026-06-25T23:53:02.750372+00:00"
+  },
+  "https://www.ycombinator.com/companies/ramain/jobs/hqvmyKN-founding-gtm-engineer": {
+    "company": "RamAIn",
+    "title": "Founding GTM Engineer",
+    "first_seen": "2026-06-25T23:53:02.750369+00:00"
+  },
+  "https://www.ycombinator.com/companies/lance/jobs/h3ggiJK-product-marketing-manager": {
+    "company": "Lance",
+    "title": "Product Marketing Manager",
+    "first_seen": "2026-06-25T23:53:02.750376+00:00"
+  },
+  "https://www.ycombinator.com/companies/didit/jobs/8f2aE2a-growth-marketer": {
+    "company": "Didit",
+    "title": "Growth Marketer",
+    "first_seen": "2026-06-25T23:53:02.750378+00:00"
+  },
+  "https://www.ycombinator.com/companies/catchback-cards/jobs/eOn5CtQ-gtm": {
+    "company": "CatchBack Cards",
+    "title": "GTM",
+    "first_seen": "2026-06-25T23:53:02.750380+00:00"
+  },
+  "https://www.ycombinator.com/companies/catchback-cards/jobs/Z1FjbKi-growth-intern-fall-winter-cycles": {
+    "company": "CatchBack Cards",
+    "title": "Growth Intern (Fall, Winter cycles)",
+    "first_seen": "2026-06-25T23:53:02.750383+00:00"
+  },
+  "https://www.ycombinator.com/companies/clicks/jobs/kmT307H-founding-sdr-healthcare-clicks-yc-f25": {
+    "company": "Clicks",
+    "title": "Founding SDR (Healthcare) @ Clicks (YC F25)",
+    "first_seen": "2026-06-25T23:53:02.750386+00:00"
+  },
+  "https://www.ycombinator.com/companies/vector-legal/jobs/qNxMUbU-founding-gtm-manager": {
+    "company": "Vector Legal",
+    "title": "Founding GTM Manager",
+    "first_seen": "2026-06-25T23:53:02.750388+00:00"
+  },
+  "https://www.ycombinator.com/companies/jarmin/jobs/AsWF8a3-founding-sales-account-executive": {
+    "company": "Jarmin",
+    "title": "Founding Sales - Account Executive",
+    "first_seen": "2026-06-25T23:53:02.750390+00:00"
+  },
+  "https://www.ycombinator.com/companies/karumi/jobs/GzM0fwO-growth": {
+    "company": "Karumi",
+    "title": "Growth",
+    "first_seen": "2026-06-25T23:53:02.750392+00:00"
+  },
+  "https://www.ycombinator.com/companies/unsiloed-ai/jobs/ePft6Ux-founding-gtm-lead": {
+    "company": "Unsiloed AI",
+    "title": "Founding GTM Lead",
+    "first_seen": "2026-06-25T23:53:02.750394+00:00"
+  },
+  "https://www.ycombinator.com/companies/flick/jobs/pSUQOu1-gtm-intern": {
+    "company": "Flick",
+    "title": "GTM Intern",
+    "first_seen": "2026-06-25T23:53:02.750397+00:00"
+  },
+  "https://www.ycombinator.com/companies/aspect-inc/jobs/siiWHs3-founding-gtm": {
+    "company": "Aspect",
+    "title": "Founding GTM",
+    "first_seen": "2026-06-25T23:53:02.750399+00:00"
+  },
+  "https://www.ycombinator.com/companies/brickanta/jobs/i9EAeCM-gtm-engineer-build-the-bridge-between-product-and-revenue": {
+    "company": "Brickanta",
+    "title": "GTM Engineer \u2014 build the bridge between product and revenue",
+    "first_seen": "2026-06-25T23:53:02.750406+00:00"
+  },
+  "https://www.ycombinator.com/companies/uplane/jobs/aFjvQEb-ai-marketing-strategist-san-francisco": {
+    "company": "Uplane",
+    "title": "AI Marketing Strategist - San Francisco",
+    "first_seen": "2026-06-25T23:53:02.750400+00:00"
+  },
+  "https://www.ycombinator.com/companies/uplane/jobs/TEEElmy-ai-marketing-strategist-intern-san-francisco": {
+    "company": "Uplane",
+    "title": "AI Marketing Strategist Intern - San Francisco",
+    "first_seen": "2026-06-25T23:53:02.750403+00:00"
+  },
+  "https://www.ycombinator.com/companies/vulcan-technologies/jobs/vW21mUl-sdr-bdr": {
+    "company": "Vulcan Technologies",
+    "title": "SDR / BDR",
+    "first_seen": "2026-06-25T23:53:02.750411+00:00"
+  },
+  "https://www.ycombinator.com/companies/stagewise/jobs/4LgeiMC-growth-hacker-intern-mandatory-internship": {
+    "company": "stagewise",
+    "title": "Growth Hacker Intern (Mandatory Internship)",
+    "first_seen": "2026-06-25T23:53:02.750415+00:00"
+  },
+  "https://www.ycombinator.com/companies/juxta/jobs/ZCPgmGZ-growth-engineer": {
+    "company": "Juxta",
+    "title": "Growth Engineer",
+    "first_seen": "2026-06-25T23:53:02.750417+00:00"
+  },
+  "https://www.ycombinator.com/companies/reacher/jobs/44JG1fa-founding-account-executive": {
+    "company": "Reacher",
+    "title": "Founding Account Executive",
+    "first_seen": "2026-06-25T23:53:02.750413+00:00"
+  },
+  "https://www.ycombinator.com/companies/nozomio/jobs/l0rxLyD-founding-member-of-marketing-staff": {
+    "company": "Nozomio",
+    "title": "Founding Member of Marketing Staff",
+    "first_seen": "2026-06-25T23:53:02.750421+00:00"
+  },
+  "https://www.ycombinator.com/companies/nozomio/jobs/bT2YpAU-founding-growth": {
+    "company": "Nozomio",
+    "title": "Founding Growth",
+    "first_seen": "2026-06-25T23:53:02.750423+00:00"
+  },
+  "https://www.ycombinator.com/companies/comena/jobs/zePtY2V-founding-gtm-associate": {
+    "company": "Comena",
+    "title": "Founding GTM Associate",
+    "first_seen": "2026-06-25T23:53:02.750428+00:00"
+  },
+  "https://www.ycombinator.com/companies/comena/jobs/YbRQGGU-gtm-associate-intern": {
+    "company": "Comena",
+    "title": "GTM Associate Intern",
+    "first_seen": "2026-06-25T23:53:02.750431+00:00"
+  },
+  "https://www.ycombinator.com/companies/careswift/jobs/o3fmhcE-founding-ems-sales-development-representative": {
+    "company": "CareSwift",
+    "title": "Founding EMS Sales Development Representative",
+    "first_seen": "2026-06-25T23:53:02.750435+00:00"
+  },
+  "https://www.ycombinator.com/companies/tesora/jobs/PxgFXks-gtm-insurance-executive": {
+    "company": "Tesora",
+    "title": "GTM Insurance Executive",
+    "first_seen": "2026-06-25T23:53:02.750433+00:00"
+  },
+  "https://www.ycombinator.com/companies/humwork/jobs/1wdQLOT-gtm-engineer-ai-native-outbound-sales": {
+    "company": "Humwork",
+    "title": "GTM Engineer (AI-Native Outbound & Sales)",
+    "first_seen": "2026-06-25T23:53:02.750439+00:00"
+  },
+  "https://www.ycombinator.com/companies/shor/jobs/EbSR0PY-founding-growth-gtm-lead": {
+    "company": "Shor",
+    "title": "Founding Growth/GTM Lead",
+    "first_seen": "2026-06-25T23:53:02.750447+00:00"
+  },
+  "https://www.ycombinator.com/companies/lanesurf/jobs/lqBfSJh-founding-sales-development-representative-sdr-bdr": {
+    "company": "Lanesurf",
+    "title": "Founding Sales Development Representative (SDR/BDR)",
+    "first_seen": "2026-06-25T23:53:02.750441+00:00"
+  },
+  "https://www.ycombinator.com/companies/agentmail/jobs/7WRQSNz-founding-gtm-lead": {
+    "company": "AgentMail",
+    "title": "Founding GTM Lead",
+    "first_seen": "2026-06-25T23:53:02.750443+00:00"
+  },
+  "https://www.ycombinator.com/companies/the-prompting-company/jobs/PlRQ5zB-founding-account-executive": {
+    "company": "The Prompting Company",
+    "title": "Founding Account Executive",
+    "first_seen": "2026-06-25T23:53:02.750445+00:00"
+  },
+  "https://www.ycombinator.com/companies/mindfort/jobs/HvxzG4m-founding-sdr": {
+    "company": "MindFort",
+    "title": "Founding SDR",
+    "first_seen": "2026-06-25T23:53:02.750451+00:00"
+  },
+  "https://www.ycombinator.com/companies/naive/jobs/kRh5sWd-growth-engineer": {
+    "company": "Na\u00efve",
+    "title": "Growth Engineer",
+    "first_seen": "2026-06-25T23:53:02.750454+00:00"
+  },
+  "https://www.ycombinator.com/companies/naive/jobs/LmPnoKJ-growth-engineer-intern": {
+    "company": "Na\u00efve",
+    "title": "Growth Engineer Intern",
+    "first_seen": "2026-06-25T23:53:02.750456+00:00"
+  },
+  "https://www.ycombinator.com/companies/scalar-field/jobs/O0pkhfz-digital-native-community-social-creator-growth-internship": {
+    "company": "Scalar Field",
+    "title": "Digital Native Community, Social & Creator Growth Internship",
+    "first_seen": "2026-06-25T23:53:02.750458+00:00"
+  },
+  "https://www.ycombinator.com/companies/sygaldry-technologies/jobs/mWqsggZ-partnerships-manager-technical-gtm-team": {
+    "company": "Sygaldry Technologies",
+    "title": "Partnerships Manager (Technical), GTM Team",
+    "first_seen": "2026-06-25T23:53:02.750461+00:00"
+  },
+  "https://www.ycombinator.com/companies/besimple-ai/jobs/CUcfO8E-growth-operations-lead-contributor-supply": {
+    "company": "Besimple AI",
+    "title": "Growth Operations Lead, Contributor Supply",
+    "first_seen": "2026-06-25T23:53:02.750463+00:00"
+  },
+  "https://www.ycombinator.com/companies/throxy/jobs/ncqidMq-sales-development-representative-sdr": {
+    "company": "throxy",
+    "title": "Sales Development Representative (SDR)",
+    "first_seen": "2026-06-25T23:53:02.750467+00:00"
+  },
+  "https://www.ycombinator.com/companies/casco/jobs/ZfbpM3O-growth-engineer": {
+    "company": "Casco",
+    "title": "Growth Engineer",
+    "first_seen": "2026-06-25T23:53:02.750469+00:00"
+  },
+  "https://www.ycombinator.com/companies/lucis/jobs/OOnT2qx-head-of-acquisition-growth": {
+    "company": "Lucis",
+    "title": "Head of acquisition & growth",
+    "first_seen": "2026-06-25T23:53:02.750465+00:00"
+  },
+  "https://www.ycombinator.com/companies/parsewise/jobs/tdO56TH-founding-gtm": {
+    "company": "Parsewise",
+    "title": "Founding GTM",
+    "first_seen": "2026-06-25T23:53:02.750471+00:00"
+  },
+  "https://www.ycombinator.com/companies/sim/jobs/TGDFhbo-founding-gtm-engineer": {
+    "company": "Sim",
+    "title": "Founding GTM Engineer",
+    "first_seen": "2026-06-25T23:53:02.750475+00:00"
+  },
+  "https://www.ycombinator.com/companies/claim-health/jobs/jevdxiH-content-marketing-intern": {
+    "company": "Claim Health",
+    "title": "Content Marketing Intern",
+    "first_seen": "2026-06-25T23:53:02.750477+00:00"
+  },
+  "https://www.ycombinator.com/companies/ralo/jobs/cRKb4KO-performance-marketing-lead": {
+    "company": "Ralo",
+    "title": "Performance Marketing Lead",
+    "first_seen": "2026-06-25T23:53:02.750479+00:00"
+  },
+  "https://www.ycombinator.com/companies/synthio-labs/jobs/cXIdJes-gtm-growth-lead": {
+    "company": "Synthio Labs",
+    "title": "GTM / Growth Lead",
+    "first_seen": "2026-06-25T23:53:02.750481+00:00"
+  },
+  "https://www.ycombinator.com/companies/bloom-4/jobs/jqNUNoX-founding-growth-engineer": {
+    "company": "Bloom",
+    "title": "Founding Growth Engineer",
+    "first_seen": "2026-06-25T23:53:02.750483+00:00"
+  },
+  "https://www.ycombinator.com/companies/wayline/jobs/pFSzQRu-founding-gtm-lead": {
+    "company": "Wayline",
+    "title": "Founding GTM Lead",
+    "first_seen": "2026-06-25T23:53:02.750487+00:00"
+  },
+  "https://www.ycombinator.com/companies/ergo/jobs/VDySCKB-founding-account-executive": {
+    "company": "Ergo",
+    "title": "Founding Account Executive",
+    "first_seen": "2026-06-25T23:53:02.750488+00:00"
+  },
+  "https://www.ycombinator.com/companies/rebolt/jobs/gOEVDd8-founding-growth-engineer": {
+    "company": "Rebolt",
+    "title": "Founding Growth Engineer",
+    "first_seen": "2026-06-25T23:53:02.750490+00:00"
+  },
+  "https://www.ycombinator.com/companies/fuseai/jobs/8ulCBUf-growth-operations-summer-associate": {
+    "company": "FuseAI",
+    "title": "Growth & Operations Summer Associate",
+    "first_seen": "2026-06-25T23:53:02.750494+00:00"
+  },
+  "https://www.ycombinator.com/companies/harper/jobs/pDx68zo-gtm-engineer": {
+    "company": "Harper",
+    "title": "GTM Engineer",
+    "first_seen": "2026-06-25T23:53:02.750498+00:00"
+  },
+  "https://www.ycombinator.com/companies/orbital-operations/jobs/8y19pnq-head-of-business-development": {
+    "company": "Orbital Operations",
+    "title": "Head of Business Development",
+    "first_seen": "2026-06-25T23:53:02.750496+00:00"
+  },
+  "https://www.ycombinator.com/companies/confident-ai/jobs/PETCNJ8-founding-gtm": {
+    "company": "Confident AI",
+    "title": "Founding GTM",
+    "first_seen": "2026-06-25T23:53:02.750500+00:00"
+  },
+  "https://www.ycombinator.com/companies/athenahq/jobs/ZqNEuPw-growth-engineer": {
+    "company": "AthenaHQ",
+    "title": "Growth Engineer",
+    "first_seen": "2026-06-25T23:53:02.750503+00:00"
+  },
+  "https://www.ycombinator.com/companies/athenahq/jobs/rPMNI5x-founding-growth-marketer": {
+    "company": "AthenaHQ",
+    "title": "Founding Growth Marketer",
+    "first_seen": "2026-06-25T23:53:02.750505+00:00"
+  },
+  "https://www.ycombinator.com/companies/macadamia/jobs/0FN5u8j-founding-gtm-lead": {
+    "company": "Macadamia",
+    "title": "Founding GTM Lead",
+    "first_seen": "2026-06-25T23:53:02.750507+00:00"
+  },
+  "https://www.ycombinator.com/companies/hud/jobs/B59vJPJ-marketing-events-lead": {
+    "company": "hud",
+    "title": "Marketing & Events Lead",
+    "first_seen": "2026-06-25T23:53:02.750509+00:00"
+  },
+  "https://www.ycombinator.com/companies/healthkey/jobs/A4JLX35-account-executive-founding-gtm": {
+    "company": "HealthKey",
+    "title": "Account Executive (Founding GTM)",
+    "first_seen": "2026-06-25T23:53:02.750511+00:00"
+  },
+  "https://www.ycombinator.com/companies/mosaic-2/jobs/ru8Nwdq-growth-marketing-intern": {
+    "company": "Mosaic",
+    "title": "Growth & Marketing Intern",
+    "first_seen": "2026-06-25T23:53:02.750513+00:00"
+  },
+  "https://www.ycombinator.com/companies/weave-3/jobs/A9QCCoj-founding-account-executive": {
+    "company": "Weave",
+    "title": "Founding Account Executive",
+    "first_seen": "2026-06-25T23:53:02.750519+00:00"
+  },
+  "https://www.ycombinator.com/companies/deployparagon/jobs/AmShWrt-founding-sales": {
+    "company": "Paragon",
+    "title": "Founding Sales",
+    "first_seen": "2026-06-25T23:53:02.750516+00:00"
+  },
+  "https://www.ycombinator.com/companies/maritime-fusion/jobs/fpZ2pbI-business-development-strategic-partnerships-lead": {
+    "company": "Maritime Fusion",
+    "title": "Business Development & Strategic Partnerships Lead",
+    "first_seen": "2026-06-25T23:53:02.750518+00:00"
+  },
+  "https://www.ycombinator.com/companies/a0-dev/jobs/V7cGC6Z-founding-growth-lead-contract-to-hire": {
+    "company": "a0.dev",
+    "title": "Founding Growth Lead (Contract-to-Hire)",
+    "first_seen": "2026-06-25T23:53:02.750521+00:00"
+  },
+  "https://www.ycombinator.com/companies/contrario/jobs/FrF6TsE-founding-gtm": {
+    "company": "Contrario",
+    "title": "Founding GTM",
+    "first_seen": "2026-06-25T23:53:02.750523+00:00"
+  },
+  "https://www.ycombinator.com/companies/hey-telo/jobs/FZsuyfE-founding-founders-associate-sales": {
+    "company": "Hey Telo",
+    "title": "Founding Founders Associate (Sales)",
+    "first_seen": "2026-06-25T23:53:02.750529+00:00"
+  },
+  "https://www.ycombinator.com/companies/hey-telo/jobs/xMop9Qn-founders-associate-intern-sales": {
+    "company": "Hey Telo",
+    "title": "Founders Associate Intern (Sales)",
+    "first_seen": "2026-06-25T23:53:02.750530+00:00"
+  },
+  "https://www.ycombinator.com/companies/subimage/jobs/YLYg08H-founding-gtm-at-subimage": {
+    "company": "SubImage",
+    "title": "Founding GTM at SubImage",
+    "first_seen": "2026-06-25T23:53:02.750527+00:00"
+  },
+  "https://www.ycombinator.com/companies/revise-robotics/jobs/cNqu0M0-business-development-intern-summer-fall-2026": {
+    "company": "Revise Robotics",
+    "title": "Business Development Intern \u2013 Summer/Fall 2026",
+    "first_seen": "2026-06-25T23:53:02.750532+00:00"
+  },
+  "https://www.ycombinator.com/companies/canvas/jobs/Ai3P3xH-growth-sales-ops": {
+    "company": "Canvas",
+    "title": "Growth Sales & Ops",
+    "first_seen": "2026-06-25T23:53:02.750534+00:00"
+  },
+  "https://www.ycombinator.com/companies/careforce/jobs/Q4ekhMP-enterprise-sales-lead": {
+    "company": "Careforce",
+    "title": "Enterprise Sales Lead",
+    "first_seen": "2026-06-25T23:53:02.750539+00:00"
+  },
+  "https://www.ycombinator.com/companies/ember/jobs/1Pp8EZM-healthcare-sdr": {
+    "company": "Ember",
+    "title": "Healthcare SDR",
+    "first_seen": "2026-06-25T23:53:02.750536+00:00"
+  },
+  "https://www.ycombinator.com/companies/ember/jobs/ETEjtVk-b2b-marketing": {
+    "company": "Ember",
+    "title": "B2B Marketing",
+    "first_seen": "2026-06-25T23:53:02.750538+00:00"
+  },
+  "https://www.ycombinator.com/companies/collectwise/jobs/P646Yw6-founding-account-executive": {
+    "company": "CollectWise",
+    "title": "Founding Account Executive",
+    "first_seen": "2026-06-25T23:53:02.750543+00:00"
+  },
+  "https://www.ycombinator.com/companies/fresco/jobs/x7sfk2N-sales-development-representative": {
+    "company": "Fresco",
+    "title": "Sales Development Representative",
+    "first_seen": "2026-06-25T23:53:02.750545+00:00"
+  },
+  "https://www.ycombinator.com/companies/vly-ai-2/jobs/WPxfdIZ-technical-marketing-intern": {
+    "company": "vly.ai",
+    "title": "Technical Marketing Intern",
+    "first_seen": "2026-06-25T23:53:02.750549+00:00"
+  },
+  "https://www.ycombinator.com/companies/unusual/jobs/5zHTDVM-founding-gtm-lead": {
+    "company": "Unusual",
+    "title": "Founding GTM Lead",
+    "first_seen": "2026-06-25T23:53:02.750550+00:00"
+  },
+  "https://www.ycombinator.com/companies/cekura-ai/jobs/0rnoFEc-founding-account-executive": {
+    "company": "Cekura",
+    "title": "Founding Account Executive",
+    "first_seen": "2026-06-25T23:53:02.750552+00:00"
+  },
+  "https://www.ycombinator.com/companies/cekura-ai/jobs/ZSehxei-founding-bdr-track-role": {
+    "company": "Cekura",
+    "title": "Founding BDR (Track Role)",
+    "first_seen": "2026-06-25T23:53:02.750554+00:00"
+  },
+  "https://www.ycombinator.com/companies/raycaster/jobs/baKPCCi-founding-gtm-raycaster-life-sciences": {
+    "company": "Raycaster",
+    "title": "Founding GTM @ Raycaster - Life Sciences",
+    "first_seen": "2026-06-25T23:53:02.750556+00:00"
+  },
+  "https://www.ycombinator.com/companies/streamable/jobs/Q0tIIWh-growth-marketing-social-media-intern": {
+    "company": "Streamable",
+    "title": "Growth / Marketing / Social Media Intern",
+    "first_seen": "2026-06-25T23:53:02.750558+00:00"
+  },
+  "https://www.ycombinator.com/companies/streamable/jobs/yfmkPYC-social-media-growth-intern-remote": {
+    "company": "Streamable",
+    "title": "Social Media / Growth Intern (Remote)",
+    "first_seen": "2026-06-25T23:53:02.750560+00:00"
+  },
+  "https://www.ycombinator.com/companies/candle/jobs/AzINRDn-growth-lead-creator-program-paid-social": {
+    "company": "Candle",
+    "title": "Growth Lead \u2013 Creator Program & Paid Social",
+    "first_seen": "2026-06-25T23:53:02.750565+00:00"
+  },
+  "https://www.ycombinator.com/companies/telli/jobs/A7keKbR-founding-sdr": {
+    "company": "telli",
+    "title": "Founding SDR",
+    "first_seen": "2026-06-25T23:53:02.750562+00:00"
+  },
+  "https://www.ycombinator.com/companies/telli/jobs/npKta61-growth-intern": {
+    "company": "telli",
+    "title": "Growth Intern",
+    "first_seen": "2026-06-25T23:53:02.750563+00:00"
+  },
+  "https://www.ycombinator.com/companies/syntra/jobs/GFOTCe0-healthcare-smb-outbound-sales-development-representative": {
+    "company": "Syntra",
+    "title": "Healthcare SMB Outbound Sales Development Representative",
+    "first_seen": "2026-06-25T23:53:02.750567+00:00"
+  },
+  "https://www.ycombinator.com/companies/capitol-ai/jobs/EtsIo4Q-founding-account-executive": {
+    "company": "Capitol AI",
+    "title": "Founding Account Executive",
+    "first_seen": "2026-06-25T23:53:02.750570+00:00"
+  },
+  "https://www.ycombinator.com/companies/no-logo/jobs/HL4hboz-founding-growth-lead-paid-media": {
+    "company": "No Logo",
+    "title": "Founding Growth Lead, Paid Media",
+    "first_seen": "2026-06-25T23:53:02.750572+00:00"
+  },
+  "https://www.ycombinator.com/companies/anglera/jobs/0EcFRvd-growth-lead": {
+    "company": "Anglera",
+    "title": "Growth Lead",
+    "first_seen": "2026-06-25T23:53:02.750569+00:00"
+  },
+  "https://www.ycombinator.com/companies/usul/jobs/NKQOWoU-founding-account-executive": {
+    "company": "Usul",
+    "title": "Founding Account Executive",
+    "first_seen": "2026-06-25T23:53:02.750574+00:00"
+  },
+  "https://www.ycombinator.com/companies/usul/jobs/XSkZCkX-head-of-growth": {
+    "company": "Usul",
+    "title": "Head of Growth",
+    "first_seen": "2026-06-25T23:53:02.750576+00:00"
+  },
+  "https://www.ycombinator.com/companies/oway/jobs/3WOxOhR-carrier-sales-representative": {
+    "company": "Oway",
+    "title": "Carrier Sales Representative",
+    "first_seen": "2026-06-25T23:53:02.750577+00:00"
+  },
+  "https://www.ycombinator.com/companies/cartage/jobs/1QP2BxS-sales-development-representative": {
+    "company": "Cartage",
+    "title": "Sales Development Representative",
+    "first_seen": "2026-06-25T23:53:02.750579+00:00"
+  },
+  "https://www.ycombinator.com/companies/brighterway/jobs/UfDkqaY-sales-associate": {
+    "company": "Brighterway",
+    "title": "Sales Associate",
+    "first_seen": "2026-06-25T23:53:02.750581+00:00"
+  },
+  "https://www.ycombinator.com/companies/intryc/jobs/bxXF0vV-head-of-marketing": {
+    "company": "Intryc",
+    "title": "Head of Marketing",
+    "first_seen": "2026-06-25T23:53:02.750585+00:00"
+  },
+  "https://www.ycombinator.com/companies/mage-legal/jobs/vo0P8dR-founding-marketer-head-of-growth": {
+    "company": "Mage Legal",
+    "title": "Founding Marketer/Head of Growth",
+    "first_seen": "2026-06-25T23:53:02.750588+00:00"
+  },
+  "https://www.ycombinator.com/companies/david-ai/jobs/QeG7476-growth-operations-lead": {
+    "company": "David AI",
+    "title": "Growth Operations Lead",
+    "first_seen": "2026-06-25T23:53:02.750586+00:00"
+  },
+  "https://www.ycombinator.com/companies/clearly-ai/jobs/QwV6TwM-founding-account-executive": {
+    "company": "Clearly AI",
+    "title": "Founding Account Executive",
+    "first_seen": "2026-06-25T23:53:02.750592+00:00"
+  },
+  "https://www.ycombinator.com/companies/creativemode/jobs/fRFB52S-founding-growth-content": {
+    "company": "CreativeMode",
+    "title": "Founding Growth & Content",
+    "first_seen": "2026-06-25T23:53:02.750593+00:00"
+  },
+  "https://www.ycombinator.com/companies/conveo/jobs/vV02XiA-client-growth-manager-uk-europe": {
+    "company": "Conveo",
+    "title": "Client Growth Manager - UK/Europe",
+    "first_seen": "2026-06-25T23:53:02.750595+00:00"
+  },
+  "https://www.ycombinator.com/companies/tandem-2/jobs/P5Av6nq-gtm-biz-ops-tandem": {
+    "company": "Tandem",
+    "title": "GTM & Biz Ops @ Tandem",
+    "first_seen": "2026-06-25T23:53:02.750601+00:00"
+  },
+  "https://www.ycombinator.com/companies/dench-com/jobs/cVcSPlW-chief-growth-strat": {
+    "company": "Dench.com",
+    "title": "Chief Growth Strat",
+    "first_seen": "2026-06-25T23:53:02.750597+00:00"
+  },
+  "https://www.ycombinator.com/companies/gauge/jobs/juhjUfl-founding-sales": {
+    "company": "Gauge",
+    "title": "Founding Sales",
+    "first_seen": "2026-06-25T23:53:02.750599+00:00"
+  },
+  "https://www.ycombinator.com/companies/offstream/jobs/bymOBHg-founding-account-executive": {
+    "company": "Offstream",
+    "title": "Founding Account Executive",
+    "first_seen": "2026-06-25T23:53:02.750603+00:00"
+  },
+  "https://www.ycombinator.com/companies/willow/jobs/BZLQByE-founding-growth-content-lead": {
+    "company": "Willow",
+    "title": "Founding Growth & Content Lead",
+    "first_seen": "2026-06-25T23:53:02.750605+00:00"
+  },
+  "https://www.ycombinator.com/companies/willow/jobs/gfGtPor-founding-account-executive": {
+    "company": "Willow",
+    "title": "Founding Account Executive",
+    "first_seen": "2026-06-25T23:53:02.750607+00:00"
+  },
+  "https://www.ycombinator.com/companies/unbound/jobs/YIPCJgp-founding-growth-engineer": {
+    "company": "Unbound",
+    "title": "Founding growth engineer",
+    "first_seen": "2026-06-25T23:53:02.750608+00:00"
+  },
+  "https://www.ycombinator.com/companies/phonely/jobs/95QPD0i-founding-account-executive": {
+    "company": "Phonely",
+    "title": "Founding Account Executive",
+    "first_seen": "2026-06-25T23:53:02.750610+00:00"
+  },
+  "https://www.ycombinator.com/companies/phonely/jobs/ysW1VzL-founding-marketing-lead": {
+    "company": "Phonely",
+    "title": "Founding Marketing Lead",
+    "first_seen": "2026-06-25T23:53:02.750611+00:00"
+  },
+  "https://www.ycombinator.com/companies/firstwork/jobs/42HB5F6-vp-marketing": {
+    "company": "FirstWork",
+    "title": "VP Marketing",
+    "first_seen": "2026-06-25T23:53:02.750613+00:00"
+  },
+  "https://www.ycombinator.com/companies/corgi-insurance/jobs/OMHjq7G-gtm-associate": {
+    "company": "Corgi Insurance",
+    "title": "GTM Associate",
+    "first_seen": "2026-06-25T23:53:02.750615+00:00"
+  },
+  "https://www.ycombinator.com/companies/tabula/jobs/7IrlsEN-founding-account-executive": {
+    "company": "Tabula",
+    "title": "Founding Account Executive",
+    "first_seen": "2026-06-25T23:53:02.750617+00:00"
+  },
+  "https://www.ycombinator.com/companies/claimsorted/jobs/9jsPuCe-founding-gtm-go-to-market-sales": {
+    "company": "ClaimSorted",
+    "title": "Founding GTM (Go-to-Market Sales)",
+    "first_seen": "2026-06-25T23:53:02.750623+00:00"
+  },
+  "https://www.ycombinator.com/companies/mdhub/jobs/N54VfuH-growth-strategist": {
+    "company": "mdhub",
+    "title": "Growth Strategist",
+    "first_seen": "2026-06-25T23:53:02.750619+00:00"
+  },
+  "https://www.ycombinator.com/companies/saphira-ai/jobs/dPGz0d4-founding-account-executive-enterprise-safety-compliance-hardware-ai": {
+    "company": "Saphira AI",
+    "title": "Founding Account Executive - Enterprise Safety & Compliance (Hardware + AI)",
+    "first_seen": "2026-06-25T23:53:02.750625+00:00"
+  },
+  "https://www.ycombinator.com/companies/domu-technology-inc/jobs/EUpHM75-founding-sdr-or-ae-cash-equity-comission": {
+    "company": "Domu Technology Inc.",
+    "title": "Founding SDR or AE (Cash + Equity + Comission)",
+    "first_seen": "2026-06-25T23:53:02.750628+00:00"
+  },
+  "https://www.ycombinator.com/companies/apten/jobs/Wh8L33A-founding-sdr": {
+    "company": "Apten",
+    "title": "Founding SDR",
+    "first_seen": "2026-06-25T23:53:02.750626+00:00"
+  },
+  "https://www.ycombinator.com/companies/roger-2/jobs/vgDaU2i-founding-account-executive-senior-us": {
+    "company": "Roger",
+    "title": "Founding Account Executive (Senior \u2013 US)",
+    "first_seen": "2026-06-25T23:53:02.750631+00:00"
+  },
+  "https://www.ycombinator.com/companies/roger-2/jobs/yIVxpJW-head-of-sales": {
+    "company": "Roger",
+    "title": "Head of Sales",
+    "first_seen": "2026-06-25T23:53:02.750632+00:00"
+  },
+  "https://www.ycombinator.com/companies/reprompt/jobs/M7gNCyU-founding-sdr": {
+    "company": "Reprompt",
+    "title": "Founding SDR",
+    "first_seen": "2026-06-25T23:53:02.750635+00:00"
+  },
+  "https://www.ycombinator.com/companies/senso/jobs/iihFD4e-head-of-sales": {
+    "company": "Senso",
+    "title": "Head of Sales",
+    "first_seen": "2026-06-25T23:53:02.750637+00:00"
+  },
+  "https://www.ycombinator.com/companies/xpay/jobs/B5hAmRi-founding-sales-lead": {
+    "company": "xPay",
+    "title": "Founding Sales lead",
+    "first_seen": "2026-06-25T23:53:02.750639+00:00"
+  },
+  "https://www.ycombinator.com/companies/terrakotta/jobs/Hqp77TT-founding-sales-development-representative": {
+    "company": "Terrakotta",
+    "title": "Founding Sales Development Representative",
+    "first_seen": "2026-06-25T23:53:02.750643+00:00"
+  },
+  "https://www.ycombinator.com/companies/rove/jobs/VAIf2SQ-director-of-business-development-earn": {
+    "company": "Rove",
+    "title": "Director of Business Development, Earn",
+    "first_seen": "2026-06-25T23:53:02.750641+00:00"
+  },
+  "https://www.ycombinator.com/companies/stacksync/jobs/hG4YjnL-full-cycle-forward-deployed-sales-engineer-the-closer-of-all-closers": {
+    "company": "Stacksync",
+    "title": "Full-Cycle Forward Deployed Sales Engineer - The Closer of All Closers!",
+    "first_seen": "2026-06-25T23:53:02.750648+00:00"
+  },
+  "https://www.ycombinator.com/companies/openmart/jobs/MzUT9t6-enterprise-sales-sdr": {
+    "company": "Openmart",
+    "title": "Enterprise sales (SDR)",
+    "first_seen": "2026-06-25T23:53:02.750650+00:00"
+  },
+  "https://www.ycombinator.com/companies/spark/jobs/UKGQ0Fd-spark-ai-growth-and-operations-associate-manager": {
+    "company": "Spark",
+    "title": "operations/growth",
+    "first_seen": "2026-06-25T23:53:02.750644+00:00"
+  },
+  "https://www.ycombinator.com/companies/spark/jobs/UKGQ0Fd-growth-operations-bizops-associate-manager": {
+    "company": "Spark",
+    "title": "Growth + Operations (BizOps) Associate / Manager",
+    "first_seen": "2026-06-25T23:53:02.750646+00:00"
+  },
+  "https://www.ycombinator.com/companies/brainbase-labs/jobs/XUPFMWx-founding-growth": {
+    "company": "Brainbase Labs",
+    "title": "Founding Growth",
+    "first_seen": "2026-06-25T23:53:02.750663+00:00"
+  },
+  "https://www.ycombinator.com/companies/model-ml/jobs/lrPAkoP-product-growth": {
+    "company": "Model ML",
+    "title": "Product Growth",
+    "first_seen": "2026-06-25T23:53:02.750652+00:00"
+  },
+  "https://www.ycombinator.com/companies/model-ml/jobs/NgPldYS-growth": {
+    "company": "Model ML",
+    "title": "Growth",
+    "first_seen": "2026-06-25T23:53:02.750654+00:00"
+  },
+  "https://www.ycombinator.com/companies/model-ml/jobs/XPntJpF-marketing-lead": {
+    "company": "Model ML",
+    "title": "Marketing Lead",
+    "first_seen": "2026-06-25T23:53:02.750656+00:00"
+  },
+  "https://www.ycombinator.com/companies/justai/jobs/9akLpfv-founding-bdr": {
+    "company": "JustAI",
+    "title": "Founding BDR",
+    "first_seen": "2026-06-25T23:53:02.750658+00:00"
+  },
+  "https://www.ycombinator.com/companies/justai/jobs/Dubwcki-lifecycle-marketing-manager-for-justai-customers": {
+    "company": "JustAI",
+    "title": "Lifecycle Marketing Manager (for JustAI customers)",
+    "first_seen": "2026-06-25T23:53:02.750660+00:00"
+  },
+  "https://www.ycombinator.com/companies/justai/jobs/ewtiGO9-marketing-operations-manager": {
+    "company": "JustAI",
+    "title": "Marketing Operations Manager",
+    "first_seen": "2026-06-25T23:53:02.750661+00:00"
+  },
+  "https://www.ycombinator.com/companies/yondu/jobs/dtIZ1oD-founding-business-development-representative-robotics": {
+    "company": "Yondu",
+    "title": "Founding Business Development Representative, Robotics",
+    "first_seen": "2026-06-25T23:53:02.750665+00:00"
+  },
+  "https://www.ycombinator.com/companies/conduit-ai/jobs/bO1GFfX-sales-development-representative": {
+    "company": "Conduit",
+    "title": "Sales Development Representative",
+    "first_seen": "2026-06-25T23:53:02.750667+00:00"
+  },
+  "https://www.ycombinator.com/companies/codeant-ai/jobs/ZdQvjSA-founding-account-executive-full-cycle-gtm": {
+    "company": "CodeAnt AI",
+    "title": "Founding Account Executive (Full-Cycle GTM)",
+    "first_seen": "2026-06-25T23:53:02.750669+00:00"
+  },
+  "https://www.ycombinator.com/companies/codeant-ai/jobs/Apn1WbS-founding-business-development-representative": {
+    "company": "CodeAnt AI",
+    "title": "Founding Business Development Representative",
+    "first_seen": "2026-06-25T23:53:02.750672+00:00"
+  },
+  "https://www.ycombinator.com/companies/tamarind-bio/jobs/z6dyk9M-founding-sales-development-representative": {
+    "company": "Tamarind Bio",
+    "title": "Founding Sales Development Representative",
+    "first_seen": "2026-06-25T23:53:02.750674+00:00"
+  },
+  "https://www.ycombinator.com/companies/14-ai/jobs/LMRasQY-founding-gtm": {
+    "company": "14.ai",
+    "title": "Founding GTM",
+    "first_seen": "2026-06-25T23:53:02.750676+00:00"
+  },
+  "https://www.ycombinator.com/companies/clarion/jobs/zKdSWz2-marketing-lead": {
+    "company": "Clarion",
+    "title": "Marketing Lead",
+    "first_seen": "2026-06-25T23:53:02.750679+00:00"
+  },
+  "https://www.ycombinator.com/companies/cpgscout/jobs/FhiEgsO-growth-operations-intern": {
+    "company": "Scout",
+    "title": "Growth & Operations Intern",
+    "first_seen": "2026-06-25T23:53:02.750677+00:00"
+  },
+  "https://www.ycombinator.com/companies/respan/jobs/4ajQQf5-founding-technical-gtm": {
+    "company": "Respan",
+    "title": "Founding Technical GTM",
+    "first_seen": "2026-06-25T23:53:02.750682+00:00"
+  },
+  "https://www.ycombinator.com/companies/respan/jobs/2xUtAYE-sales-development-representative": {
+    "company": "Respan",
+    "title": "Sales Development Representative",
+    "first_seen": "2026-06-25T23:53:02.750684+00:00"
+  },
+  "https://www.ycombinator.com/companies/respan/jobs/mpKAgcw-marketing": {
+    "company": "Respan",
+    "title": "Marketing",
+    "first_seen": "2026-06-25T23:53:02.750686+00:00"
+  },
+  "https://www.ycombinator.com/companies/promptarmor/jobs/YgI1Tbu-growth": {
+    "company": "PromptArmor",
+    "title": "Growth",
+    "first_seen": "2026-06-25T23:53:02.750681+00:00"
+  },
+  "https://www.ycombinator.com/companies/greenboard/jobs/R98pnug-founding-account-executive": {
+    "company": "Greenboard",
+    "title": "Founding Account Executive",
+    "first_seen": "2026-06-25T23:53:02.750688+00:00"
+  },
+  "https://www.ycombinator.com/companies/pointone/jobs/D1SVbx1-pointone-growth-fellowship": {
+    "company": "PointOne",
+    "title": "PointOne Growth Fellowship",
+    "first_seen": "2026-06-25T23:53:02.750693+00:00"
+  },
+  "https://www.ycombinator.com/companies/pointone/jobs/lEDIBUL-gtm-engineer": {
+    "company": "PointOne",
+    "title": "GTM Engineer",
+    "first_seen": "2026-06-25T23:53:02.750695+00:00"
+  },
+  "https://www.ycombinator.com/companies/furtherai/jobs/G6CMA8T-sales-development-representative": {
+    "company": "FurtherAI",
+    "title": "Sales Development Representative",
+    "first_seen": "2026-06-25T23:53:02.750689+00:00"
+  },
+  "https://www.ycombinator.com/companies/averyiq/jobs/z8K5V35-business-development-representative-bdr-sdr-sales": {
+    "company": "AveryIQ",
+    "title": "Business Development Representative - BDR / SDR / Sales",
+    "first_seen": "2026-06-25T23:53:02.750691+00:00"
+  },
+  "https://www.ycombinator.com/companies/garage-2/jobs/E57wWBK-growth-operations": {
+    "company": "Garage",
+    "title": "Growth Operations",
+    "first_seen": "2026-06-25T23:53:02.750696+00:00"
+  },
+  "https://www.ycombinator.com/companies/newton/jobs/EsRR2Qr-founding-business-development-representative": {
+    "company": "Newton",
+    "title": "Founding Business Development Representative",
+    "first_seen": "2026-06-25T23:53:02.750698+00:00"
+  },
+  "https://www.ycombinator.com/companies/duckie/jobs/uDANlkc-founding-business-development-representative": {
+    "company": "Duckie",
+    "title": "Founding Business Development Representative",
+    "first_seen": "2026-06-25T23:53:02.750701+00:00"
+  },
+  "https://www.ycombinator.com/companies/drymerge/jobs/oM6myJT-sales-development-representative": {
+    "company": "DryMerge",
+    "title": "Sales Development Representative",
+    "first_seen": "2026-06-25T23:53:02.750703+00:00"
+  },
+  "https://www.ycombinator.com/companies/onyx/jobs/Gm0Hw6L-founding-account-executive": {
+    "company": "Onyx",
+    "title": "Founding Account Executive",
+    "first_seen": "2026-06-25T23:53:02.750705+00:00"
+  },
+  "https://www.ycombinator.com/companies/healthtech-1/jobs/ffpAgEw-sales-development-representative": {
+    "company": "Healthtech 1",
+    "title": "Sales Development Representative",
+    "first_seen": "2026-06-25T23:53:02.750707+00:00"
+  },
+  "https://www.ycombinator.com/companies/morph/jobs/PSesvJB-founding-account-executive": {
+    "company": "Morph",
+    "title": "Founding Account Executive",
+    "first_seen": "2026-06-25T23:53:02.750711+00:00"
+  },
+  "https://www.ycombinator.com/companies/coba/jobs/9hV6Nxz-coba-ai-hiring-marketing-g2m-for-us-mx-cross-border-fintech-remote-us-or-mx": {
+    "company": "Coba",
+    "title": "Coba.ai Hiring | Marketing/G2M for US-MX cross-border fintech (remote US or MX)",
+    "first_seen": "2026-06-25T23:53:02.750709+00:00"
+  },
+  "https://www.ycombinator.com/companies/nowadays/jobs/hq419qc-founding-account-executive": {
+    "company": "Nowadays",
+    "title": "Founding Account Executive",
+    "first_seen": "2026-06-25T23:53:02.750712+00:00"
+  },
+  "https://www.ycombinator.com/companies/cargo/jobs/hLc670b-founding-full-stack-ae-founding-ae": {
+    "company": "Cargo",
+    "title": "Founding Full stack AE / Founding AE",
+    "first_seen": "2026-06-25T23:53:02.750718+00:00"
+  },
+  "https://www.ycombinator.com/companies/shadeform/jobs/ZBDwwU6-founding-sales": {
+    "company": "Shadeform",
+    "title": "Founding Sales",
+    "first_seen": "2026-06-25T23:53:02.750714+00:00"
+  },
+  "https://www.ycombinator.com/companies/shadeform/jobs/u71t9AV-chief-of-staff-automation-lead": {
+    "company": "Shadeform",
+    "title": "Chief of Staff & Automation Lead",
+    "first_seen": "2026-06-25T23:53:02.750716+00:00"
+  },
+  "https://www.ycombinator.com/companies/dili/jobs/PkNc0a5-founding-business-development-representative": {
+    "company": "dili",
+    "title": "Founding Business Development Representative",
+    "first_seen": "2026-06-25T23:53:02.750723+00:00"
+  },
+  "https://www.ycombinator.com/companies/quill-bills/jobs/cPBK2hG-founding-business-development": {
+    "company": "Quill Bills",
+    "title": "Founding Business Development",
+    "first_seen": "2026-06-25T23:53:02.750719+00:00"
+  },
+  "https://www.ycombinator.com/companies/sante/jobs/7rJnVUS-sales-development-representative": {
+    "company": "Sant\u00e9",
+    "title": "Sales Development Representative",
+    "first_seen": "2026-06-25T23:53:02.750731+00:00"
+  },
+  "https://www.ycombinator.com/companies/sendblue/jobs/4VOCVKv-director-of-marketing": {
+    "company": "Sendblue",
+    "title": "Director of Marketing",
+    "first_seen": "2026-06-25T23:53:02.750737+00:00"
+  },
+  "https://www.ycombinator.com/companies/roundtable/jobs/irJTEsg-sales-development-representative-account-executive": {
+    "company": "Roundtable",
+    "title": "Sales Development Representative / Account Executive",
+    "first_seen": "2026-06-25T23:53:02.750733+00:00"
+  },
+  "https://www.ycombinator.com/companies/happyrobot/jobs/6w3KWDx-growth-strategist": {
+    "company": "HappyRobot",
+    "title": "Growth Strategist",
+    "first_seen": "2026-06-25T23:53:02.750726+00:00"
+  },
+  "https://www.ycombinator.com/companies/happyrobot/jobs/MeE7K9c-sales-development-representative-sdr": {
+    "company": "HappyRobot",
+    "title": "Sales Development Representative (SDR)",
+    "first_seen": "2026-06-25T23:53:02.750728+00:00"
+  },
+  "https://www.ycombinator.com/companies/safetykit/jobs/7FWTRS8-business-development-representative-bdr": {
+    "company": "SafetyKit",
+    "title": "Business Development Representative (BDR)",
+    "first_seen": "2026-06-25T23:53:02.750738+00:00"
+  },
+  "https://www.ycombinator.com/companies/safetykit/jobs/fg68qhB-growth-lead": {
+    "company": "SafetyKit",
+    "title": "Growth Lead",
+    "first_seen": "2026-06-25T23:53:02.750740+00:00"
+  },
+  "https://www.ycombinator.com/companies/flint-2/jobs/UEigGc2-business-development-representative-bdr": {
+    "company": "Flint",
+    "title": "Business Development Representative (BDR)",
+    "first_seen": "2026-06-25T23:53:02.750744+00:00"
+  },
+  "https://www.ycombinator.com/companies/inlet-2/jobs/MVGBAUc-founding-sdr": {
+    "company": "Inlet",
+    "title": "Founding SDR",
+    "first_seen": "2026-06-25T23:53:02.750742+00:00"
+  },
+  "https://www.ycombinator.com/companies/surface-labs/jobs/k6SbAbd-ai-gtm-engineer-intern": {
+    "company": "Surface Labs",
+    "title": "AI GTM Engineer Intern",
+    "first_seen": "2026-06-25T23:53:02.750745+00:00"
+  },
+  "https://www.ycombinator.com/companies/margin/jobs/PaLMnkv-founding-account-executive": {
+    "company": "Margin",
+    "title": "Founding Account Executive",
+    "first_seen": "2026-06-25T23:53:02.750754+00:00"
+  },
+  "https://www.ycombinator.com/companies/skyvern/jobs/3P7vhT3-founding-sdr-ai-powered-outbound": {
+    "company": "Skyvern",
+    "title": "Founding SDR, AI-Powered Outbound",
+    "first_seen": "2026-06-25T23:53:02.750756+00:00"
+  },
+  "https://www.ycombinator.com/companies/skyvern/jobs/9eucL4u-founding-account-executive-ai-infrastructure": {
+    "company": "Skyvern",
+    "title": "Founding Account Executive - AI Infrastructure",
+    "first_seen": "2026-06-25T23:53:02.750758+00:00"
+  },
+  "https://www.ycombinator.com/companies/skyvern/jobs/1qRTlVx-founding-developer-marketing-open-source-ai": {
+    "company": "Skyvern",
+    "title": "Founding Developer Marketing \u2013 Open Source AI",
+    "first_seen": "2026-06-25T23:53:02.750762+00:00"
+  },
+  "https://www.ycombinator.com/companies/terminal/jobs/DKg1RMH-founding-account-executive": {
+    "company": "Terminal",
+    "title": "Founding Account Executive",
+    "first_seen": "2026-06-25T23:53:02.750766+00:00"
+  },
+  "https://www.ycombinator.com/companies/airgoods/jobs/eHjNGRk-growth-retailers": {
+    "company": "Airgoods",
+    "title": "Growth - Retailers",
+    "first_seen": "2026-06-25T23:53:02.750783+00:00"
+  },
+  "https://www.ycombinator.com/companies/prosper/jobs/ZWHDKM0-founding-business-development-representative": {
+    "company": "Prosper",
+    "title": "Founding Business Development Representative",
+    "first_seen": "2026-06-25T23:53:02.750776+00:00"
+  },
+  "https://www.ycombinator.com/companies/electric-air-2/jobs/w95jORY-heat-pump-sales-engineer": {
+    "company": "Electric Air",
+    "title": "Heat Pump Sales Engineer",
+    "first_seen": "2026-06-25T23:53:02.750769+00:00"
+  },
+  "https://www.ycombinator.com/companies/electric-air-2/jobs/d00BIOn-founding-growth-brand-lead": {
+    "company": "Electric Air",
+    "title": "Founding Growth & Brand Lead",
+    "first_seen": "2026-06-25T23:53:02.750773+00:00"
+  },
+  "https://www.ycombinator.com/companies/sohar-health/jobs/bHtbvQh-head-of-marketing": {
+    "company": "Sohar Health",
+    "title": "Head of Marketing",
+    "first_seen": "2026-06-25T23:53:02.750789+00:00"
+  },
+  "https://www.ycombinator.com/companies/aivideo-com/jobs/qW8ZHHF-marketing-consultant-meta-ads": {
+    "company": "AIVideo.com",
+    "title": "Marketing Consultant (Meta Ads)",
+    "first_seen": "2026-06-25T23:53:02.750786+00:00"
+  },
+  "https://www.ycombinator.com/companies/clearest-health/jobs/zRk2u6f-sale-engineer-lead-generation-healthcare": {
+    "company": "Clearest Health",
+    "title": "Sale Engineer/Lead Generation, Healthcare",
+    "first_seen": "2026-06-25T23:53:02.750798+00:00"
+  },
+  "https://www.ycombinator.com/companies/accend/jobs/d6ggx1f-founding-gtm-account-executive": {
+    "company": "Accend",
+    "title": "Founding GTM (Account Executive)",
+    "first_seen": "2026-06-25T23:53:02.750795+00:00"
+  },
+  "https://www.ycombinator.com/companies/kapa-ai/jobs/TZzJDh1-marketing-lead": {
+    "company": "kapa.ai",
+    "title": "Marketing Lead",
+    "first_seen": "2026-06-25T23:53:02.750805+00:00"
+  },
+  "https://www.ycombinator.com/companies/kapa-ai/jobs/aCsYP7G-business-development-representative-us": {
+    "company": "kapa.ai",
+    "title": "Business Development Representative (US)",
+    "first_seen": "2026-06-25T23:53:02.750808+00:00"
+  },
+  "https://www.ycombinator.com/companies/hyperbound/jobs/pX5P49U-senior-product-marketing-manager": {
+    "company": "Hyperbound",
+    "title": "Senior Product Marketing Manager",
+    "first_seen": "2026-06-25T23:53:02.750792+00:00"
+  },
+  "https://www.ycombinator.com/companies/automat/jobs/95CHPIW-sales-development-representative": {
+    "company": "Automat",
+    "title": "Sales Development Representative",
+    "first_seen": "2026-06-25T23:53:02.750821+00:00"
+  },
+  "https://www.ycombinator.com/companies/yuma-ai/jobs/zU0T1sH-mid-market-sales-development-representative-uk-nordics-barcelona": {
+    "company": "Yuma AI",
+    "title": "Mid-Market Sales Development Representative UK/Nordics \ud83c\uddec\ud83c\udde7(Barcelona)",
+    "first_seen": "2026-06-25T23:53:02.750824+00:00"
+  },
+  "https://www.ycombinator.com/companies/yuma-ai/jobs/VGQm8nC-mid-market-sales-development-representative-boston": {
+    "company": "Yuma AI",
+    "title": "Mid-Market Sales Development Representative - Boston",
+    "first_seen": "2026-06-25T23:53:02.750828+00:00"
+  },
+  "https://www.ycombinator.com/companies/litellm/jobs/YKs6YQu-founding-account-executive": {
+    "company": "LiteLLM",
+    "title": "Founding Account Executive",
+    "first_seen": "2026-06-25T23:53:02.750814+00:00"
+  },
+  "https://www.ycombinator.com/companies/speedy-labs/jobs/wTqml8O-founding-senior-business-development-representative": {
+    "company": "Speedy Labs",
+    "title": "Founding Senior Business Development Representative",
+    "first_seen": "2026-06-25T23:53:02.750817+00:00"
+  },
+  "https://www.ycombinator.com/companies/escape/jobs/JfAx3DG-sales-engineer-cybersecurity-hybrid-role-nyc": {
+    "company": "Escape",
+    "title": "Sales Engineer Cybersecurity - Hybrid Role, NYC",
+    "first_seen": "2026-06-25T23:53:02.750835+00:00"
+  },
+  "https://www.ycombinator.com/companies/escape/jobs/yfEXoM2-head-of-sales": {
+    "company": "Escape",
+    "title": "Head of Sales",
+    "first_seen": "2026-06-25T23:53:02.750838+00:00"
+  },
+  "https://www.ycombinator.com/companies/escape/jobs/At5j7H3-business-development-representative-bdr-hybrid-role-nyc-or-boston": {
+    "company": "Escape",
+    "title": "Business Development Representative (BDR) - Hybrid Role, NYC or Boston",
+    "first_seen": "2026-06-25T23:53:02.750839+00:00"
+  },
+  "https://www.ycombinator.com/companies/pier/jobs/e7WnWVP-business-development-representative": {
+    "company": "Pier",
+    "title": "Business Development Representative",
+    "first_seen": "2026-06-25T23:53:02.750841+00:00"
+  },
+  "https://www.ycombinator.com/companies/persana-ai/jobs/tQPgp3f-founding-growth-gtm": {
+    "company": "Persana AI",
+    "title": "Founding Growth/GTM",
+    "first_seen": "2026-06-25T23:53:02.750831+00:00"
+  },
+  "https://www.ycombinator.com/companies/hindsight/jobs/3m4tgoH-gtm-lead": {
+    "company": "Hindsight",
+    "title": "GTM Lead",
+    "first_seen": "2026-06-25T23:53:02.750846+00:00"
+  },
+  "https://www.ycombinator.com/companies/dill/jobs/PU1CUuB-sales-development-representative": {
+    "company": "Dill",
+    "title": "Sales Development Representative",
+    "first_seen": "2026-06-25T23:53:02.750844+00:00"
+  },
+  "https://www.ycombinator.com/companies/sirdab/jobs/Fl3AelN-business-development-specialist": {
+    "company": "Sirdab",
+    "title": "Business Development Specialist",
+    "first_seen": "2026-06-25T23:53:02.750855+00:00"
+  },
+  "https://www.ycombinator.com/companies/loula/jobs/Ck4sUfG-head-of-revenue-cycle-management": {
+    "company": "Loula",
+    "title": "Head of Revenue Cycle Management",
+    "first_seen": "2026-06-25T23:53:02.750851+00:00"
+  },
+  "https://www.ycombinator.com/companies/loula/jobs/O9MM91C-provider-growth-associate-sales": {
+    "company": "Loula",
+    "title": "Provider Growth Associate (Sales)",
+    "first_seen": "2026-06-25T23:53:02.750853+00:00"
+  },
+  "https://www.ycombinator.com/companies/infinia/jobs/cJRz4rQ-business-development-director": {
+    "company": "Infinia",
+    "title": "Business Development Director",
+    "first_seen": "2026-06-25T23:53:02.750859+00:00"
+  },
+  "https://www.ycombinator.com/companies/hadrius/jobs/zPBVJNM-vp-of-sales": {
+    "company": "Hadrius",
+    "title": "VP of Sales",
+    "first_seen": "2026-06-25T23:53:02.750860+00:00"
+  },
+  "https://www.ycombinator.com/companies/hadrius/jobs/JmSArDT-revenue-enablement-lead": {
+    "company": "Hadrius",
+    "title": "Revenue Enablement Lead",
+    "first_seen": "2026-06-25T23:53:02.750862+00:00"
+  },
+  "https://www.ycombinator.com/companies/variance/jobs/bxFqv04-business-development-representative": {
+    "company": "Variance",
+    "title": "Business Development Representative",
+    "first_seen": "2026-06-25T23:53:02.750864+00:00"
+  },
+  "https://www.ycombinator.com/companies/relace/jobs/9cATbuj-gtm-engineer": {
+    "company": "Relace",
+    "title": "GTM Engineer",
+    "first_seen": "2026-06-25T23:53:02.750869+00:00"
+  },
+  "https://www.ycombinator.com/companies/polotab/jobs/nuykmZk-sales-business-development-representative": {
+    "company": "PoloTab",
+    "title": "Sales & Business Development Representative",
+    "first_seen": "2026-06-25T23:53:02.750871+00:00"
+  },
+  "https://www.ycombinator.com/companies/gooseworks/jobs/ztgY6bD-founding-growth-engineer": {
+    "company": "Gooseworks",
+    "title": "Founding Growth Engineer",
+    "first_seen": "2026-06-25T23:53:02.750873+00:00"
+  },
+  "https://www.ycombinator.com/companies/goveagle/jobs/lk6ZVI3-sr-sales-development-representative": {
+    "company": "GovEagle",
+    "title": "Sr. Sales Development Representative",
+    "first_seen": "2026-06-25T23:53:02.750875+00:00"
+  },
+  "https://www.ycombinator.com/companies/tennr/jobs/qutajEy-sales-development-representative": {
+    "company": "Tennr",
+    "title": "Sales Development Representative",
+    "first_seen": "2026-06-25T23:53:02.750887+00:00"
+  },
+  "https://www.ycombinator.com/companies/nango/jobs/oiAdChY-head-of-growth-developer-relations": {
+    "company": "Nango",
+    "title": "Head of Growth & Developer Relations",
+    "first_seen": "2026-06-25T23:53:02.750891+00:00"
+  },
+  "https://www.ycombinator.com/companies/flexdesk/jobs/ZOzsdXq-sales-development-representative": {
+    "company": "FlexDesk",
+    "title": "Sales Development Representative",
+    "first_seen": "2026-06-25T23:53:02.750894+00:00"
+  },
+  "https://www.ycombinator.com/companies/magic-patterns/jobs/BePhlH4-head-of-growth": {
+    "company": "Magic Patterns",
+    "title": "Head of Growth",
+    "first_seen": "2026-06-25T23:53:02.750898+00:00"
+  },
+  "https://www.ycombinator.com/companies/rollstack-2/jobs/CLefCMg-business-development-representative": {
+    "company": "Rollstack",
+    "title": "Business Development Representative",
+    "first_seen": "2026-06-25T23:53:02.750901+00:00"
+  },
+  "https://www.ycombinator.com/companies/rollstack-2/jobs/ooSATfR-product-marketing-manager": {
+    "company": "Rollstack",
+    "title": "Product Marketing Manager",
+    "first_seen": "2026-06-25T23:53:02.750905+00:00"
+  },
+  "https://www.ycombinator.com/companies/credal-ai/jobs/3OnqAVU-founding-gtm-deployment-strategist": {
+    "company": "Credal.ai",
+    "title": "Founding GTM - Deployment Strategist",
+    "first_seen": "2026-06-25T23:53:02.750909+00:00"
+  },
+  "https://www.ycombinator.com/companies/reflex/jobs/J7eb3Yf-growth-associate-seo": {
+    "company": "Reflex",
+    "title": "Growth Associate, SEO",
+    "first_seen": "2026-06-25T23:53:02.750910+00:00"
+  },
+  "https://www.ycombinator.com/companies/reflex/jobs/KpOaIpx-growth-lead": {
+    "company": "Reflex",
+    "title": "Growth Lead",
+    "first_seen": "2026-06-25T23:53:02.750913+00:00"
+  },
+  "https://www.ycombinator.com/companies/middleware/jobs/8i09BX9-founding-account-executive": {
+    "company": "Middleware",
+    "title": "Founding Account Executive",
+    "first_seen": "2026-06-25T23:53:02.750915+00:00"
+  },
+  "https://www.ycombinator.com/companies/zudowork/jobs/dm2affP-marketing-lead-realtor-product": {
+    "company": "zudo.work",
+    "title": "Marketing Lead, Realtor Product",
+    "first_seen": "2026-06-25T23:53:02.750917+00:00"
+  },
+  "https://www.ycombinator.com/companies/chima/jobs/bnycSo0-senior-sales-development-representative": {
+    "company": "Chima",
+    "title": "Senior Sales Development Representative",
+    "first_seen": "2026-06-25T23:53:02.750920+00:00"
+  },
+  "https://www.ycombinator.com/companies/axle/jobs/HNgtvPp-enterprise-sales-director-automotive": {
+    "company": "Axle",
+    "title": "Enterprise Sales Director, Automotive",
+    "first_seen": "2026-06-25T23:53:02.750926+00:00"
+  },
+  "https://www.ycombinator.com/companies/cambio-2/jobs/1UeTSim-senior-sdr": {
+    "company": "Cambio",
+    "title": "Senior SDR",
+    "first_seen": "2026-06-25T23:53:02.750922+00:00"
+  },
+  "https://www.ycombinator.com/companies/cambio-2/jobs/L9w5sYK-senior-marketing-manager": {
+    "company": "Cambio",
+    "title": "Senior Marketing Manager",
+    "first_seen": "2026-06-25T23:53:02.750924+00:00"
+  },
+  "https://www.ycombinator.com/companies/pump-co/jobs/KHgx10l-business-development-representative": {
+    "company": "Pump.co",
+    "title": "Business Development Representative",
+    "first_seen": "2026-06-25T23:53:02.750928+00:00"
+  },
+  "https://www.ycombinator.com/companies/solum-health/jobs/iWrdrKg-founding-full-stack-engineer-build-the-future-of-healthcare-automation": {
+    "company": "Solum Health",
+    "title": "Founding Full Stack Engineer \u2013 Build the Future of Healthcare Automation",
+    "first_seen": "2026-06-25T23:53:02.750933+00:00"
+  },
+  "https://www.ycombinator.com/companies/solum-health/jobs/dps4TUt-sdr": {
+    "company": "Solum Health",
+    "title": "SDR",
+    "first_seen": "2026-06-25T23:53:02.750935+00:00"
+  },
+  "https://www.ycombinator.com/companies/firecrawl/jobs/hZHD0j6-web-automation-engineer": {
+    "company": "Firecrawl",
+    "title": "Web Automation Engineer",
+    "first_seen": "2026-06-25T23:53:02.750937+00:00"
+  },
+  "https://www.ycombinator.com/companies/homli/jobs/gNdAntf-sales-operations-specialist-athens-greece": {
+    "company": "HOMLI",
+    "title": "Sales Operations Specialist - Athens, Greece",
+    "first_seen": "2026-06-25T23:53:02.750941+00:00"
+  },
+  "https://www.ycombinator.com/companies/primevault/jobs/3FXwQzR-marketing-growth-lead": {
+    "company": "PrimeVault",
+    "title": "Marketing & Growth Lead",
+    "first_seen": "2026-06-25T23:53:02.750939+00:00"
+  },
+  "https://www.ycombinator.com/companies/roforco/jobs/7e7Rhc2-cracked-growth-marketer": {
+    "company": "Roforco",
+    "title": "Cracked Growth Marketer",
+    "first_seen": "2026-06-25T23:53:02.750945+00:00"
+  },
+  "https://www.ycombinator.com/companies/quindar/jobs/MJ5TAxh-senior-director-of-business-development-us-government": {
+    "company": "Quindar",
+    "title": "Senior Director of Business Development - US Government",
+    "first_seen": "2026-06-25T23:53:02.750953+00:00"
+  },
+  "https://www.ycombinator.com/companies/feather-2/jobs/bpar697-founding-bdr": {
+    "company": "Feather",
+    "title": "Founding BDR",
+    "first_seen": "2026-06-25T23:53:02.750951+00:00"
+  },
+  "https://www.ycombinator.com/companies/aviaryai/jobs/Pgsvaoi-software-engineer-qa-test-automation": {
+    "company": "AviaryAI",
+    "title": "Software Engineer, QA & Test Automation",
+    "first_seen": "2026-06-25T23:53:02.750955+00:00"
+  },
+  "https://www.ycombinator.com/companies/hedgehog-2/jobs/YvHAGVP-director-of-sales-foodservice": {
+    "company": "Hedgehog",
+    "title": "Director of Sales, Foodservice",
+    "first_seen": "2026-06-25T23:53:02.750957+00:00"
+  },
+  "https://www.ycombinator.com/companies/hedgehog-2/jobs/out6xr9-southeast-territory-sales-representative": {
+    "company": "Hedgehog",
+    "title": "Southeast Territory Sales Representative",
+    "first_seen": "2026-06-25T23:53:02.750959+00:00"
+  },
+  "https://www.ycombinator.com/companies/thera/jobs/srv7TEW-gtm-lead": {
+    "company": "Thera",
+    "title": "GTM Lead",
+    "first_seen": "2026-06-25T23:53:02.750961+00:00"
+  },
+  "https://www.ycombinator.com/companies/thera/jobs/tVxr66I-marketing-lead": {
+    "company": "Thera",
+    "title": "Marketing Lead",
+    "first_seen": "2026-06-25T23:53:02.750963+00:00"
+  },
+  "https://www.ycombinator.com/companies/typewise/jobs/HmCzfBK-ai-growth-engineer": {
+    "company": "Typewise",
+    "title": "AI Growth Engineer",
+    "first_seen": "2026-06-25T23:53:02.750967+00:00"
+  },
+  "https://www.ycombinator.com/companies/flair-labs/jobs/ql097Qg-founding-product-marketing-flair-labs": {
+    "company": "Flair Labs",
+    "title": "Founding Product Marketing - Flair Labs",
+    "first_seen": "2026-06-25T23:53:02.750965+00:00"
+  },
+  "https://www.ycombinator.com/companies/malama-health/jobs/eAWLO1F-head-of-business-development": {
+    "company": "Malama Health",
+    "title": "Head of Business Development",
+    "first_seen": "2026-06-25T23:53:02.750969+00:00"
+  },
+  "https://www.ycombinator.com/companies/juicebox/jobs/9GqbDgb-sales-strategy-operations-lead": {
+    "company": "Juicebox",
+    "title": "Sales Strategy & Operations Lead",
+    "first_seen": "2026-06-25T23:53:02.750977+00:00"
+  },
+  "https://www.ycombinator.com/companies/juicebox/jobs/NkaKwXu-growth-lead": {
+    "company": "Juicebox",
+    "title": "Growth Lead",
+    "first_seen": "2026-06-25T23:53:02.750979+00:00"
+  },
+  "https://www.ycombinator.com/companies/tank-payments/jobs/aBl7pmW-generalist-sales-success-growth": {
+    "company": "Tank Payments",
+    "title": "Generalist \u2013 Sales / Success / Growth",
+    "first_seen": "2026-06-25T23:53:02.750973+00:00"
+  },
+  "https://www.ycombinator.com/companies/capix/jobs/N7aREz2-social-media-growth-intern": {
+    "company": "Capix",
+    "title": "Social Media & Growth Intern",
+    "first_seen": "2026-06-25T23:53:02.750975+00:00"
+  },
+  "https://www.ycombinator.com/companies/windmill/jobs/4swi05r-founding-sdr": {
+    "company": "Windmill",
+    "title": "Founding SDR",
+    "first_seen": "2026-06-25T23:53:02.750981+00:00"
+  },
+  "https://www.ycombinator.com/companies/windmill/jobs/t7ToQBK-devtool-growth-lead": {
+    "company": "Windmill",
+    "title": "DevTool Growth Lead",
+    "first_seen": "2026-06-25T23:53:02.750983+00:00"
+  },
+  "https://www.ycombinator.com/companies/blee/jobs/6NgI9ny-pre-sales-solutions-engineer": {
+    "company": "Blee",
+    "title": "Pre-Sales Solutions Engineer",
+    "first_seen": "2026-06-25T23:53:02.750985+00:00"
+  },
+  "https://www.ycombinator.com/companies/paragon-ai/jobs/twlJy20-founding-account-executive": {
+    "company": "Paragon AI",
+    "title": "Founding Account Executive",
+    "first_seen": "2026-06-25T23:53:02.750986+00:00"
+  },
+  "https://www.ycombinator.com/companies/truebiz/jobs/CRN4fcQ-senior-sales-development-representative": {
+    "company": "TrueBiz",
+    "title": "Senior Sales Development Representative",
+    "first_seen": "2026-06-25T23:53:02.750988+00:00"
+  },
+  "https://www.ycombinator.com/companies/truebiz/jobs/S8Sw104-director-of-enterprise-outbound": {
+    "company": "TrueBiz",
+    "title": "Director of Enterprise Outbound",
+    "first_seen": "2026-06-25T23:53:02.750990+00:00"
+  },
+  "https://www.ycombinator.com/companies/truebiz/jobs/wlwDryK-business-development-manager": {
+    "company": "TrueBiz",
+    "title": "Business Development Manager",
+    "first_seen": "2026-06-25T23:53:02.750992+00:00"
+  },
+  "https://www.ycombinator.com/companies/two-dots/jobs/GxUeTh3-sales-development-representative": {
+    "company": "Two Dots",
+    "title": "Sales Development Representative",
+    "first_seen": "2026-06-25T23:53:02.750994+00:00"
+  },
+  "https://www.ycombinator.com/companies/julius/jobs/1pKwFDg-growth-marketing-manager": {
+    "company": "Julius",
+    "title": "Growth Marketing Manager",
+    "first_seen": "2026-06-25T23:53:02.750996+00:00"
+  },
+  "https://www.ycombinator.com/companies/tradex/jobs/9ZiZgZj-sales-executive-consultant": {
+    "company": "Mindbase",
+    "title": "Sales Executive (Consultant)",
+    "first_seen": "2026-06-25T23:53:02.751000+00:00"
+  },
+  "https://www.ycombinator.com/companies/gosats/jobs/T7bqOf1-vp-growth": {
+    "company": "GoSats",
+    "title": "VP, Growth",
+    "first_seen": "2026-06-25T23:53:02.751002+00:00"
+  },
+  "https://www.ycombinator.com/companies/gosats/jobs/n8dtHDh-performance-marketing-manager": {
+    "company": "GoSats",
+    "title": "Performance Marketing Manager",
+    "first_seen": "2026-06-25T23:53:02.751004+00:00"
+  },
+  "https://www.ycombinator.com/companies/postal/jobs/aiZ4s8a-founding-sdr-and-customer-success": {
+    "company": "Postal",
+    "title": "Founding SDR and Customer Success",
+    "first_seen": "2026-06-25T23:53:02.751006+00:00"
+  },
+  "https://www.ycombinator.com/companies/blink-new/jobs/WYO2dlf-founding-growth-marketer": {
+    "company": "Blink",
+    "title": "Founding Growth Marketer",
+    "first_seen": "2026-06-25T23:53:02.751008+00:00"
+  },
+  "https://www.ycombinator.com/companies/blink-new/jobs/j1hW1Dq-social-media-marketing-manager": {
+    "company": "Blink",
+    "title": "Social Media Marketing Manager",
+    "first_seen": "2026-06-25T23:53:02.751009+00:00"
+  },
+  "https://www.ycombinator.com/companies/fleek/jobs/bsMBsRm-business-development-at-fleek": {
+    "company": "Fleek",
+    "title": "Business Development at Fleek",
+    "first_seen": "2026-06-25T23:53:02.751011+00:00"
+  },
+  "https://www.ycombinator.com/companies/arpari/jobs/fwgePE7-sales-development-representative-nyc": {
+    "company": "Arpari",
+    "title": "Sales Development Representative (NYC)",
+    "first_seen": "2026-06-25T23:53:02.751013+00:00"
+  },
+  "https://www.ycombinator.com/companies/joon-health/jobs/sKzkrxO-founding-growth-manager": {
+    "company": "Joon Health",
+    "title": "Founding Growth Manager",
+    "first_seen": "2026-06-25T23:53:02.751019+00:00"
+  },
+  "https://www.ycombinator.com/companies/material-depot/jobs/JwPPe4r-pre-sales-business-development-executive": {
+    "company": "Material Depot",
+    "title": "Pre-sales Business Development Executive",
+    "first_seen": "2026-06-25T23:53:02.751021+00:00"
+  },
+  "https://www.ycombinator.com/companies/material-depot/jobs/b58FgtE-business-development-manager": {
+    "company": "Material Depot",
+    "title": "Business Development Manager",
+    "first_seen": "2026-06-25T23:53:02.751023+00:00"
+  },
+  "https://www.ycombinator.com/companies/sprites/jobs/7XWCsXp-founding-gtm-associate": {
+    "company": "Sprites",
+    "title": "Founding GTM Associate",
+    "first_seen": "2026-06-25T23:53:02.751025+00:00"
+  },
+  "https://www.ycombinator.com/companies/sprites/jobs/b9vn9b7-founding-bdr": {
+    "company": "Sprites",
+    "title": "Founding BDR",
+    "first_seen": "2026-06-25T23:53:02.751027+00:00"
+  },
+  "https://www.ycombinator.com/companies/agency/jobs/247LpHO-sales-development-representative-business-development-rep": {
+    "company": "Agency",
+    "title": "Sales Development Representative / Business Development Rep",
+    "first_seen": "2026-06-25T23:53:02.751029+00:00"
+  },
+  "https://www.ycombinator.com/companies/cotera/jobs/G0KUSN9-future-founder-growth": {
+    "company": "Cotera",
+    "title": "Future Founder - Growth",
+    "first_seen": "2026-06-25T23:53:02.751034+00:00"
+  },
+  "https://www.ycombinator.com/companies/posh/jobs/Nft43pe-social-media-marketing-intern": {
+    "company": "Posh",
+    "title": "Social Media Marketing Intern",
+    "first_seen": "2026-06-25T23:53:02.751030+00:00"
+  },
+  "https://www.ycombinator.com/companies/complete/jobs/4D7wsZG-founding-ae": {
+    "company": "Complete",
+    "title": "Founding AE",
+    "first_seen": "2026-06-25T23:53:02.751050+00:00"
+  },
+  "https://www.ycombinator.com/companies/cogram/jobs/s8ao2gN-growth-lead": {
+    "company": "Cogram",
+    "title": "Growth Lead",
+    "first_seen": "2026-06-25T23:53:02.751032+00:00"
+  },
+  "https://www.ycombinator.com/companies/velt/jobs/BlTouja-founding-test-automation-engineer": {
+    "company": "Velt",
+    "title": "Founding Test Automation Engineer",
+    "first_seen": "2026-06-25T23:53:02.751036+00:00"
+  },
+  "https://www.ycombinator.com/companies/permitflow/jobs/sspbTNl-business-development-representative": {
+    "company": "PermitFlow",
+    "title": "Business Development Representative",
+    "first_seen": "2026-06-25T23:53:02.751038+00:00"
+  },
+  "https://www.ycombinator.com/companies/mintlify/jobs/KGwC7yk-field-marketing-manager": {
+    "company": "Mintlify",
+    "title": "Field Marketing Manager",
+    "first_seen": "2026-06-25T23:53:02.751039+00:00"
+  },
+  "https://www.ycombinator.com/companies/mintlify/jobs/NleF4G3-senior-solutions-engineer-pre-sales-nyc": {
+    "company": "Mintlify",
+    "title": "Senior Solutions Engineer - Pre Sales (NYC)",
+    "first_seen": "2026-06-25T23:53:02.751041+00:00"
+  },
+  "https://www.ycombinator.com/companies/mintlify/jobs/dfAIvwf-product-marketing-manager": {
+    "company": "Mintlify",
+    "title": "Product Marketing Manager",
+    "first_seen": "2026-06-25T23:53:02.751048+00:00"
+  },
+  "https://www.ycombinator.com/companies/hokali/jobs/J4U1J72-edtech-sales-executive": {
+    "company": "HOKALI",
+    "title": "EdTech Sales Executive",
+    "first_seen": "2026-06-25T23:53:02.751051+00:00"
+  },
+  "https://www.ycombinator.com/companies/flagright/jobs/fh3C94A-senior-enterprise-business-development-representative-london": {
+    "company": "Flagright",
+    "title": "Senior Enterprise Business Development Representative - London",
+    "first_seen": "2026-06-25T23:53:02.751054+00:00"
+  },
+  "https://www.ycombinator.com/companies/flagright/jobs/poL21kk-business-development-representative-london": {
+    "company": "Flagright",
+    "title": "Business Development Representative - London",
+    "first_seen": "2026-06-25T23:53:02.751056+00:00"
+  },
+  "https://www.ycombinator.com/companies/flagright/jobs/bGY9glj-business-development-representative-singapore": {
+    "company": "Flagright",
+    "title": "Business Development Representative - Singapore",
+    "first_seen": "2026-06-25T23:53:02.751058+00:00"
+  },
+  "https://www.ycombinator.com/companies/flagright/jobs/9eCYEST-business-development-representative-new-york": {
+    "company": "Flagright",
+    "title": "Business Development Representative - New York",
+    "first_seen": "2026-06-25T23:53:02.751060+00:00"
+  },
+  "https://www.ycombinator.com/companies/ankr-health/jobs/rsop66d-sales-development-representative-houston": {
+    "company": "Ankr Health",
+    "title": "Sales Development Representative (Houston)",
+    "first_seen": "2026-06-25T23:53:02.751065+00:00"
+  },
+  "https://www.ycombinator.com/companies/ankr-health/jobs/Lyl70LS-sales-development-representative-health-it-chicago": {
+    "company": "Ankr Health",
+    "title": "Sales Development Representative (Health IT)-Chicago",
+    "first_seen": "2026-06-25T23:53:02.751067+00:00"
+  },
+  "https://www.ycombinator.com/companies/ankr-health/jobs/25JfY4e-senior-sales-development-representative-health-it-minneapolis": {
+    "company": "Ankr Health",
+    "title": "Senior Sales Development Representative (Health IT)-Minneapolis",
+    "first_seen": "2026-06-25T23:53:02.751068+00:00"
+  },
+  "https://www.ycombinator.com/companies/ankr-health/jobs/MQzRys6-sales-development-representative-health-it": {
+    "company": "Ankr Health",
+    "title": "Sales Development Representative (Health IT)",
+    "first_seen": "2026-06-25T23:53:02.751070+00:00"
+  },
+  "https://www.ycombinator.com/companies/ankr-health/jobs/8Dn3UxA-senior-sales-development-representative-atlanta": {
+    "company": "Ankr Health",
+    "title": "Senior Sales Development Representative -Atlanta",
+    "first_seen": "2026-06-25T23:53:02.751072+00:00"
+  },
+  "https://www.ycombinator.com/companies/seabound/jobs/a7gxs8l-head-of-business-development": {
+    "company": "Seabound",
+    "title": "Head of Business Development",
+    "first_seen": "2026-06-25T23:53:02.751073+00:00"
+  },
+  "https://www.ycombinator.com/companies/axross-pte-ltd/jobs/P77XLzR-business-development": {
+    "company": "Axross Pte Ltd",
+    "title": "Business Development",
+    "first_seen": "2026-06-25T23:53:02.751075+00:00"
+  },
+  "https://www.ycombinator.com/companies/cozmo-ai/jobs/tygbr9e-sales-executive-consultant": {
+    "company": "Cozmo AI",
+    "title": "Sales Executive (Consultant)",
+    "first_seen": "2026-06-25T23:53:02.751077+00:00"
+  },
+  "https://www.ycombinator.com/companies/cozmo-ai/jobs/KsnNwX0-gtm-engineer-internship-fulltime": {
+    "company": "Cozmo AI",
+    "title": "GTM Engineer (Internship -> Fulltime)",
+    "first_seen": "2026-06-25T23:53:02.751078+00:00"
+  },
+  "https://www.ycombinator.com/companies/trebol/jobs/f5ZjCU7-marketing-sr-analyst": {
+    "company": "Tr\u00e9bol",
+    "title": "Marketing Sr. Analyst",
+    "first_seen": "2026-06-25T23:53:02.751084+00:00"
+  },
+  "https://www.ycombinator.com/companies/trebol/jobs/fYXj7T7-sales-account-executive": {
+    "company": "Tr\u00e9bol",
+    "title": "Sales Account Executive",
+    "first_seen": "2026-06-25T23:53:02.751086+00:00"
+  },
+  "https://www.ycombinator.com/companies/peakflo/jobs/f5KL6FY-business-development-intern-paid-india-remote": {
+    "company": "Peakflo",
+    "title": "Business Development Intern (Paid - India/Remote)",
+    "first_seen": "2026-06-25T23:53:02.751080+00:00"
+  },
+  "https://www.ycombinator.com/companies/peakflo/jobs/iOJXsEd-sales-development-representative-sdr-intern-paid-india-remote": {
+    "company": "Peakflo",
+    "title": "Sales Development Representative (SDR) Intern (Paid - India/Remote)",
+    "first_seen": "2026-06-25T23:53:02.751082+00:00"
+  },
+  "https://www.ycombinator.com/companies/strac/jobs/y0Mopqu-sales-development-representative-sdr": {
+    "company": "Strac",
+    "title": "Sales Development Representative (SDR)",
+    "first_seen": "2026-06-25T23:53:02.751088+00:00"
+  },
+  "https://www.ycombinator.com/companies/strac/jobs/8DFTfAp-head-of-marketing": {
+    "company": "Strac",
+    "title": "Head of Marketing",
+    "first_seen": "2026-06-25T23:53:02.751089+00:00"
+  },
+  "https://www.ycombinator.com/companies/growthbook/jobs/I8E67sm-demand-generation-manager": {
+    "company": "GrowthBook",
+    "title": "Demand Generation Manager",
+    "first_seen": "2026-06-25T23:53:02.751091+00:00"
+  },
+  "https://www.ycombinator.com/companies/spot-health/jobs/iC9fBXs-growth-operations": {
+    "company": "Spot Health",
+    "title": "Growth Operations",
+    "first_seen": "2026-06-25T23:53:02.751093+00:00"
+  },
+  "https://www.ycombinator.com/companies/elevate/jobs/ArNktTr-head-of-growth-egypt": {
+    "company": "Elevate (formerly Bloom)",
+    "title": "Head of Growth, Egypt",
+    "first_seen": "2026-06-25T23:53:02.751095+00:00"
+  },
+  "https://www.ycombinator.com/companies/elevate/jobs/FxD7QJs-head-of-growth-philippines": {
+    "company": "Elevate (formerly Bloom)",
+    "title": "Head of Growth, Philippines",
+    "first_seen": "2026-06-25T23:53:02.751097+00:00"
+  },
+  "https://www.ycombinator.com/companies/elevate/jobs/3w2ANXX-head-of-growth-jordan": {
+    "company": "Elevate (formerly Bloom)",
+    "title": "Head of Growth, Jordan",
+    "first_seen": "2026-06-25T23:53:02.751099+00:00"
+  },
+  "https://www.ycombinator.com/companies/elevate/jobs/uD28urS-head-of-growth-algeria": {
+    "company": "Elevate (formerly Bloom)",
+    "title": "Head of Growth, Algeria",
+    "first_seen": "2026-06-25T23:53:02.751100+00:00"
+  },
+  "https://www.ycombinator.com/companies/attack-capital/jobs/WyDXUHL-head-of-sales-gtm-venture-studio-team": {
+    "company": "Attack Capital",
+    "title": "Head of Sales/GTM (Venture Studio Team)",
+    "first_seen": "2026-06-25T23:53:02.751102+00:00"
+  },
+  "https://www.ycombinator.com/companies/attack-capital/jobs/kUxBgTq-product-growth-manager-venture-studio": {
+    "company": "Attack Capital",
+    "title": "Product/ Growth Manager (Venture Studio)",
+    "first_seen": "2026-06-25T23:53:02.751104+00:00"
+  },
+  "https://www.ycombinator.com/companies/emerge-career/jobs/ESFxyLG-founding-growth-marketer": {
+    "company": "Emerge Career",
+    "title": "Founding Growth Marketer",
+    "first_seen": "2026-06-25T23:53:02.751106+00:00"
+  },
+  "https://www.ycombinator.com/companies/sully-ai/jobs/E8e5Raz-head-of-sales": {
+    "company": "Sully.ai",
+    "title": "Head of Sales",
+    "first_seen": "2026-06-25T23:53:02.751111+00:00"
+  },
+  "https://www.ycombinator.com/companies/lightly/jobs/64Uajzb-business-development-representative-in-a-fast-growing-ai-startup": {
+    "company": "Lightly",
+    "title": "Business Development Representative in a fast-growing AI Startup",
+    "first_seen": "2026-06-25T23:53:02.751107+00:00"
+  },
+  "https://www.ycombinator.com/companies/nash/jobs/9cBdtA6-product-marketing-lead": {
+    "company": "Nash",
+    "title": "Product Marketing Lead",
+    "first_seen": "2026-06-25T23:53:02.751109+00:00"
+  },
+  "https://www.ycombinator.com/companies/storylane/jobs/6qdSykp-sales-development-representative-sdr": {
+    "company": "Storylane",
+    "title": "Sales Development Representative (SDR)",
+    "first_seen": "2026-06-25T23:53:02.751115+00:00"
+  },
+  "https://www.ycombinator.com/companies/telmai/jobs/1AJFiA4-technical-sales-engineering": {
+    "company": "Telmai",
+    "title": "Technical Sales Engineering",
+    "first_seen": "2026-06-25T23:53:02.751117+00:00"
+  },
+  "https://www.ycombinator.com/companies/writesonic/jobs/lOEOuNg-head-of-growth-marketing": {
+    "company": "Writesonic",
+    "title": "Head of Growth Marketing",
+    "first_seen": "2026-06-25T23:53:02.751119+00:00"
+  },
+  "https://www.ycombinator.com/companies/meticulous/jobs/sbhnrba-founding-account-executive": {
+    "company": "Meticulous",
+    "title": "Founding Account Executive",
+    "first_seen": "2026-06-25T23:53:02.751121+00:00"
+  },
+  "https://www.ycombinator.com/companies/zensors-inc/jobs/9WxsbSF-product-marketing-lead-spatial-ai": {
+    "company": "Zensors",
+    "title": "Product Marketing Lead - Spatial AI",
+    "first_seen": "2026-06-25T23:53:02.751123+00:00"
+  },
+  "https://www.ycombinator.com/companies/zensors-inc/jobs/6DpxFVM-account-executive-gtm-strategy": {
+    "company": "Zensors",
+    "title": "Account Executive, GTM Strategy",
+    "first_seen": "2026-06-25T23:53:02.751124+00:00"
+  },
+  "https://www.ycombinator.com/companies/coloop/jobs/eY6VWhq-business-development-representative": {
+    "company": "CoLoop",
+    "title": "Business Development Representative",
+    "first_seen": "2026-06-25T23:53:02.751126+00:00"
+  },
+  "https://www.ycombinator.com/companies/oneschema/jobs/NPR2pGK-business-development-representative": {
+    "company": "OneSchema",
+    "title": "Business Development Representative",
+    "first_seen": "2026-06-25T23:53:02.751128+00:00"
+  },
+  "https://www.ycombinator.com/companies/shimmer/jobs/JsKsepO-social-media-manager-growth-hacker": {
+    "company": "Shimmer",
+    "title": "Social Media Manager & Growth Hacker",
+    "first_seen": "2026-06-25T23:53:02.751134+00:00"
+  },
+  "https://www.ycombinator.com/companies/formance/jobs/M2Vc5Mh-business-development-representative": {
+    "company": "Formance",
+    "title": "Business Development Representative",
+    "first_seen": "2026-06-25T23:53:02.751132+00:00"
+  },
+  "https://www.ycombinator.com/companies/coinrule/jobs/yMcvMm3-digital-marketing-manager": {
+    "company": "Coinrule",
+    "title": "Digital Marketing Manager",
+    "first_seen": "2026-06-25T23:53:02.751130+00:00"
+  },
+  "https://www.ycombinator.com/companies/nira-energy/jobs/tEqXIz1-account-executive-growth-utilities": {
+    "company": "Nira Energy",
+    "title": "Account Executive & Growth - Utilities",
+    "first_seen": "2026-06-25T23:53:02.751136+00:00"
+  },
+  "https://www.ycombinator.com/companies/digibuild/jobs/zdGrE47-sales-lead-the-promota-gauntlet": {
+    "company": "DigiBuild",
+    "title": "Sales Lead | The \u201cPromota\" Gauntlet",
+    "first_seen": "2026-06-25T23:53:02.751138+00:00"
+  },
+  "https://www.ycombinator.com/companies/enerjazz/jobs/BHTiGPw-field-sales-executive-manager": {
+    "company": "Enerjazz",
+    "title": "Field Sales Executive/Manager",
+    "first_seen": "2026-06-25T23:53:02.751140+00:00"
+  },
+  "https://www.ycombinator.com/companies/hyperbrowser/jobs/1LZDDAF-growth-engineer-intern": {
+    "company": "Hyperbrowser",
+    "title": "Growth Engineer Intern",
+    "first_seen": "2026-06-25T23:53:02.751147+00:00"
+  },
+  "https://www.ycombinator.com/companies/aqua/jobs/NdfAeWF-founding-account-executive-distribution-channels": {
+    "company": "Aqua",
+    "title": "Founding Account Executive\u2014Distribution Channels",
+    "first_seen": "2026-06-25T23:53:02.751141+00:00"
+  },
+  "https://www.ycombinator.com/companies/aqua/jobs/IrngHEb-founding-account-executive-asset-manager-sponsor-channel": {
+    "company": "Aqua",
+    "title": "Founding Account Executive\u2014Asset Manager/Sponsor Channel",
+    "first_seen": "2026-06-25T23:53:02.751143+00:00"
+  },
+  "https://www.ycombinator.com/companies/aqua/jobs/OMpYiit-gtm-associate": {
+    "company": "Aqua",
+    "title": "GTM Associate",
+    "first_seen": "2026-06-25T23:53:02.751145+00:00"
+  },
+  "https://www.ycombinator.com/companies/safebeat/jobs/5oIH4QQ-sales-development-representative": {
+    "company": "SafeBeat",
+    "title": "Sales Development Representative",
+    "first_seen": "2026-06-25T23:53:02.751149+00:00"
+  },
+  "https://www.ycombinator.com/companies/safebeat/jobs/52A6Ozi-head-of-growth": {
+    "company": "SafeBeat",
+    "title": "Head of Growth",
+    "first_seen": "2026-06-25T23:53:02.751151+00:00"
+  },
+  "https://www.ycombinator.com/companies/posturehealth-inc/jobs/eCxKAhq-growth-ios-swift-engineer": {
+    "company": "Zen",
+    "title": "Growth iOS Swift Engineer",
+    "first_seen": "2026-06-25T23:53:02.751153+00:00"
+  },
+  "https://www.ycombinator.com/companies/doublehq/jobs/y6QI5sp-sales-development-representative": {
+    "company": "Double",
+    "title": "Sales Development Representative",
+    "first_seen": "2026-06-25T23:53:02.751157+00:00"
+  },
+  "https://www.ycombinator.com/companies/algouniversity/jobs/JE7sPTw-sales-executive-gtm-strategy-intern": {
+    "company": "AlgoUniversity",
+    "title": "Sales Executive, GTM Strategy (Intern)",
+    "first_seen": "2026-06-25T23:53:02.751159+00:00"
+  },
+  "https://www.ycombinator.com/companies/algouniversity/jobs/DCjjTNN-digital-marketing-specialist": {
+    "company": "AlgoUniversity",
+    "title": "Digital Marketing Specialist",
+    "first_seen": "2026-06-25T23:53:02.751160+00:00"
+  },
+  "https://www.ycombinator.com/companies/parallel-bio/jobs/nNnx2B3-head-of-sales": {
+    "company": "Parallel Bio",
+    "title": "Head of Sales",
+    "first_seen": "2026-06-25T23:53:02.751162+00:00"
+  },
+  "https://www.ycombinator.com/companies/confido/jobs/NBATecr-senior-sales-development-representative": {
+    "company": "Confido",
+    "title": "Senior Sales Development Representative",
+    "first_seen": "2026-06-25T23:53:02.751164+00:00"
+  },
+  "https://www.ycombinator.com/companies/confido/jobs/dHfP8CW-founding-growth": {
+    "company": "Confido",
+    "title": "Founding Growth",
+    "first_seen": "2026-06-25T23:53:02.751166+00:00"
+  },
+  "https://www.ycombinator.com/companies/replo/jobs/R2DwBYf-sales-0-1-leader": {
+    "company": "Replo",
+    "title": "Sales (0 > 1 Leader)",
+    "first_seen": "2026-06-25T23:53:02.751170+00:00"
+  },
+  "https://www.ycombinator.com/companies/varos/jobs/IDC40Zu-sales-development-representative-sdr": {
+    "company": "Varos",
+    "title": "Sales Development Representative (SDR)",
+    "first_seen": "2026-06-25T23:53:02.751172+00:00"
+  },
+  "https://www.ycombinator.com/companies/agape/jobs/FoOZP9O-social-media-marketing-intern-content-creator": {
+    "company": "Agap\u00e9",
+    "title": "Social Media Marketing Intern - Content Creator",
+    "first_seen": "2026-06-25T23:53:02.751177+00:00"
+  },
+  "https://www.ycombinator.com/companies/slope/jobs/WPuplyY-sales-development-representative": {
+    "company": "Slope",
+    "title": "Sales Development Representative",
+    "first_seen": "2026-06-25T23:53:02.751180+00:00"
+  },
+  "https://www.ycombinator.com/companies/terra-api/jobs/4QSWmBq-sales-strategist": {
+    "company": "Terra API",
+    "title": "Sales Strategist",
+    "first_seen": "2026-06-25T23:53:02.751183+00:00"
+  },
+  "https://www.ycombinator.com/companies/swiftsku/jobs/NDEBx0g-founding-head-of-growth": {
+    "company": "SwiftSku",
+    "title": "Founding Head of Growth",
+    "first_seen": "2026-06-25T23:53:02.751205+00:00"
+  },
+  "https://www.ycombinator.com/companies/waydev-ai/jobs/BFA4rwl-head-of-sales": {
+    "company": "Waydev AI",
+    "title": "Head of Sales",
+    "first_seen": "2026-06-25T23:53:02.751209+00:00"
+  },
+  "https://www.ycombinator.com/companies/waydev-ai/jobs/ecnmEt7-head-of-growth": {
+    "company": "Waydev AI",
+    "title": "Head of Growth",
+    "first_seen": "2026-06-25T23:53:02.751213+00:00"
+  },
+  "https://www.ycombinator.com/companies/jiga/jobs/L5f5VZc-sales-development-representative-sdr-remote": {
+    "company": "Jiga",
+    "title": "Sales Development Representative (SDR) - Remote",
+    "first_seen": "2026-06-25T23:53:02.751220+00:00"
+  },
+  "https://www.ycombinator.com/companies/prospa/jobs/XritFOy-marketing-manager": {
+    "company": "Prospa",
+    "title": "Marketing Manager",
+    "first_seen": "2026-06-25T23:53:02.751222+00:00"
+  },
+  "https://www.ycombinator.com/companies/prospa/jobs/jq8eQot-marketing-intern": {
+    "company": "Prospa",
+    "title": "Marketing Intern",
+    "first_seen": "2026-06-25T23:53:02.751224+00:00"
+  },
+  "https://www.ycombinator.com/companies/gigs/jobs/PGnewaG-partner-marketing-fintech": {
+    "company": "Gigs",
+    "title": "Partner Marketing, Fintech",
+    "first_seen": "2026-06-25T23:53:02.751226+00:00"
+  },
+  "https://www.ycombinator.com/companies/svix/jobs/n8yVriC-founding-marketing-lead": {
+    "company": "Svix",
+    "title": "Founding Marketing Lead",
+    "first_seen": "2026-06-25T23:53:02.751228+00:00"
+  },
+  "https://www.ycombinator.com/companies/infracost/jobs/YTJcFwr-marketing-lead": {
+    "company": "Infracost",
+    "title": "Marketing Lead",
+    "first_seen": "2026-06-25T23:53:02.751230+00:00"
+  },
+  "https://www.ycombinator.com/companies/haystack/jobs/HYIUauN-influencer-marketing": {
+    "company": "Haystack",
+    "title": "Influencer Marketing",
+    "first_seen": "2026-06-25T23:53:02.751232+00:00"
+  },
+  "https://www.ycombinator.com/companies/lamar-health/jobs/fsKwxUk-founding-ae-enterprise-experience-required": {
+    "company": "Lamar Health",
+    "title": "Founding AE - Enterprise Experience Required",
+    "first_seen": "2026-06-25T23:53:02.751239+00:00"
+  },
+  "https://www.ycombinator.com/companies/betterhalf/jobs/2IVL0FS-senior-technical-growth-product-manager-growth-hacker": {
+    "company": "Betterhalf",
+    "title": "Senior Technical Growth Product Manager/ Growth Hacker",
+    "first_seen": "2026-06-25T23:53:02.751237+00:00"
+  },
+  "https://www.ycombinator.com/companies/solo/jobs/Z6UmSDo-growth-marketing-manager": {
+    "company": "Solo",
+    "title": "Growth Marketing Manager",
+    "first_seen": "2026-06-25T23:53:02.751246+00:00"
+  },
+  "https://www.ycombinator.com/companies/solo/jobs/NLQkXDC-senior-growth-marketing-manager": {
+    "company": "Solo",
+    "title": "Senior Growth Marketing Manager",
+    "first_seen": "2026-06-25T23:53:02.751248+00:00"
+  },
+  "https://www.ycombinator.com/companies/solo/jobs/xBVUxWe-senior-growth-marketing-executive": {
+    "company": "Solo",
+    "title": "Senior Growth Marketing Executive",
+    "first_seen": "2026-06-25T23:53:02.751250+00:00"
+  },
+  "https://www.ycombinator.com/companies/tractian/jobs/cVGSjVg-sales-development-representative": {
+    "company": "Tractian",
+    "title": "Sales Development Representative",
+    "first_seen": "2026-06-25T23:53:02.751252+00:00"
+  },
+  "https://www.ycombinator.com/companies/tractian/jobs/S4YFJPW-sales-account-executive": {
+    "company": "Tractian",
+    "title": "Sales Account Executive",
+    "first_seen": "2026-06-25T23:53:02.751253+00:00"
+  },
+  "https://www.ycombinator.com/companies/codingal/jobs/FfYHlsZ-senior-business-development-associate": {
+    "company": "Codingal",
+    "title": "Senior Business Development Associate",
+    "first_seen": "2026-06-25T23:53:02.751241+00:00"
+  },
+  "https://www.ycombinator.com/companies/codingal/jobs/ijNdRBn-business-development-associate": {
+    "company": "Codingal",
+    "title": "Business Development Associate",
+    "first_seen": "2026-06-25T23:53:02.751243+00:00"
+  },
+  "https://www.ycombinator.com/companies/codingal/jobs/gf6yJlM-business-development-associate-renewals": {
+    "company": "Codingal",
+    "title": "Business Development Associate (Renewals)",
+    "first_seen": "2026-06-25T23:53:02.751244+00:00"
+  },
+  "https://www.ycombinator.com/companies/topline-pro/jobs/UCaWgaJ-lead-generation-manager": {
+    "company": "Topline Pro",
+    "title": "Lead Generation Manager",
+    "first_seen": "2026-06-25T23:53:02.751255+00:00"
+  },
+  "https://www.ycombinator.com/companies/topline-pro/jobs/zq36wDX-performance-marketing-manager": {
+    "company": "Topline Pro",
+    "title": "Performance Marketing Manager",
+    "first_seen": "2026-06-25T23:53:02.751257+00:00"
+  },
+  "https://www.ycombinator.com/companies/text-blaze/jobs/CidfA3r-product-marketing": {
+    "company": "Text Blaze",
+    "title": "Product Marketing",
+    "first_seen": "2026-06-25T23:53:02.751259+00:00"
+  },
+  "https://www.ycombinator.com/companies/fathom/jobs/2HJUVos-senior-growth-marketing-manager": {
+    "company": "Fathom",
+    "title": "Senior Growth Marketing Manager",
+    "first_seen": "2026-06-25T23:53:02.751264+00:00"
+  },
+  "https://www.ycombinator.com/companies/popl/jobs/Slmqp4e-head-of-revenue-operations-revops": {
+    "company": "Popl",
+    "title": "Head of Revenue Operations (RevOps)",
+    "first_seen": "2026-06-25T23:53:02.751268+00:00"
+  },
+  "https://www.ycombinator.com/companies/anima/jobs/KiHHqcN-account-executive-manager-fullstack-sales": {
+    "company": "Anima",
+    "title": "Account Executive / Manager (Fullstack Sales)",
+    "first_seen": "2026-06-25T23:53:02.751262+00:00"
+  },
+  "https://www.ycombinator.com/companies/pangea-app/jobs/Ecvk6ia-growth-marketing-manager": {
+    "company": "Pangea.app",
+    "title": "Growth Marketing Manager",
+    "first_seen": "2026-06-25T23:53:02.751270+00:00"
+  },
+  "https://www.ycombinator.com/companies/topkey/jobs/1HDPaxv-senior-sales-development-representative": {
+    "company": "Topkey",
+    "title": "Senior Sales Development Representative",
+    "first_seen": "2026-06-25T23:53:02.751272+00:00"
+  },
+  "https://www.ycombinator.com/companies/camber-2/jobs/7NrcOor-sales-development-representative": {
+    "company": "Camber",
+    "title": "Sales Development Representative",
+    "first_seen": "2026-06-25T23:53:02.751274+00:00"
+  },
+  "https://www.ycombinator.com/companies/firstbase-io/jobs/znQwk9j-growth-manager-paid-and-lifecycle": {
+    "company": "Firstbase.io",
+    "title": "Growth Manager, Paid and Lifecycle",
+    "first_seen": "2026-06-25T23:53:02.751275+00:00"
+  },
+  "https://www.ycombinator.com/companies/axle-health/jobs/Mu4qaoT-head-of-growth-marketing": {
+    "company": "Axle Health",
+    "title": "Head of Growth Marketing",
+    "first_seen": "2026-06-25T23:53:02.751279+00:00"
+  },
+  "https://www.ycombinator.com/companies/cyble/jobs/U1S4yIv-sales-engineer-singapore": {
+    "company": "Cyble",
+    "title": "Sales Engineer - Singapore",
+    "first_seen": "2026-06-25T23:53:02.751277+00:00"
+  },
+  "https://www.ycombinator.com/companies/encord/jobs/hLb6rhI-gtm-special-projects-physical-ai": {
+    "company": "Encord",
+    "title": "GTM Special Projects, Physical AI",
+    "first_seen": "2026-06-25T23:53:02.751281+00:00"
+  },
+  "https://www.ycombinator.com/companies/gromo/jobs/UktpC4L-growth-marketer": {
+    "company": "GroMo",
+    "title": "Growth Marketer",
+    "first_seen": "2026-06-25T23:53:02.751282+00:00"
+  },
+  "https://www.ycombinator.com/companies/signoz/jobs/6O4Qa24-growth-marketing-remote-us-based": {
+    "company": "SigNoz",
+    "title": "Growth Marketing (Remote)(US based)",
+    "first_seen": "2026-06-25T23:53:02.751286+00:00"
+  },
+  "https://www.ycombinator.com/companies/signoz/jobs/UwPwLnq-growth-marketing-india-eu": {
+    "company": "SigNoz",
+    "title": "Growth Marketing (India/EU)",
+    "first_seen": "2026-06-25T23:53:02.751287+00:00"
+  },
+  "https://www.ycombinator.com/companies/arnata/jobs/GGQBdkF-business-development-representative": {
+    "company": "arnata",
+    "title": "Business Development Representative",
+    "first_seen": "2026-06-25T23:53:02.751284+00:00"
+  },
+  "https://www.ycombinator.com/companies/medme-health/jobs/7BBqqVc-qa-automation-engineer-apac-latam": {
+    "company": "MedMe Health",
+    "title": "QA Automation Engineer (APAC/LATAM)",
+    "first_seen": "2026-06-25T23:53:02.751289+00:00"
+  },
+  "https://www.ycombinator.com/companies/medme-health/jobs/l0sfPVg-revenue-cycle-management-rcm-manager": {
+    "company": "MedMe Health",
+    "title": "Revenue Cycle Management (RCM) Manager",
+    "first_seen": "2026-06-25T23:53:02.751291+00:00"
+  },
+  "https://www.ycombinator.com/companies/abacum/jobs/UU16prf-lead-product-marketing-manager": {
+    "company": "Abacum",
+    "title": "Lead Product Marketing Manager",
+    "first_seen": "2026-06-25T23:53:02.751293+00:00"
+  },
+  "https://www.ycombinator.com/companies/abacum/jobs/BX6ciNy-growth-strategist-lead": {
+    "company": "Abacum",
+    "title": "Growth Strategist Lead",
+    "first_seen": "2026-06-25T23:53:02.751294+00:00"
+  },
+  "https://www.ycombinator.com/companies/abacum/jobs/lQQU8nD-business-development-representative-bdr": {
+    "company": "Abacum",
+    "title": "Business Development Representative (BDR)",
+    "first_seen": "2026-06-25T23:53:02.751297+00:00"
+  },
+  "https://www.ycombinator.com/companies/abacum/jobs/PKmbHYV-content-marketing-operations-specialist": {
+    "company": "Abacum",
+    "title": "Content & Marketing Operations Specialist",
+    "first_seen": "2026-06-25T23:53:02.751299+00:00"
+  },
+  "https://www.ycombinator.com/companies/abacum/jobs/csF4RVk-head-of-demand-generation": {
+    "company": "Abacum",
+    "title": "Head of Demand Generation",
+    "first_seen": "2026-06-25T23:53:02.751300+00:00"
+  },
+  "https://www.ycombinator.com/companies/zuddl/jobs/niLqqVy-sales-development-representative-sdr-us-location": {
+    "company": "Zuddl",
+    "title": "Sales Development Representative (SDR)- US Location",
+    "first_seen": "2026-06-25T23:53:02.751302+00:00"
+  },
+  "https://www.ycombinator.com/companies/zuddl/jobs/6vmrpuM-lead-growth-engineering": {
+    "company": "Zuddl",
+    "title": "Lead - Growth Engineering",
+    "first_seen": "2026-06-25T23:53:02.751304+00:00"
+  },
+  "https://www.ycombinator.com/companies/fieldguide/jobs/AqpyQXY-senior-product-marketing-manager": {
+    "company": "Fieldguide",
+    "title": "Senior Product Marketing Manager",
+    "first_seen": "2026-06-25T23:53:02.751306+00:00"
+  },
+  "https://www.ycombinator.com/companies/rally/jobs/UszC5f0pz-marketing-intern": {
+    "company": "Rally",
+    "title": "Marketing Intern",
+    "first_seen": "2026-06-25T23:53:02.751308+00:00"
+  },
+  "https://www.ycombinator.com/companies/glimpse-2/jobs/KL19OTV-gtm-engineer": {
+    "company": "Glimpse",
+    "title": "GTM Engineer",
+    "first_seen": "2026-06-25T23:53:02.751310+00:00"
+  },
+  "https://www.ycombinator.com/companies/taktile/jobs/kFmOCLU-business-development-representative": {
+    "company": "Taktile",
+    "title": "Business Development Representative",
+    "first_seen": "2026-06-25T23:53:02.751312+00:00"
+  },
+  "https://www.ycombinator.com/companies/arketa/jobs/3wIkbMn-sales-development-representative": {
+    "company": "Arketa",
+    "title": "Sales Development Representative",
+    "first_seen": "2026-06-25T23:53:02.751314+00:00"
+  },
+  "https://www.ycombinator.com/companies/arketa/jobs/N6h3u3x-sales-account-executive-smb-uk": {
+    "company": "Arketa",
+    "title": "Sales Account Executive - SMB, UK",
+    "first_seen": "2026-06-25T23:53:02.751315+00:00"
+  },
+  "https://www.ycombinator.com/companies/arketa/jobs/VgocMix-sales-development-representative-uk": {
+    "company": "Arketa",
+    "title": "Sales Development Representative,  UK",
+    "first_seen": "2026-06-25T23:53:02.751319+00:00"
+  },
+  "https://www.ycombinator.com/companies/kingdom/jobs/tXFt1J2-gtm-systems-lead": {
+    "company": "Kingdom",
+    "title": "GTM Systems Lead",
+    "first_seen": "2026-06-25T23:53:02.751321+00:00"
+  },
+  "https://www.ycombinator.com/companies/notabene/jobs/dWkUMzI-sales-director-americas-institutional": {
+    "company": "Notabene",
+    "title": "Sales Director, Americas (Institutional)",
+    "first_seen": "2026-06-25T23:53:02.751323+00:00"
+  },
+  "https://www.ycombinator.com/companies/bik/jobs/MewNUmm-founding-account-executive": {
+    "company": "BIK",
+    "title": "Founding Account Executive",
+    "first_seen": "2026-06-25T23:53:02.751325+00:00"
+  },
+  "https://www.ycombinator.com/companies/vitable-health/jobs/MnIXjy0-sales-development-representative": {
+    "company": "Vitable Health",
+    "title": "Sales Development Representative",
+    "first_seen": "2026-06-25T23:53:02.751327+00:00"
+  },
+  "https://www.ycombinator.com/companies/nextera-robotics/jobs/LTDxNVv-sr-business-development-manager": {
+    "company": "Nextera Robotics",
+    "title": "Sr. Business Development Manager",
+    "first_seen": "2026-06-25T23:53:02.751330+00:00"
+  },
+  "https://www.ycombinator.com/companies/hellometer/jobs/pV9HsZP-founding-sales-hire-sdr-ae-hybrid-at-hellometer": {
+    "company": "Hellometer",
+    "title": "Founding Sales Hire (SDR / AE Hybrid) at Hellometer",
+    "first_seen": "2026-06-25T23:53:02.751329+00:00"
+  },
+  "https://www.ycombinator.com/companies/seal-2/jobs/gBW3KZ4-business-development-reprentative-bdr-sdr": {
+    "company": "Seal",
+    "title": "Business Development Reprentative (BDR / SDR)",
+    "first_seen": "2026-06-25T23:53:02.751332+00:00"
+  },
+  "https://www.ycombinator.com/companies/hypotenuse-ai/jobs/VXlnzN6-enterprise-account-executive-full-cycle-sales": {
+    "company": "Hypotenuse AI",
+    "title": "Enterprise Account Executive (Full Cycle Sales)",
+    "first_seen": "2026-06-25T23:53:02.751334+00:00"
+  },
+  "https://www.ycombinator.com/companies/hypotenuse-ai/jobs/aQd0E7K-founding-account-executive-full-cycle-sales": {
+    "company": "Hypotenuse AI",
+    "title": "Founding Account Executive (Full Cycle Sales)",
+    "first_seen": "2026-06-25T23:53:02.751336+00:00"
+  },
+  "https://www.ycombinator.com/companies/explorex/jobs/Dq50MDO-sales-executive": {
+    "company": "Explorex",
+    "title": "Sales Executive",
+    "first_seen": "2026-06-25T23:53:02.751338+00:00"
+  },
+  "https://www.ycombinator.com/companies/atob/jobs/uktnfcJ-partner-marketing-manager": {
+    "company": "AtoB",
+    "title": "Partner Marketing Manager",
+    "first_seen": "2026-06-25T23:53:02.751342+00:00"
+  },
+  "https://www.ycombinator.com/companies/questdb/jobs/24mkVe1-head-of-growth": {
+    "company": "QuestDB",
+    "title": "Head of Growth",
+    "first_seen": "2026-06-25T23:53:02.751340+00:00"
+  },
+  "https://www.ycombinator.com/companies/blue-onion/jobs/jFNETMt-growth-marketing-manager-ai-native": {
+    "company": "Blue Onion",
+    "title": "Growth Marketing Manager (AI-Native)",
+    "first_seen": "2026-06-25T23:53:02.751344+00:00"
+  },
+  "https://www.ycombinator.com/companies/roboflow/jobs/x4cRPAW-sales-development-representative": {
+    "company": "Roboflow",
+    "title": "Sales Development Representative",
+    "first_seen": "2026-06-25T23:53:02.751346+00:00"
+  },
+  "https://www.ycombinator.com/companies/stable/jobs/TEurHMC-growth-engineer": {
+    "company": "Stable",
+    "title": "Growth Engineer",
+    "first_seen": "2026-06-25T23:53:02.751348+00:00"
+  },
+  "https://www.ycombinator.com/companies/junction/jobs/g1iQMK1-sales-development-representative": {
+    "company": "Junction",
+    "title": "Sales Development Representative",
+    "first_seen": "2026-06-25T23:53:02.751352+00:00"
+  },
+  "https://www.ycombinator.com/companies/aios/jobs/qWBAtJh-head-of-product-growth-referrals-viral-loops-at-aios-remote-200k-400k-yr-0-15-0-50": {
+    "company": "AIOS",
+    "title": "Head of Product Growth (Referrals & Viral Loops) at AIOS \u2014 Remote, $200k-$400k/yr + 0.15%-0.50%",
+    "first_seen": "2026-06-25T23:53:02.751354+00:00"
+  },
+  "https://www.ycombinator.com/companies/vori/jobs/ajiLuxq-founding-sales-rep": {
+    "company": "Vori",
+    "title": "Founding Sales Rep",
+    "first_seen": "2026-06-25T23:53:02.751358+00:00"
+  },
+  "https://www.ycombinator.com/companies/candid-health/jobs/GJvYgrnQ1-revenue-cycle-customer-success": {
+    "company": "Candid Health",
+    "title": "Revenue Cycle Customer Success",
+    "first_seen": "2026-06-25T23:53:02.751356+00:00"
+  },
+  "https://www.ycombinator.com/companies/turing-labs-inc/jobs/QpxEuRd-sales-gtm-hacker": {
+    "company": "Turing Labs Inc.",
+    "title": "Sales / GTM Hacker",
+    "first_seen": "2026-06-25T23:53:02.751360+00:00"
+  },
+  "https://www.ycombinator.com/companies/eze/jobs/NtRpXAw-head-of-sales": {
+    "company": "Eze",
+    "title": "Head of Sales",
+    "first_seen": "2026-06-25T23:53:02.751362+00:00"
+  },
+  "https://www.ycombinator.com/companies/taiv/jobs/lav1USC-vp-national-ad-sales": {
+    "company": "Taiv",
+    "title": "VP National Ad Sales",
+    "first_seen": "2026-06-25T23:53:02.751367+00:00"
+  },
+  "https://www.ycombinator.com/companies/taiv/jobs/zkOpO7s-national-ad-salesperson": {
+    "company": "Taiv",
+    "title": "National Ad Salesperson",
+    "first_seen": "2026-06-25T23:53:02.751369+00:00"
+  },
+  "https://www.ycombinator.com/companies/porter/jobs/V5kia33-growth-product-engineer": {
+    "company": "Porter",
+    "title": "Growth/Product Engineer",
+    "first_seen": "2026-06-25T23:53:02.751371+00:00"
+  },
+  "https://www.ycombinator.com/companies/paragon/jobs/2El4EiK-revenue-operations-manager": {
+    "company": "Paragon",
+    "title": "Revenue Operations Manager",
+    "first_seen": "2026-06-25T23:53:02.751373+00:00"
+  },
+  "https://www.ycombinator.com/companies/paragon/jobs/1NfxSTg-product-marketing-lead": {
+    "company": "Paragon",
+    "title": "Product Marketing Lead",
+    "first_seen": "2026-06-25T23:53:02.751375+00:00"
+  },
+  "https://www.ycombinator.com/companies/karat-financial/jobs/KSsB6SX-growth-engineer": {
+    "company": "Karat Financial",
+    "title": "Growth Engineer",
+    "first_seen": "2026-06-25T23:53:02.751379+00:00"
+  },
+  "https://www.ycombinator.com/companies/inevent/jobs/66ykd0PuC-sales-account-executive": {
+    "company": "InEvent",
+    "title": "Sales Account Executive",
+    "first_seen": "2026-06-25T23:53:02.751389+00:00"
+  },
+  "https://www.ycombinator.com/companies/inevent/jobs/jTDWCfM-sales-manager": {
+    "company": "InEvent",
+    "title": "Sales Manager",
+    "first_seen": "2026-06-25T23:53:02.751391+00:00"
+  },
+  "https://www.ycombinator.com/companies/embrace/jobs/zlhuMD6-business-development-lead": {
+    "company": "Embrace",
+    "title": "Business Development Lead",
+    "first_seen": "2026-06-25T23:53:02.751394+00:00"
+  },
+  "https://www.ycombinator.com/companies/dex/jobs/xW8ufw0-founding-growth-and-marketing-lead-ai-product": {
+    "company": "Dex",
+    "title": "Founding Growth and Marketing Lead - AI Product",
+    "first_seen": "2026-06-25T23:53:02.751396+00:00"
+  },
+  "https://www.ycombinator.com/companies/vouch/jobs/Vl4CLOu-business-development-representative": {
+    "company": "Vouch",
+    "title": "Business Development Representative",
+    "first_seen": "2026-06-25T23:53:02.751398+00:00"
+  },
+  "https://www.ycombinator.com/companies/verto/jobs/I7MRNdG-enterprise-sales-manager": {
+    "company": "Verto",
+    "title": "Enterprise Sales Manager",
+    "first_seen": "2026-06-25T23:53:02.751400+00:00"
+  },
+  "https://www.ycombinator.com/companies/verto/jobs/7Nqzxkx-sales-manager": {
+    "company": "Verto",
+    "title": "Sales Manager",
+    "first_seen": "2026-06-25T23:53:02.751402+00:00"
+  },
+  "https://www.ycombinator.com/companies/cityfurnish/jobs/dAYXcvY-marketing-intern": {
+    "company": "Cityfurnish",
+    "title": "Marketing Intern",
+    "first_seen": "2026-06-25T23:53:02.751404+00:00"
+  },
+  "https://www.ycombinator.com/companies/cityfurnish/jobs/p839b8y-marketing-intern-social-media": {
+    "company": "Cityfurnish",
+    "title": "Marketing Intern ( Social Media)",
+    "first_seen": "2026-06-25T23:53:02.751405+00:00"
+  },
+  "https://www.ycombinator.com/companies/dover/jobs/dZIAKcB-marketing-leader": {
+    "company": "Dover",
+    "title": "Marketing Leader",
+    "first_seen": "2026-06-25T23:53:02.751409+00:00"
+  },
+  "https://www.ycombinator.com/companies/deel/jobs/lACZX0I-sales-development-representative-smb-mm-ent": {
+    "company": "Deel",
+    "title": "Sales Development Representative (SMB - MM- ENT)",
+    "first_seen": "2026-06-25T23:53:02.751411+00:00"
+  },
+  "https://www.ycombinator.com/companies/deel/jobs/uM8n02A-sdr-manager-smb-mm-ent": {
+    "company": "Deel",
+    "title": "SDR Manager (SMB - MM - ENT)",
+    "first_seen": "2026-06-25T23:53:02.751413+00:00"
+  },
+  "https://www.ycombinator.com/companies/swadesh/jobs/LleQ6av-sales-marketing-intern": {
+    "company": "Swadesh",
+    "title": "Sales & Marketing Intern",
+    "first_seen": "2026-06-25T23:53:02.751415+00:00"
+  },
+  "https://www.ycombinator.com/companies/community-phone-company/jobs/wFFI9LF-sr-growth-product-manager": {
+    "company": "Community Phone Company",
+    "title": "Sr Growth Product Manager",
+    "first_seen": "2026-06-25T23:53:02.751426+00:00"
+  },
+  "https://www.ycombinator.com/companies/golinks/jobs/1Tgtfmi-sr-sales-development-representative": {
+    "company": "GoLinks",
+    "title": "Sr. Sales Development Representative",
+    "first_seen": "2026-06-25T23:53:02.751416+00:00"
+  },
+  "https://www.ycombinator.com/companies/golinks/jobs/5q6sRn1-sales-development-representative-remote": {
+    "company": "GoLinks",
+    "title": "Sales Development Representative (Remote)",
+    "first_seen": "2026-06-25T23:53:02.751418+00:00"
+  },
+  "https://www.ycombinator.com/companies/golinks/jobs/iuE20vT-sr-sales-development-representative-remote": {
+    "company": "GoLinks",
+    "title": "Sr. Sales Development Representative (Remote)",
+    "first_seen": "2026-06-25T23:53:02.751420+00:00"
+  },
+  "https://www.ycombinator.com/companies/golinks/jobs/Bzikyvg-sales-development-representative-hybrid": {
+    "company": "GoLinks",
+    "title": "Sales Development Representative (Hybrid)",
+    "first_seen": "2026-06-25T23:53:02.751422+00:00"
+  },
+  "https://www.ycombinator.com/companies/dyneti-technologies/jobs/YFHVUaK-marketing-intern": {
+    "company": "Dyneti Technologies",
+    "title": "Marketing Intern",
+    "first_seen": "2026-06-25T23:53:02.751427+00:00"
+  },
+  "https://www.ycombinator.com/companies/leena-ai/jobs/9h67pWNCQ-sales-manager": {
+    "company": "Leena AI",
+    "title": "Sales Manager",
+    "first_seen": "2026-06-25T23:53:02.751430+00:00"
+  },
+  "https://www.ycombinator.com/companies/nestor/jobs/QNomBQ6-sales-development-representative-sdr": {
+    "company": "Nestor",
+    "title": "Sales Development Representative (SDR)",
+    "first_seen": "2026-06-25T23:53:02.751432+00:00"
+  },
+  "https://www.ycombinator.com/companies/pine-park-health/jobs/EnkhUNH-sales-enrollment-director": {
+    "company": "Pine Park Health",
+    "title": "Sales Enrollment Director",
+    "first_seen": "2026-06-25T23:53:02.751433+00:00"
+  },
+  "https://www.ycombinator.com/companies/alpha-vantage/jobs/mddXfsI-gtm-team-various-roles-available": {
+    "company": "Alpha Vantage",
+    "title": "GTM team (Various roles available)",
+    "first_seen": "2026-06-25T23:53:02.751435+00:00"
+  },
+  "https://www.ycombinator.com/companies/alpha-vantage/jobs/q3F0qLh-growth-manager": {
+    "company": "Alpha Vantage",
+    "title": "Growth Manager",
+    "first_seen": "2026-06-25T23:53:02.751437+00:00"
+  },
+  "https://www.ycombinator.com/companies/owny/jobs/KAphfmN-head-of-business-development-global-banking-services": {
+    "company": "OWNY",
+    "title": "Head of Business Development, Global Banking Services",
+    "first_seen": "2026-06-25T23:53:02.751441+00:00"
+  },
+  "https://www.ycombinator.com/companies/klarity/jobs/B4DjSKm-product-marketing-manager": {
+    "company": "Klarity",
+    "title": "Product Marketing Manager",
+    "first_seen": "2026-06-25T23:53:02.751439+00:00"
+  },
+  "https://www.ycombinator.com/companies/orangewood-labs/jobs/6Fhj4OB-marketing-and-bda-intern": {
+    "company": "Orangewood Labs",
+    "title": "Marketing and BDA Intern",
+    "first_seen": "2026-06-25T23:53:02.751447+00:00"
+  },
+  "https://www.ycombinator.com/companies/aspire/jobs/KnCUrsK-senior-growth-community-marketing-manager-us": {
+    "company": "Aspire",
+    "title": "Senior Growth & Community Marketing Manager US",
+    "first_seen": "2026-06-25T23:53:02.751443+00:00"
+  },
+  "https://www.ycombinator.com/companies/aspire/jobs/GmeuYgC-business-development-manager-us": {
+    "company": "Aspire",
+    "title": "Business Development Manager, US",
+    "first_seen": "2026-06-25T23:53:02.751445+00:00"
+  },
+  "https://www.ycombinator.com/companies/substack/jobs/mz02cbL-growth-engineer": {
+    "company": "Substack",
+    "title": "Growth Engineer",
+    "first_seen": "2026-06-25T23:53:02.751448+00:00"
+  },
+  "https://www.ycombinator.com/companies/biorender/jobs/FCsmFor-business-development-representative": {
+    "company": "BioRender",
+    "title": "Business Development Representative",
+    "first_seen": "2026-06-25T23:53:02.751450+00:00"
+  },
+  "https://www.ycombinator.com/companies/muzz/jobs/REMbH5C-marketing-executive-us": {
+    "company": "Muzz",
+    "title": "Marketing Executive - US",
+    "first_seen": "2026-06-25T23:53:02.751452+00:00"
+  },
+  "https://www.ycombinator.com/companies/nanonets/jobs/aDgg5Z5-sales-engineer": {
+    "company": "NanoNets",
+    "title": "Sales Engineer",
+    "first_seen": "2026-06-25T23:53:02.751454+00:00"
+  },
+  "https://www.ycombinator.com/companies/collectly/jobs/NAemvVa-director-of-enterprise-sales-hybrid-san-francisco": {
+    "company": "Collectly",
+    "title": "Director of Enterprise Sales (Hybrid - San Francisco)",
+    "first_seen": "2026-06-25T23:53:02.751457+00:00"
+  },
+  "https://www.ycombinator.com/companies/wright-electric/jobs/Pw1gFIA-business-development-lead-to-the-ceo-chief-of-staff-bd": {
+    "company": "Wright Electric",
+    "title": "Business Development Lead to the CEO (Chief of Staff \u2013 BD)",
+    "first_seen": "2026-06-25T23:53:02.751463+00:00"
+  },
+  "https://www.ycombinator.com/companies/veryfi-inc/jobs/6lh8NoG-sales-engineer": {
+    "company": "Veryfi, Inc.",
+    "title": "Sales Engineer",
+    "first_seen": "2026-06-25T23:53:02.751455+00:00"
+  },
+  "https://www.ycombinator.com/companies/mednet/jobs/Xzjlhm6-lifecycle-marketing-manager": {
+    "company": "Mednet",
+    "title": "Lifecycle Marketing Manager",
+    "first_seen": "2026-06-25T23:53:02.751459+00:00"
+  },
+  "https://www.ycombinator.com/companies/mednet/jobs/yyIECpN-growth-marketing-manager": {
+    "company": "Mednet",
+    "title": "Growth Marketing Manager",
+    "first_seen": "2026-06-25T23:53:02.751461+00:00"
+  },
+  "https://www.ycombinator.com/companies/ambient-ai/jobs/WARD3EV-regional-sales-manager-strategic-accounts": {
+    "company": "Ambient.ai",
+    "title": "Regional Sales Manager, Strategic Accounts",
+    "first_seen": "2026-06-25T23:53:02.751465+00:00"
+  },
+  "https://www.ycombinator.com/companies/clipboard/jobs/nPTAQEW-sales-development-representative-new-verticals": {
+    "company": "Clipboard",
+    "title": "Sales Development Representative - New Verticals",
+    "first_seen": "2026-06-25T23:53:02.751467+00:00"
+  },
+  "https://www.ycombinator.com/companies/mdalgorithms-inc/jobs/LVODKN7-growth-marketer-for-a-rapidly-growing-consumer-ai-healthcare-company": {
+    "company": "MDalgorithms Inc.",
+    "title": "Growth Marketer for a Rapidly Growing Consumer AI Healthcare Company \ud83d\ude80",
+    "first_seen": "2026-06-25T23:53:02.751469+00:00"
+  },
+  "https://www.ycombinator.com/companies/mdalgorithms-inc/jobs/FAWGgPU-head-of-growth-for-a-rapidly-growing-consumer-ai-healthcare-company": {
+    "company": "MDalgorithms Inc.",
+    "title": "Head of Growth for a Rapidly Growing Consumer AI Healthcare Company \ud83d\ude80",
+    "first_seen": "2026-06-25T23:53:02.751471+00:00"
+  },
+  "https://www.ycombinator.com/companies/speak/jobs/cmDq5Jg-japan-growth-marketing-manager": {
+    "company": "Speak",
+    "title": "Japan Growth Marketing Manager",
+    "first_seen": "2026-06-25T23:53:02.751473+00:00"
+  },
+  "https://www.ycombinator.com/companies/hioperator/jobs/VVlh7B9-business-development-representative": {
+    "company": "HiOperator",
+    "title": "Business Development Representative",
+    "first_seen": "2026-06-25T23:53:02.751474+00:00"
+  },
+  "https://www.ycombinator.com/companies/joy/jobs/SZ1FHxq-digital-marketing-manager": {
+    "company": "Joy",
+    "title": "Digital Marketing Manager",
+    "first_seen": "2026-06-25T23:53:02.751477+00:00"
+  },
+  "https://www.ycombinator.com/companies/pocketsuite/jobs/WIUGZgMa8-lead-generalist-engineer": {
+    "company": "PocketSuite",
+    "title": "Lead Generalist Engineer",
+    "first_seen": "2026-06-25T23:53:02.751478+00:00"
+  },
+  "https://www.ycombinator.com/companies/pocketsuite/jobs/JwwrzBW-marketing-generalist-smb-growth-strategy": {
+    "company": "PocketSuite",
+    "title": "Marketing Generalist - SMB Growth & Strategy",
+    "first_seen": "2026-06-25T23:53:02.751480+00:00"
+  },
+  "https://www.ycombinator.com/companies/deepgram/jobs/eHsOFzM-sales-development-representative": {
+    "company": "Deepgram",
+    "title": "Sales Development Representative",
+    "first_seen": "2026-06-25T23:53:02.751482+00:00"
+  },
+  "https://www.ycombinator.com/companies/bitmovin/jobs/SPlTI7FBv-sales-director": {
+    "company": "Bitmovin",
+    "title": "Sales Director",
+    "first_seen": "2026-06-25T23:53:02.751483+00:00"
+  },
+  "https://www.ycombinator.com/companies/snapmagic/jobs/Heq4Fmo-head-of-sales": {
+    "company": "SnapMagic",
+    "title": "Head of Sales",
+    "first_seen": "2026-06-25T23:53:02.751488+00:00"
+  },
+  "https://www.ycombinator.com/companies/tara-ai/jobs/qxdH1lG-founding-account-executive-san-francisco-ca": {
+    "company": "Tara AI",
+    "title": "Founding Account Executive \u2014 San Francisco, CA",
+    "first_seen": "2026-06-25T23:53:02.751490+00:00"
+  },
+  "https://www.ycombinator.com/companies/tara-ai/jobs/1fONzBp-founding-account-executive-remote": {
+    "company": "Tara AI",
+    "title": "Founding Account Executive \u2014 Remote",
+    "first_seen": "2026-06-25T23:53:02.751492+00:00"
+  },
+  "https://www.ycombinator.com/companies/aptdeco/jobs/MxP9c1E-marketing-manager": {
+    "company": "AptDeco",
+    "title": "Marketing Manager",
+    "first_seen": "2026-06-25T23:53:02.751494+00:00"
+  },
+  "https://www.ycombinator.com/companies/wefunder/jobs/EckBIJl-head-of-sales-syndicates": {
+    "company": "Wefunder",
+    "title": "Head of Sales, Syndicates",
+    "first_seen": "2026-06-25T23:53:02.751496+00:00"
+  },
+  "https://www.ycombinator.com/companies/zentail/jobs/AmfRsHX-business-development-representative-hybrid": {
+    "company": "Zentail",
+    "title": "Business Development Representative - Hybrid",
+    "first_seen": "2026-06-25T23:53:02.751497+00:00"
+  },
+  "https://www.ycombinator.com/companies/onesignal/jobs/06T3lN5-product-marketing-manager": {
+    "company": "OneSignal",
+    "title": "Product Marketing Manager",
+    "first_seen": "2026-06-25T23:53:02.751499+00:00"
+  },
+  "https://www.ycombinator.com/companies/apollo/jobs/XEVeYqZ-enterprise-sales-executive-west": {
+    "company": "Apollo",
+    "title": "Enterprise Sales Executive - West",
+    "first_seen": "2026-06-25T23:53:02.751501+00:00"
+  },
+  "https://www.ycombinator.com/companies/ooak-data/jobs/IaEM42t-founding-gtm-us": {
+    "company": "Ooak Data",
+    "title": "Founding GTM - US",
+    "first_seen": "2026-07-17T09:52:03.201734+00:00"
+  },
+  "https://www.ycombinator.com/companies/screenpipe/jobs/tI43vKt-head-of-tokenmaxxing-revenue": {
+    "company": "screenpipe",
+    "title": "Head of Tokenmaxxing Revenue",
+    "first_seen": "2026-07-17T09:52:03.201755+00:00"
+  },
+  "https://www.ycombinator.com/companies/kugelaudio/jobs/pnO0vKd-founder-associate-sales-distribution-berlin-only": {
+    "company": "KugelAudio",
+    "title": "Founder Associate Sales & Distribution Berlin Only",
+    "first_seen": "2026-07-17T09:52:03.201760+00:00"
+  },
+  "https://www.ycombinator.com/companies/gojiberry-ai/jobs/XtUXX5l-creator-growth-manager": {
+    "company": "Gojiberry AI",
+    "title": "Creator Growth Manager",
+    "first_seen": "2026-07-17T09:52:03.201763+00:00"
+  },
+  "https://www.ycombinator.com/companies/callab-ai/jobs/bJqHpCR-growth-marketer": {
+    "company": "Callab AI",
+    "title": "Growth Marketer",
+    "first_seen": "2026-07-17T09:52:03.201766+00:00"
+  },
+  "https://www.ycombinator.com/companies/samora-ai/jobs/kbmonA5-gtm-fellow-1-month-fellowship": {
+    "company": "Samora AI",
+    "title": "GTM Fellow (1-Month Fellowship)",
+    "first_seen": "2026-07-17T09:52:03.201769+00:00"
+  },
+  "https://www.ycombinator.com/companies/rovi-health/jobs/8xkizlu-founding-gtm-engineer": {
+    "company": "Rovi Health",
+    "title": "Founding GTM Engineer",
+    "first_seen": "2026-07-17T09:52:03.201772+00:00"
+  },
+  "https://www.ycombinator.com/companies/bravi/jobs/Y2OccRN-founding-post-sales-manager": {
+    "company": "Bravi",
+    "title": "Founding Post Sales Manager",
+    "first_seen": "2026-07-17T09:52:03.201775+00:00"
+  },
+  "https://www.ycombinator.com/companies/structured-ai/jobs/DaRbXNw-founding-account-executive": {
+    "company": "Structured AI",
+    "title": "Founding Account Executive",
+    "first_seen": "2026-07-17T09:52:03.201777+00:00"
+  },
+  "https://www.ycombinator.com/companies/uplane/jobs/Gb8bLOl-ai-marketing-strategist-intern-berlin-german-speaking": {
+    "company": "Uplane",
+    "title": "AI Marketing Strategist Intern - Berlin (German Speaking)",
+    "first_seen": "2026-07-17T09:52:03.201780+00:00"
+  },
+  "https://www.ycombinator.com/companies/uplane/jobs/lBJkLEw-ai-marketing-strategist-berlin-german-speaking": {
+    "company": "Uplane",
+    "title": "AI Marketing Strategist - Berlin (German Speaking)",
+    "first_seen": "2026-07-17T09:52:03.201783+00:00"
+  },
+  "https://www.ycombinator.com/companies/uplane/jobs/5z52CdF-business-development-intern": {
+    "company": "Uplane",
+    "title": "Business Development Intern",
+    "first_seen": "2026-07-17T09:52:03.201786+00:00"
+  },
+  "https://www.ycombinator.com/companies/procindex/jobs/Yc1rWKz-founding-sales-development-representative": {
+    "company": "ProcIndex",
+    "title": "Founding Sales Development Representative",
+    "first_seen": "2026-07-17T09:52:03.201789+00:00"
+  },
+  "https://www.ycombinator.com/companies/manufact/jobs/PSQXDRp-marketing-events-lead": {
+    "company": "Manufact",
+    "title": "Marketing & Events Lead",
+    "first_seen": "2026-07-17T09:52:03.201792+00:00"
+  },
+  "https://www.ycombinator.com/companies/deepaware-ai-robotics-center-of-silicon-valley/jobs/Oz49Id3-business-development-associate": {
+    "company": "DeepAware AI (Robotics Center of Silicon Valley)",
+    "title": "Business Development Associate",
+    "first_seen": "2026-07-17T09:52:03.201795+00:00"
+  },
+  "https://www.ycombinator.com/companies/liva-ai/jobs/4wv6EPd-founding-growth-lead": {
+    "company": "Liva AI",
+    "title": "Founding Growth Lead",
+    "first_seen": "2026-07-17T09:52:03.201798+00:00"
+  },
+  "https://www.ycombinator.com/companies/agentmail/jobs/MZN8Drx-gtm-engineer": {
+    "company": "AgentMail",
+    "title": "GTM Engineer",
+    "first_seen": "2026-07-17T09:52:03.201800+00:00"
+  },
+  "https://www.ycombinator.com/companies/getasap/jobs/tCJkfEB-gtm-intern": {
+    "company": "GETASAP",
+    "title": "GTM Intern",
+    "first_seen": "2026-07-17T09:52:03.201804+00:00"
+  },
+  "https://www.ycombinator.com/companies/adaptional/jobs/D8ofuWJ-founding-gtm-lead": {
+    "company": "Adaptional",
+    "title": "Founding GTM Lead",
+    "first_seen": "2026-07-17T09:52:03.201806+00:00"
+  },
+  "https://www.ycombinator.com/companies/prox/jobs/E1rWvQT-founding-gtm-engineer": {
+    "company": "Prox",
+    "title": "Founding GTM Engineer",
+    "first_seen": "2026-07-17T09:52:03.201809+00:00"
+  },
+  "https://www.ycombinator.com/companies/bond/jobs/heVAbp8-gtm-customer-success-lead": {
+    "company": "Bond",
+    "title": "GTM/Customer Success Lead",
+    "first_seen": "2026-07-17T09:52:03.201811+00:00"
+  },
+  "https://www.ycombinator.com/companies/bluejay/jobs/GwwNBgE-founding-sdr": {
+    "company": "Bluejay",
+    "title": "Founding SDR",
+    "first_seen": "2026-07-17T09:52:03.201815+00:00"
+  },
+  "https://www.ycombinator.com/companies/bluejay/jobs/vDY6G0A-growth-marketing-lead": {
+    "company": "Bluejay",
+    "title": "Growth & Marketing Lead",
+    "first_seen": "2026-07-17T09:52:03.201817+00:00"
+  },
+  "https://www.ycombinator.com/companies/avallon-ai/jobs/6A5VzQt-founding-account-executive": {
+    "company": "Avallon AI",
+    "title": "Founding Account Executive",
+    "first_seen": "2026-07-17T09:52:03.201820+00:00"
+  },
+  "https://www.ycombinator.com/companies/dalus/jobs/CqZr2It-gtm-intern": {
+    "company": "Dalus",
+    "title": "GTM Intern",
+    "first_seen": "2026-07-17T09:52:03.201822+00:00"
+  },
+  "https://www.ycombinator.com/companies/spott/jobs/L7gmad0-founding-account-executive": {
+    "company": "Spott",
+    "title": "Founding Account Executive",
+    "first_seen": "2026-07-17T09:52:03.201825+00:00"
+  },
+  "https://www.ycombinator.com/companies/confident-ai/jobs/mgnw9YM-founding-open-source-growth-engineer": {
+    "company": "Confident AI",
+    "title": "Founding Open Source Growth Engineer",
+    "first_seen": "2026-07-17T09:52:03.201827+00:00"
+  },
+  "https://www.ycombinator.com/companies/pluto/jobs/FjZBn9g-head-of-gtm": {
+    "company": "Pluto",
+    "title": "Head of GTM",
+    "first_seen": "2026-07-17T09:52:03.201830+00:00"
+  },
+  "https://www.ycombinator.com/companies/hud/jobs/S4iMOoe-gtm-engineer": {
+    "company": "hud",
+    "title": "GTM Engineer",
+    "first_seen": "2026-07-17T09:52:03.201833+00:00"
+  },
+  "https://www.ycombinator.com/companies/cifrato/jobs/taHvy05-bdr-outbound-sales": {
+    "company": "Cifrato",
+    "title": "BDR - Outbound sales",
+    "first_seen": "2026-07-17T09:52:03.201835+00:00"
+  },
+  "https://www.ycombinator.com/companies/cifrato/jobs/doOQJgH-founding-ae": {
+    "company": "Cifrato",
+    "title": "Founding AE",
+    "first_seen": "2026-07-17T09:52:03.201838+00:00"
+  },
+  "https://www.ycombinator.com/companies/arva-ai/jobs/ccyJhHD-head-of-sales": {
+    "company": "Arva AI",
+    "title": "Head of Sales",
+    "first_seen": "2026-07-17T09:52:03.201841+00:00"
+  },
+  "https://www.ycombinator.com/companies/helium/jobs/vUO2UVU-growth-operations": {
+    "company": "Helium",
+    "title": "Growth Operations",
+    "first_seen": "2026-07-17T09:52:03.201843+00:00"
+  },
+  "https://www.ycombinator.com/companies/soff/jobs/iBoyKn3-founding-bdr": {
+    "company": "Soff",
+    "title": "Founding BDR",
+    "first_seen": "2026-07-17T09:52:03.201846+00:00"
+  },
+  "https://www.ycombinator.com/companies/zeit-ai/jobs/APacFc6-senior-business-development-representative-m-f-d": {
+    "company": "Zeit AI",
+    "title": "(Senior) Business Development Representative (m/f/d)",
+    "first_seen": "2026-07-17T09:52:03.201849+00:00"
+  },
+  "https://www.ycombinator.com/companies/unbound/jobs/nk7MTR3-founding-growth": {
+    "company": "Unbound",
+    "title": "Founding Growth",
+    "first_seen": "2026-07-17T09:52:03.201852+00:00"
+  },
+  "https://www.ycombinator.com/companies/educato/jobs/ERTs4KF-growth-lead-ugc-micro-influencer-marketing": {
+    "company": "Educato",
+    "title": "Growth Lead - UGC & Micro-Influencer marketing",
+    "first_seen": "2026-07-17T09:52:03.201855+00:00"
+  },
+  "https://www.ycombinator.com/companies/educato/jobs/9WO0gEw-creative-director-viral-short-form-creator-growth": {
+    "company": "Educato",
+    "title": "Creative Director, Viral Short-Form & Creator Growth",
+    "first_seen": "2026-07-17T09:52:03.201858+00:00"
+  },
+  "https://www.ycombinator.com/companies/healia/jobs/VPyIfJH-sales-development-representative": {
+    "company": "Healia",
+    "title": "Sales Development Representative \ud83d\ude80",
+    "first_seen": "2026-07-17T09:52:03.201860+00:00"
+  },
+  "https://www.ycombinator.com/companies/deep24/jobs/z2vyQW3-marketing-automation-generalist-intern": {
+    "company": "Deep24",
+    "title": "Marketing Automation Generalist Intern",
+    "first_seen": "2026-07-17T09:52:03.201863+00:00"
+  },
+  "https://www.ycombinator.com/companies/prosights/jobs/2hj6L79-head-of-growth-origination": {
+    "company": "ProSights",
+    "title": "Head of Growth & Origination",
+    "first_seen": "2026-07-17T09:52:03.201866+00:00"
+  },
+  "https://www.ycombinator.com/companies/cpgscout/jobs/fNTqzW0-sales-development": {
+    "company": "Scout",
+    "title": "Sales Development",
+    "first_seen": "2026-07-17T09:52:03.201868+00:00"
+  },
+  "https://www.ycombinator.com/companies/monumint/jobs/Jv3hz2J-head-of-sales": {
+    "company": "Monumint",
+    "title": "Head of Sales",
+    "first_seen": "2026-07-17T09:52:03.201871+00:00"
+  },
+  "https://www.ycombinator.com/companies/monumint/jobs/LkSS77h-content-marketing-lead": {
+    "company": "Monumint",
+    "title": "Content Marketing Lead",
+    "first_seen": "2026-07-17T09:52:03.201873+00:00"
+  },
+  "https://www.ycombinator.com/companies/garage-2/jobs/e2vOJM9-software-engineer-growth": {
+    "company": "Garage",
+    "title": "Software Engineer, Growth",
+    "first_seen": "2026-07-17T09:52:03.201876+00:00"
+  },
+  "https://www.ycombinator.com/companies/strada/jobs/fCYs7ij-senior-bdr-business-development-representative": {
+    "company": "Strada",
+    "title": "Senior BDR (Business Development Representative)",
+    "first_seen": "2026-07-17T09:52:03.201878+00:00"
+  },
+  "https://www.ycombinator.com/companies/pure/jobs/FB9AhLp-growth-marketing-intern": {
+    "company": "Pure",
+    "title": "Growth Marketing Intern",
+    "first_seen": "2026-07-17T09:52:03.201881+00:00"
+  },
+  "https://www.ycombinator.com/companies/fiber-ai/jobs/TflCYy4-founding-chief-of-staff-marketing-strategy-operations-lead-international-remote": {
+    "company": "Fiber AI",
+    "title": "Founding Chief of Staff / Marketing Strategy & Operations Lead (international, remote)",
+    "first_seen": "2026-07-17T09:52:03.201883+00:00"
+  },
+  "https://www.ycombinator.com/companies/maven-bio/jobs/10aXM5h-growth-marketing-lead": {
+    "company": "Maven Bio",
+    "title": "Growth Marketing Lead",
+    "first_seen": "2026-07-17T09:52:03.201886+00:00"
+  },
+  "https://www.ycombinator.com/companies/maven-bio/jobs/yT0mGi2-senior-sdr": {
+    "company": "Maven Bio",
+    "title": "Senior SDR",
+    "first_seen": "2026-07-17T09:52:03.201888+00:00"
+  },
+  "https://www.ycombinator.com/companies/maintouch/jobs/lzBZeVR-founding-account-executive": {
+    "company": "Maintouch",
+    "title": "Founding Account Executive",
+    "first_seen": "2026-07-17T09:52:03.201891+00:00"
+  },
+  "https://www.ycombinator.com/companies/maintouch/jobs/YQpARzo-founding-sales-development-representative-sdr": {
+    "company": "Maintouch",
+    "title": "Founding Sales Development Representative (SDR)",
+    "first_seen": "2026-07-17T09:52:03.201893+00:00"
+  },
+  "https://www.ycombinator.com/companies/alguna/jobs/P4UawoN-sales-development-representative-sdr": {
+    "company": "Alguna",
+    "title": "Sales Development Representative (SDR)",
+    "first_seen": "2026-07-17T09:52:03.201896+00:00"
+  },
+  "https://www.ycombinator.com/companies/diligent/jobs/b4JjjoO-go-to-market-associate": {
+    "company": "Diligent",
+    "title": "Go-To-Market associate",
+    "first_seen": "2026-07-17T09:52:03.201899+00:00"
+  },
+  "https://www.ycombinator.com/companies/nectar/jobs/V0LHrvP-sales-development-representative-sdr-contract-to-hire": {
+    "company": "Nectar",
+    "title": "Sales Development Representative (SDR) (Contract to Hire)",
+    "first_seen": "2026-07-17T09:52:03.201901+00:00"
+  },
+  "https://www.ycombinator.com/companies/kapa-ai/jobs/db5rGnR-senior-business-development-representative-us": {
+    "company": "kapa.ai",
+    "title": "Senior Business Development Representative (US)",
+    "first_seen": "2026-07-17T09:52:03.201904+00:00"
+  },
+  "https://www.ycombinator.com/companies/yn/jobs/bGq2tPq-growth-intern": {
+    "company": "Y/n",
+    "title": "Growth Intern",
+    "first_seen": "2026-07-17T09:52:03.201906+00:00"
+  },
+  "https://www.ycombinator.com/companies/finic/jobs/xvhN8Yx-founding-account-executive": {
+    "company": "Finic",
+    "title": "Founding Account Executive",
+    "first_seen": "2026-07-17T09:52:03.201909+00:00"
+  },
+  "https://www.ycombinator.com/companies/truewind/jobs/DdVPvVF-growth-generalist": {
+    "company": "Truewind",
+    "title": "Growth Generalist",
+    "first_seen": "2026-07-17T09:52:03.201912+00:00"
+  },
+  "https://www.ycombinator.com/companies/loopfour/jobs/c2eoIJo-remote-sales-representative-work-anywhere-in-world": {
+    "company": "loopfour",
+    "title": "Remote Sales Representative (work anywhere in world)",
+    "first_seen": "2026-07-17T09:52:03.201915+00:00"
+  },
+  "https://www.ycombinator.com/companies/omnistrate/jobs/T2nsaRb-sdr-role-india-only": {
+    "company": "Omnistrate",
+    "title": "SDR role [India only]",
+    "first_seen": "2026-07-17T09:52:03.201917+00:00"
+  },
+  "https://www.ycombinator.com/companies/coverage-cat/jobs/NJXH199-paused-growth-engineer-contract": {
+    "company": "Coverage Cat",
+    "title": "[PAUSED] Growth Engineer (Contract)",
+    "first_seen": "2026-07-17T09:52:03.201920+00:00"
+  },
+  "https://www.ycombinator.com/companies/typewise/jobs/nENZTc0-founding-growth-lead": {
+    "company": "Typewise",
+    "title": "Founding Growth Lead",
+    "first_seen": "2026-07-17T09:52:03.201923+00:00"
+  },
+  "https://www.ycombinator.com/companies/novig/jobs/b8TRlIP-ai-automation-engineer": {
+    "company": "Novig",
+    "title": "AI Automation Engineer",
+    "first_seen": "2026-07-17T09:52:03.201926+00:00"
+  },
+  "https://www.ycombinator.com/companies/blee/jobs/peJzS5u-product-marketing-manager": {
+    "company": "Blee",
+    "title": "Product Marketing Manager",
+    "first_seen": "2026-07-17T09:52:03.201928+00:00"
+  },
+  "https://www.ycombinator.com/companies/mspilot/jobs/jPKyaEN-founding-gtm-specialist-hybrid-ukraine-poland": {
+    "company": "MSPilot",
+    "title": "Founding GTM Specialist - Hybrid, Ukraine/Poland",
+    "first_seen": "2026-07-17T09:52:03.201931+00:00"
+  },
+  "https://www.ycombinator.com/companies/finku/jobs/PPTFOXO-business-development": {
+    "company": "Finku",
+    "title": "Business Development",
+    "first_seen": "2026-07-17T09:52:03.201933+00:00"
+  },
+  "https://www.ycombinator.com/companies/posh/jobs/D2UuhPy-battery-energy-storage-project-sales-and-business-development-manager": {
+    "company": "Posh",
+    "title": "Battery Energy Storage Project Sales and Business Development Manager",
+    "first_seen": "2026-07-17T09:52:03.201936+00:00"
+  },
+  "https://www.ycombinator.com/companies/posh/jobs/O6hIbDB-commercial-and-industrial-sales-manager": {
+    "company": "Posh",
+    "title": "Commercial and Industrial Sales Manager",
+    "first_seen": "2026-07-17T09:52:03.201939+00:00"
+  },
+  "https://www.ycombinator.com/companies/sphere/jobs/3V9MbbG-founding-account-executive": {
+    "company": "Sphere",
+    "title": "Founding Account Executive",
+    "first_seen": "2026-07-17T09:52:03.201941+00:00"
+  },
+  "https://www.ycombinator.com/companies/aviator/jobs/jla0GAw-gtm-engineering-intern": {
+    "company": "Aviator",
+    "title": "GTM Engineering Intern",
+    "first_seen": "2026-07-17T09:52:03.201944+00:00"
+  },
+  "https://www.ycombinator.com/companies/salarybox/jobs/xz8CTdF-senior-executive-account-manager-b2b-saas-sales": {
+    "company": "SalaryBox",
+    "title": "Senior Executive- Account Manager (B2B SaaS Sales)",
+    "first_seen": "2026-07-17T09:52:03.201947+00:00"
+  },
+  "https://www.ycombinator.com/companies/reframe/jobs/mtqivWa-marketing-manager": {
+    "company": "Reframe",
+    "title": "Marketing Manager",
+    "first_seen": "2026-07-17T09:52:03.201949+00:00"
+  },
+  "https://www.ycombinator.com/companies/soraban/jobs/vWU8kBu-business-development-representative-austin-tx-in-office": {
+    "company": "Soraban",
+    "title": "Business Development Representative (Austin, TX - In Office)",
+    "first_seen": "2026-07-17T09:52:03.201952+00:00"
+  },
+  "https://www.ycombinator.com/companies/great-question/jobs/YutDxyf-senior-demand-generation-manager": {
+    "company": "Great Question",
+    "title": "Senior Demand Generation Manager",
+    "first_seen": "2026-07-17T09:52:03.201954+00:00"
+  },
+  "https://www.ycombinator.com/companies/popl/jobs/6qAeBNq-field-marketing-representative-fmr": {
+    "company": "Popl",
+    "title": "Field Marketing Representative (FMR)",
+    "first_seen": "2026-07-17T09:52:03.201957+00:00"
+  },
+  "https://www.ycombinator.com/companies/medme-health/jobs/4R8rnui-senior-full-stack-automation-engineer-gravity": {
+    "company": "MedMe Health",
+    "title": "Senior Full-Stack Automation Engineer \u2013 Gravity",
+    "first_seen": "2026-07-17T09:52:03.201960+00:00"
+  },
+  "https://www.ycombinator.com/companies/recall-ai/jobs/wTwJJPX-ex-founder-who-likes-growth-in-person-sf": {
+    "company": "Recall.ai",
+    "title": "Ex-founder who likes growth [In Person, SF]",
+    "first_seen": "2026-07-17T09:52:03.201962+00:00"
+  },
+  "https://www.ycombinator.com/companies/signadot/jobs/O9csafv-marketing-operations-specialist-gtm-engineer": {
+    "company": "Signadot",
+    "title": "Marketing Operations Specialist / GTM Engineer",
+    "first_seen": "2026-07-17T09:52:03.201964+00:00"
+  },
+  "https://www.ycombinator.com/companies/taiv/jobs/62QXzP5-marketing-coordinator": {
+    "company": "Taiv",
+    "title": "Marketing Coordinator",
+    "first_seen": "2026-07-17T09:52:03.201967+00:00"
+  },
+  "https://www.ycombinator.com/companies/curri/jobs/7B1HRo4-enterprise-sales-director-aerospace": {
+    "company": "Curri",
+    "title": "Enterprise Sales Director, Aerospace",
+    "first_seen": "2026-07-17T09:52:03.201969+00:00"
+  },
+  "https://www.ycombinator.com/companies/curri/jobs/PkXsfW6-enterprise-sales-director-medical-and-healthcare": {
+    "company": "Curri",
+    "title": "Enterprise Sales Director, Medical and Healthcare",
+    "first_seen": "2026-07-17T09:52:03.201972+00:00"
+  },
+  "https://www.ycombinator.com/companies/cityfurnish/jobs/eoukvuB-business-development-executive": {
+    "company": "Cityfurnish",
+    "title": "Business Development Executive",
+    "first_seen": "2026-07-17T09:52:03.201975+00:00"
+  },
+  "https://www.ycombinator.com/companies/nabis/jobs/YyaiAjt-sales-account-manager-central-california": {
+    "company": "Nabis",
+    "title": "Sales Account Manager \u2014 Central California",
+    "first_seen": "2026-07-17T09:52:03.201978+00:00"
+  },
+  "https://www.ycombinator.com/companies/mutiny/jobs/Cmy8fTR-head-of-gtm-path-to-coo": {
+    "company": "Mutiny",
+    "title": "Head of GTM (Path to COO)",
+    "first_seen": "2026-07-17T09:52:03.201980+00:00"
+  },
+  "https://www.ycombinator.com/companies/orangewood-labs/jobs/7BXkZuh-sales-engineer-robotics-automation": {
+    "company": "Orangewood Labs",
+    "title": "Sales Engineer \u2013 Robotics & Automation",
+    "first_seen": "2026-07-17T09:52:03.201983+00:00"
+  },
+  "https://www.ycombinator.com/companies/legalist/jobs/C58IFAI-business-development-associate-legal-partnerships": {
+    "company": "Legalist",
+    "title": "Business Development Associate, Legal Partnerships",
+    "first_seen": "2026-07-17T09:52:03.201986+00:00"
+  },
+  "https://www.ycombinator.com/companies/legalist/jobs/2HhY3Br-head-of-marketing": {
+    "company": "Legalist",
+    "title": "Head of Marketing",
+    "first_seen": "2026-07-17T09:52:03.201988+00:00"
+  },
+  "https://www.ycombinator.com/companies/legalist/jobs/HoDIxzd-sales-development-representative-sdr": {
+    "company": "Legalist",
+    "title": "Sales Development Representative (SDR)",
+    "first_seen": "2026-07-17T09:52:03.201991+00:00"
+  },
+  "https://www.ycombinator.com/companies/onechronos/jobs/GfX7oBA-business-development-mission-control-onechronos-market": {
+    "company": "OneChronos",
+    "title": "Business Development, Mission Control | OneChronos Market",
+    "first_seen": "2026-07-17T09:52:03.201994+00:00"
+  }
 }
