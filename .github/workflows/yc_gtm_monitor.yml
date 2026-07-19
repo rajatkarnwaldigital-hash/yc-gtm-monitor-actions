@@ -28,6 +28,7 @@ jobs:
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
           HUNTER_API_KEY: ${{ secrets.HUNTER_API_KEY }}
+          EXA_API_KEY: ${{ secrets.EXA_API_KEY }}
         run: python3 yc_gtm_monitor.py
 
       - name: Commit updated seen_jobs.json

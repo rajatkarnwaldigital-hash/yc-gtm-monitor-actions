@@ -25,10 +25,17 @@ This system does that grind for you:
 4. **Picks who to reach out to first** when there are multiple founders, based on their bio (see
    [Picking who to reach out to first](#picking-who-to-reach-out-to-first) below) — you still get
    every founder, but one is flagged as the best fit with a reason.
-5. **Drafts** a short, non-templated LinkedIn message for each founder via Claude, referencing the
-   specific role and a one-week build timeline.
-6. **Emails you a digest** every morning with the role, the job link, the founder's LinkedIn, and
-   the ready-to-send message — you just need to decide who to actually message.
+5. **Researches the best-fit founder** (optional, needs an Exa key) — pulls their recent public
+   activity, a competitor or two, and a real account signal describing the exact pain point the
+   role is hiring for, then fact-checks every claim for recency and relevance before it's allowed
+   anywhere near the message (see [Researching before you reach out](#researching-before-you-reach-out)
+   below).
+6. **Drafts** a short, non-templated LinkedIn message for each founder via Claude, grounded in the
+   actual job description and any verified research, referencing the specific role and a one-week
+   build timeline.
+7. **Emails you a digest** every morning with the role, the job link, the founder's LinkedIn, a
+   note on whether research was verified, and the ready-to-send message — you just need to decide
+   who to actually message.
 
 ## How it runs
 
@@ -92,7 +99,9 @@ is what every scraped job title gets checked against.
 
 You can also adjust:
 - **The outreach message itself** — edit the `MESSAGE_PROMPT` template (also near the top of
-  `yc_gtm_monitor.py`) to change the tone, length, or call to action.
+  `yc_gtm_monitor.py`) to change the tone, length, or call to action. `MESSAGE_PROMPT_ENRICHED` is
+  the version used instead whenever there's a fetched job description and/or verified research to
+  work with — edit both if you're changing the tone.
 - **The schedule** — edit the `cron:` line in `.github/workflows/yc_gtm_monitor.yml` (uses standard
   cron syntax, currently `30 3 * * *` = 3:30am UTC daily).
 
@@ -119,6 +128,32 @@ This intentionally does not scrape LinkedIn itself (follower counts, post activi
 this call — that's against LinkedIn's terms of service and fragile besides. The YC bio text is
 already a strong, freely available signal, so that's the ceiling of what this pulls.
 
+## Researching before you reach out
+
+If `EXA_API_KEY` is set, the script does one more thing before drafting a message: it fetches the
+actual job description off the specific `/jobs/{id}` page (not just the title, which is all the
+index-page scrape sees), then runs a bounded set of Exa searches — 2 for the best-fit founder's
+recent public activity, 2 for competitors, 2 for a real account signal (a blog post, GitHub issue,
+or changelog describing the exact pain point the role is hiring to solve) — for the one founder
+already flagged as the best fit. Never every founder at a multi-founder company, and never for a
+company with no clear best fit; that's what keeps this predictable at YC-wide scale instead of
+scaling with founder count.
+
+Every fact that comes back goes through a separate, cheap Claude call before it's allowed into the
+message prompt, checking two things specifically:
+
+- **Recency** — does the source's actual byline or publish date fall within roughly the last 12
+  months, not just a generic "updated" timestamp stamped over older content?
+- **Sentiment match** — does the source actually describe the pain point or thesis being claimed,
+  rather than a success story or a "we solved this" resolution being misread as a problem?
+
+Unverified facts are discarded, not softened or passed through with a caveat. If nothing comes back
+verified — or Exa or the verification call errors out or times out — the message falls back to the
+same one-liner-based version the script always used; the entry is never dropped just because
+research failed. Every digest entry that went through this pipeline also gets a line in the email
+saying either "Research verified" or that nothing was confirmed and the claims should be checked by
+hand before sending.
+
 ## Required secrets
 
 Set these as GitHub Actions repository secrets (Settings → Secrets and variables → Actions) — see
@@ -129,6 +164,7 @@ Set these as GitHub Actions repository secrets (Settings → Secrets and variabl
 - `GMAIL_APP_PASSWORD` — a Gmail [App Password](https://myaccount.google.com/apppasswords), not your normal password
 - `RECIPIENT_EMAIL`
 - `HUNTER_API_KEY` _(optional)_ — from [hunter.io](https://hunter.io). When set, each digest entry includes the founder's work email if Hunter finds one at ≥70% confidence. Omit entirely to skip email enrichment.
+- `EXA_API_KEY` _(optional)_ — from [exa.ai](https://exa.ai). When set, the best-fit founder for each new role gets researched and fact-checked before their message is drafted. See [Researching before you reach out](#researching-before-you-reach-out) above. Omit entirely to skip research and keep the lighter-weight message generation.
 
 ## First run
 
@@ -215,6 +251,14 @@ the honest version, in order:
    plain Gmail SMTP** — lower setup friction for anyone forking it, since it needs nothing beyond a
    Gmail account. See [Reliability](#reliability-failed-sends-dont-lose-leads) above for the full
    story.
+9. **Feature: real job descriptions + verified research** — messages used to be drafted from just
+   a founder name and YC's one-line company blurb, which made them generic. Now the script fetches
+   the actual job posting text and, when `EXA_API_KEY` is set, researches and fact-checks the
+   best-fit founder before drafting. The fact-checking step exists because we caught two failure
+   modes doing this by hand first: a 2022 post re-stamped with a 2026 "updated" date, and a
+   "we scaled fine" success story misread as a pain point. Both get caught automatically now
+   instead of trusting a single pass to "be careful." See
+   [Researching before you reach out](#researching-before-you-reach-out) above.
 
 ---
 
