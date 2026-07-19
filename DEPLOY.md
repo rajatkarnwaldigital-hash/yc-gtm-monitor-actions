@@ -38,6 +38,14 @@ Before touching GitHub settings, have these ready to paste in (the first four ar
 5. _(Optional)_ **A Hunter.io API key** — sign up at [hunter.io](https://hunter.io). When set,
    the digest includes each founder's work email if Hunter finds one with at least 70% confidence.
    Skip this entirely if you don't have a Hunter account — the rest of the script works without it.
+6. _(Optional)_ **An Exa API key** — sign up at [exa.ai](https://exa.ai). When set, the script
+   researches the single founder it flags as the best fit for each new role: their recent public
+   activity, a competitor or two, and a real account signal (a blog post, GitHub issue, or
+   changelog describing the exact problem the role is hiring to solve). Every fact it finds gets a
+   separate pass checking it's actually recent and actually says what it's being cited for, before
+   it's allowed into the drafted message — unverified facts are dropped, not passed through. Skip
+   this entirely if you don't have an Exa account — messages fall back to the lighter, one-liner-based
+   version the script always used, same as before this feature existed.
 
 ## Step 2: Add the four secrets to your fork
 
@@ -53,9 +61,11 @@ Before touching GitHub settings, have these ready to paste in (the first four ar
    | `GMAIL_APP_PASSWORD` | the 16-character App Password (no spaces) |
    | `RECIPIENT_EMAIL` | where you want the digest sent |
    | `HUNTER_API_KEY` _(optional)_ | your Hunter.io API key — omit entirely if you don't have one |
+   | `EXA_API_KEY` _(optional)_ | your Exa API key — omit entirely if you don't have one |
 
-4. After all four are added, the **Secrets** list should show 4 entries (the values themselves
-   stay hidden — that's expected, GitHub never shows secret values again after you save them).
+4. After all four required secrets are added, the **Secrets** list should show at least 4 entries
+   (the values themselves stay hidden — that's expected, GitHub never shows secret values again
+   after you save them).
 
 ## Step 3: Make sure Actions are enabled
 
