@@ -78,12 +78,43 @@ CLAUDE_MODEL = "claude-sonnet-4-6"
 # on the part that matters (the main message-drafting call keeps CLAUDE_MODEL).
 VERIFY_MODEL = "claude-haiku-4-5-20251001"
 
+# Every client.messages.create() call in this file does a single-shot, format-
+# constrained task (classify a fact, pick a name, draft a short message) with no
+# need for multi-step reasoning. Passed explicitly on every call: Haiku 4.5 (and
+# possibly other newer models) defaults to adaptive extended thinking when this
+# is omitted, which was silently eating the entire max_tokens budget on internal
+# reasoning before emitting any visible text — the exact cause of every
+# verification call coming back as an empty, unparseable response. See
+# verify_fact() for the failure signature this produced.
+THINKING_DISABLED = {"type": "disabled"}
+
 JD_MAX_CHARS = 6000  # plenty for a job description; keeps the prompt bounded
 EXA_TIMEOUT = 20
 EXA_RESULTS_PER_QUERY = 2
 EXA_TEXT_MAX_CHARS = 2000  # per-result excerpt handed to the verifier
 
-MESSAGE_PROMPT = """You are writing a short LinkedIn outreach message on behalf of a GTM Engineer named Rajat.
+MIN_ROLES_FOR_RANKING = 4  # below this, every lead is already "the top lead"
+
+# Every message prompt below opens the same way and ends with the same
+# first-person rule, on purpose: a prior version left "first vs third person"
+# ambiguous ("on behalf of Rajat"), and the model split roughly evenly between
+# writing AS Rajat and writing ABOUT Rajat in the same run, sometimes for two
+# founders at the same company. generate_message() also re-checks this after
+# the fact (see _has_third_person_rajat()) and retries once if it slips through.
+_PERSONA_INSTRUCTION = (
+    "You are Rajat, a GTM Engineer, personally writing a short LinkedIn outreach "
+    "message. Write it in first person, as yourself. Never refer to yourself as "
+    '"Rajat" in the third person (no "Rajat works...", "he could...", "his '
+    'team...", or similar).'
+)
+_PERSONA_BULLET = (
+    '- Written entirely in first person as yourself — never "Rajat works," '
+    '"he could," "he\'s," "his team," or similar third-person phrasing'
+)
+
+# Bare fallback: no fetched job description, no research. Used only when both
+# are unavailable (see generate_message()).
+MESSAGE_PROMPT = _PERSONA_INSTRUCTION + """
 
 Context:
 - Founder name: {founder_name}
@@ -94,18 +125,21 @@ Context:
 
 Write a single LinkedIn message that:
 - Opens by referencing the specific role they are hiring for
-- Mentions that Rajat currently works with a few YC startups building their GTM infrastructure from scratch including signal systems, automated sequences, and GTM agents
-- Says he could have something running in a week
+- Mentions that you currently work with a few YC startups building their GTM infrastructure from scratch including signal systems, automated sequences, and GTM agents
+- Says you could have something running in a week
 - Ends with a soft yes or no ask
 - Sounds like a real person wrote it, not a template
+""" + _PERSONA_BULLET + """
 - No em dashes, no ampersands, no special characters that LinkedIn might mangle
 - Maximum 4 sentences
 - Do not use the words seamless, robust, leverage, streamline, innovative, or comprehensive"""
 
-# Used instead of MESSAGE_PROMPT whenever there's a fetched job description and/or
-# at least one verified research fact to ground the message in. Falls back to
-# MESSAGE_PROMPT when neither is available (see generate_message()).
-MESSAGE_PROMPT_ENRICHED = """You are writing a short LinkedIn outreach message on behalf of a GTM Engineer named Rajat.
+# Used when a job description was fetched but no verified, founder-specific
+# research exists for this founder (not attempted, or attempted and nothing
+# survived verification). Explicitly told NOT to imply personal knowledge of the
+# founder it doesn't have — that was bug #2: every hook was JD-only dressed up
+# as if the (supposedly added) research had grounded it.
+MESSAGE_PROMPT_JD_ONLY = _PERSONA_INSTRUCTION + """
 
 Context:
 - Founder name: {founder_name}
@@ -115,39 +149,124 @@ Context:
 - Product summary: {product_summary}
 - Actual job description, scraped from the posting itself:
 {jd_text}
-- Verified research about this founder/company (already fact-checked for recency and that it
-  actually describes what it claims to — only reference items listed here, nothing else):
+
+You do NOT have any verified research on this specific founder — no confirmed public activity,
+background, or statements about them personally. Do not imply or claim any personal knowledge of
+the founder beyond what's in the job description above.
+
+Write a single LinkedIn message that:
+- Opens by referencing one specific, real detail from the job description above
+- Mentions that you currently work with a few YC startups building their GTM infrastructure from scratch including signal systems, automated sequences, and GTM agents
+- Says you could have something running in a week
+- Ends with a soft yes or no ask
+- Sounds like a real person wrote it, not a template
+""" + _PERSONA_BULLET + """
+- No em dashes, no ampersands, no special characters that LinkedIn might mangle
+- Maximum 4 sentences
+- Grounds its opening only in the job description above — never infer or invent a founder-specific detail you don't actually have
+- Do not use the words seamless, robust, leverage, streamline, innovative, or comprehensive"""
+
+# Used only when there's at least one verified, founder-specific research fact
+# (see generate_message()) — this is the whole reason the research pipeline
+# exists, so the opening hook is required to use it, not just the JD.
+MESSAGE_PROMPT_RESEARCHED = _PERSONA_INSTRUCTION + """
+
+Context:
+- Founder name: {founder_name}
+- Company: {company_name}
+- YC Batch: {yc_batch}
+- Role they are hiring for: {role_title}
+- Product summary: {product_summary}
+- Actual job description, scraped from the posting itself:
+{jd_text}
+- Verified research about this specific founder/company (already fact-checked for recency and that
+  it actually describes what it claims to — only reference items listed here, nothing else):
 {research_block}
 
 Write a single LinkedIn message that:
-- Opens by referencing one specific, real detail: something concrete from the job description
-  above, or one verified research fact if one is listed
-- Mentions that Rajat currently works with a few YC startups building their GTM infrastructure from
-  scratch including signal systems, automated sequences, and GTM agents
-- Says he could have something running in a week
+- Opens by referencing one specific, founder-specific detail from the verified research above — not a generic line from the job description. This is the entire point of the research: use it.
+- Mentions that you currently work with a few YC startups building their GTM infrastructure from scratch including signal systems, automated sequences, and GTM agents
+- Says you could have something running in a week
 - Ends with a soft yes or no ask
 - Sounds like a real person wrote it, not a template
+""" + _PERSONA_BULLET + """
 - No em dashes, no ampersands, no special characters that LinkedIn might mangle
 - Maximum 5 sentences
-- Grounds every specific claim in the job description or verified research given above — never
-  infer or invent a detail that isn't actually there
+- Grounds every specific claim in the job description or verified research given above — never infer or invent a detail that isn't actually there
 - Do not use the words seamless, robust, leverage, streamline, innovative, or comprehensive"""
 
+_PERSONA_RETRY_SUFFIX = (
+    "\n\nIMPORTANT: your previous draft referred to Rajat in the third person. "
+    'Rewrite this from scratch as Rajat writing in first person only — use "I", '
+    'never "Rajat works", "he could", "he\'s", "his team", or similar third-person '
+    "phrasing anywhere in the message."
+)
+
+# Catches the exact failure mode seen in production: some drafts were written as
+# Rajat ("I'm Rajat..."), others talked about Rajat in the third person ("Rajat
+# works with...", "he could have something running...") in the same run, even
+# for two founders at the same company. Deliberately narrow (verb-anchored, not
+# a bare "Rajat" or "he" match) so a natural first-person opener like "I'm Rajat,
+# a GTM Engineer" never false-positives.
+_THIRD_PERSON_RAJAT_PATTERN = re.compile(
+    r"\bRajat\s+(?:works|is|has|currently|builds|runs|does|could|would|will|can)\b"
+    r"|\bhe(?:'s|\s+(?:is|works|could|would|will|can|currently|builds|runs|does))\b"
+    r"|\bhis\s+(?:GTM|team|clients|work|company|infrastructure)\b",
+    re.IGNORECASE,
+)
+
+
+def _has_third_person_rajat(message: str) -> bool:
+    return bool(_THIRD_PERSON_RAJAT_PATTERN.search(message or ""))
+
+
+# Production reasoning strings before this fix show exactly the failure mode
+# this prompt now forbids: "listed first, likely CEO", "alphabetically first
+# with no differentiating info", "a common choice when no bio data
+# distinguishes founders" — every one of those is list/alphabetical order
+# dressed up as a finding. The old prompt's own "default to whichever founder
+# has the most senior title" fallback is what produced them: told to always
+# pick someone, the model rationalized a pick even with nothing to go on.
 BEST_FOUNDER_PROMPT = """You are helping a GTM Engineer named Rajat decide which co-founder to
 reach out to first about a "{role_title}" role at {company_name}.
 
-Here are the co-founders, with their title and bio from YC's site:
+Here are the co-founders, with their title and bio from YC's site, in the order they appear on
+the page:
 
 {founders_block}
 
-Pick the ONE founder who is the best fit to reach out to about this specific role. A founder
-with sales, GTM, growth, or commercial background, or a CEO/COO title, is usually a better fit
-for a sales or growth hire than a deeply technical CTO or engineering-focused founder. If nothing
-in the bios points clearly one way, default to whichever founder has the most senior or
-commercial-sounding title.
+Pick the ONE founder who is the best fit to reach out to about this specific role, but ONLY if
+there is an actual signal for it: an explicit sales, GTM, growth, or commercial background in
+their bio, a CEO/COO/commercial title, or something in the role title or bios that clearly points
+at them specifically over the others.
+
+The order founders are listed in above is NOT a signal — it is just the order YC's page happens to
+render them in. Do not use "listed first", alphabetical order, seniority guessed from title alone
+with no other evidence, or "the common/default choice" as your reason. If the bios are empty,
+generic, or don't meaningfully distinguish the founders from each other, that means there is no
+signal — say so honestly rather than manufacturing a reason to pick one.
 
 Respond with ONLY valid JSON in this exact format, no other text before or after it:
-{{"founder": "<exact name as listed above>", "reason": "<one sentence, no more than 20 words>"}}"""
+{{"founder": "<exact name as listed above, or empty string if no real signal exists>", "reason": "<one sentence, no more than 20 words, naming the actual signal — or 'no distinguishing signal' if none>"}}"""
+
+# One extra call at the end of a run, only when there's enough in the digest to
+# actually triage (see MIN_ROLES_FOR_RANKING) — without this, a 10-company,
+# 20-founder digest presents every lead as equally worth acting on right now.
+RANK_LEADS_PROMPT = """You are helping a GTM Engineer named Rajat triage {n} newly posted GTM/sales
+roles at YC startups into what's worth same-day outreach versus what can wait.
+
+Leads:
+{leads_block}
+
+Pick the 2 to 3 leads most worth acting on today. Weigh things like: a role that reads urgent or
+foundational (e.g. "Founding AE" or first sales/growth hire, versus a lower-signal title), a
+company with a genuinely confirmed best-fit founder (not "no distinguishing signal"), and any
+verified research signal available for that founder. Do not simply pick the first N leads in the
+list — judge each one on these merits.
+
+Respond with ONLY valid JSON in this exact format, no other text before or after it:
+{{"top_picks": [{{"role_url": "<exact role_url from above>", "reason": "<one sentence, max 20 words, on why this one>"}}]}}
+Return between 2 and 3 items — fewer only if there genuinely aren't that many distinct leads."""
 
 
 # ── Hunter email enrichment ───────────────────────────────────────────────────
@@ -159,6 +278,29 @@ def _company_domain(website: str) -> str:
     parsed = urlparse(website if "//" in website else f"https://{website}")
     host = parsed.hostname or ""
     return host.removeprefix("www.")
+
+
+# Matches a real observed bug: a YC page emitted a founder LinkedIn href as
+# "https:https://www.linkedin.com/in/mbrady4/" — a doubled scheme. Cheap to
+# happen again on some other page, so this is applied both at the scrape source
+# (_parse_founders) and again as a last-mile check in validate_entries() right
+# before the digest sends.
+_DOUBLE_SCHEME_RE = re.compile(r"^https?:(https?://.+)$", re.IGNORECASE)
+
+
+def _clean_url(url: str) -> str:
+    """Normalizes a scraped/external URL and drops it (returns '') rather than
+    let a malformed one reach the digest."""
+    url = (url or "").strip()
+    if not url:
+        return ""
+    m = _DOUBLE_SCHEME_RE.match(url)
+    if m:
+        url = m.group(1)
+    parsed = urlparse(url)
+    if parsed.scheme not in ("http", "https") or not parsed.netloc:
+        return ""
+    return url
 
 
 def find_email(domain: str, first_name: str, last_name: str) -> tuple[str, int]:
@@ -245,7 +387,7 @@ def _parse_founders(soup: BeautifulSoup) -> list[dict]:
     seen_names = set()
 
     for a in soup.find_all("a", attrs={"aria-label": "LinkedIn profile"}):
-        linkedin = a.get("href", "").strip()
+        linkedin = _clean_url(a.get("href", ""))
         if linkedin and "/company/" in linkedin:
             continue
 
@@ -519,7 +661,18 @@ def verify_fact(client, fact: dict) -> dict:
     """Runs one cheap Claude call checking a single Exa result for recency and
     sentiment match. Mutates and returns fact with 'verified' (bool) and
     'verify_reason' (str) added. A failed/unparseable call marks it unverified —
-    never pass an unchecked claim into the message prompt."""
+    never pass an unchecked claim into the message prompt.
+
+    thinking=THINKING_DISABLED is load-bearing here, not decoration: without it,
+    every single verification call in production came back with content[0].text
+    stripped to "" (json.loads raised "Expecting value: line 1 column 1 (char
+    0)" every time, on every fact, for days) because VERIFY_MODEL defaults to
+    adaptive extended thinking when the param is omitted, and the whole 150-token
+    budget was being consumed by invisible reasoning before any visible answer
+    token got emitted. Confirmed by isolating it from generate_message()'s and
+    pick_best_founder()'s calls (same SDK, same account, different model,
+    zero failures) — this wasn't a rate limit or auth issue, see the explicit
+    stop_reason/empty-content diagnostic below for how to tell if it recurs."""
     prompt = VERIFY_PROMPT.format(
         today=datetime.now(timezone.utc).strftime("%Y-%m-%d"),
         title=fact.get("title", ""),
@@ -531,10 +684,16 @@ def verify_fact(client, fact: dict) -> dict:
     try:
         msg = client.messages.create(
             model=VERIFY_MODEL,
-            max_tokens=150,
+            max_tokens=200,
+            thinking=THINKING_DISABLED,
             messages=[{"role": "user", "content": prompt}],
         )
-        data = json.loads(msg.content[0].text.strip())
+        raw_text = msg.content[0].text.strip() if msg.content else ""
+        if not raw_text:
+            raise ValueError(
+                f"empty response text (stop_reason={getattr(msg, 'stop_reason', '?')})"
+            )
+        data = json.loads(raw_text)
         fact["verified"] = bool(data.get("verified", False))
         fact["verify_reason"] = data.get("reason", "")
     except Exception as e:
@@ -585,20 +744,44 @@ def _format_research_block(research: list[dict]) -> str:
 
 def generate_message(client, founder_name: str, company_name: str, yc_batch: str,
                       role_title: str, product_summary: str,
-                      jd_text: str = "", research: list[dict] | None = None) -> str:
-    """Uses MESSAGE_PROMPT_ENRICHED whenever there's a fetched JD and/or verified
-    research to ground the message in; degrades to the original one-liner-based
-    MESSAGE_PROMPT when neither is available, rather than failing."""
-    if jd_text or research:
-        prompt = MESSAGE_PROMPT_ENRICHED.format(
+                      jd_text: str = "", research: list[dict] | None = None) -> tuple[str, str]:
+    """Returns (message, message_basis), message_basis one of "researched" (at
+    least one verified, founder-specific fact — the whole point of the research
+    pipeline, so this is the only tier allowed to claim founder-specific
+    knowledge), "jd_only" (a fetched job description but no verified research —
+    explicitly told not to imply personal knowledge it doesn't have), or "plain"
+    (neither available, the original one-liner-based prompt).
+
+    Re-checks its own output for third-person Rajat language and retries once
+    with a corrective prompt if it slips through — this was bug #1 in
+    production: the same run wrote one founder's message as Rajat and another's
+    about Rajat. Still lets a bad draft through after the retry rather than
+    dropping the entry; validate_entries() flags it in the digest as a final
+    safety net so it's never silently sent."""
+    research = research or []
+    if research:
+        prompt = MESSAGE_PROMPT_RESEARCHED.format(
             founder_name=founder_name,
             company_name=company_name,
             yc_batch=yc_batch,
             role_title=role_title,
             product_summary=product_summary or "Not available",
             jd_text=(jd_text[:JD_MAX_CHARS] if jd_text else "Not available"),
-            research_block=_format_research_block(research or []),
+            research_block=_format_research_block(research),
         )
+        message_basis = "researched"
+        max_tokens = 400
+    elif jd_text:
+        prompt = MESSAGE_PROMPT_JD_ONLY.format(
+            founder_name=founder_name,
+            company_name=company_name,
+            yc_batch=yc_batch,
+            role_title=role_title,
+            product_summary=product_summary or "Not available",
+            jd_text=jd_text[:JD_MAX_CHARS],
+        )
+        message_basis = "jd_only"
+        max_tokens = 350
     else:
         prompt = MESSAGE_PROMPT.format(
             founder_name=founder_name,
@@ -607,21 +790,44 @@ def generate_message(client, founder_name: str, company_name: str, yc_batch: str
             role_title=role_title,
             product_summary=product_summary or "Not available",
         )
-    try:
-        msg = client.messages.create(
-            model=CLAUDE_MODEL,
-            max_tokens=400,
-            messages=[{"role": "user", "content": prompt}],
-        )
-        return msg.content[0].text.strip()
-    except Exception as e:
-        print(f"  ERROR generating message for {founder_name} @ {company_name}: {e}")
-        return ""
+        message_basis = "plain"
+        max_tokens = 350
+
+    text = ""
+    for attempt in range(2):
+        try:
+            msg = client.messages.create(
+                model=CLAUDE_MODEL,
+                max_tokens=max_tokens,
+                thinking=THINKING_DISABLED,
+                messages=[{
+                    "role": "user",
+                    "content": prompt + (_PERSONA_RETRY_SUFFIX if attempt else ""),
+                }],
+            )
+            text = msg.content[0].text.strip() if msg.content else ""
+        except Exception as e:
+            print(f"  ERROR generating message for {founder_name} @ {company_name}: {e}")
+            return "", message_basis
+        if text and not _has_third_person_rajat(text):
+            return text, message_basis
+        if attempt == 0:
+            print(f"    Draft for {founder_name} @ {company_name} used third-person "
+                  f"Rajat language, retrying …")
+    print(f"    WARNING: persona check still failing after retry for {founder_name} "
+          f"@ {company_name} — flagging for manual review")
+    return text, message_basis
 
 
 def pick_best_founder(client, founders: list[dict], company_name: str, role_title: str) -> tuple[str, str]:
-    """Returns (founder_name, one_sentence_reason). Empty strings if it can't decide
-    or the call fails — callers should treat that as 'no recommendation', not crash."""
+    """Returns (founder_name, one_sentence_reason). founder_name is '' both when
+    the call fails/can't parse AND when Claude itself reports no distinguishing
+    signal among the founders — callers must treat both the same way ('no
+    recommendation'), not just the failure case. See BEST_FOUNDER_PROMPT: it's
+    explicitly told not to default to list order or a title guess when the
+    bios don't actually distinguish the founders, since that's what produced
+    reasoning like "listed first, likely CEO" in production — a default
+    dressed up as a finding, not a real signal."""
     founders_block = "\n".join(
         f"- {f.get('name', 'Unknown')} ({f.get('title', 'Founder')}): {f.get('bio') or 'no bio available'}"
         for f in founders
@@ -632,10 +838,16 @@ def pick_best_founder(client, founders: list[dict], company_name: str, role_titl
     try:
         msg = client.messages.create(
             model=CLAUDE_MODEL,
-            max_tokens=150,
+            max_tokens=200,
+            thinking=THINKING_DISABLED,
             messages=[{"role": "user", "content": prompt}],
         )
-        data = json.loads(msg.content[0].text.strip())
+        raw_text = msg.content[0].text.strip() if msg.content else ""
+        if not raw_text:
+            raise ValueError(
+                f"empty response text (stop_reason={getattr(msg, 'stop_reason', '?')})"
+            )
+        data = json.loads(raw_text)
         return data.get("founder", ""), data.get("reason", "")
     except Exception as e:
         print(f"  WARNING: could not determine best-fit founder for {company_name}: {e}")
@@ -681,6 +893,7 @@ def build_entries(new_jobs: list[dict], scraped: dict[str, dict], client) -> lis
                 "email_confidence": 0,
                 "product_summary": product_summary,
                 "message": "(no founder data found on YC page)",
+                "message_basis": "none",
                 "is_best_fit": False,
                 "best_fit_reason": "",
                 "research_attempted": False,
@@ -729,7 +942,7 @@ def build_entries(new_jobs: list[dict], scraped: dict[str, dict], client) -> lis
             is_best_fit = bool(best_founder_name) and founder_name == best_founder_name
             research_for_founder = best_fit_research if is_best_fit else []
 
-            message = generate_message(
+            message, message_basis = generate_message(
                 client, founder_name, company_name, yc_batch, role_title, product_summary,
                 jd_text=jd_text, research=research_for_founder,
             )
@@ -754,6 +967,7 @@ def build_entries(new_jobs: list[dict], scraped: dict[str, dict], client) -> lis
                 "is_best_fit": is_best_fit,
                 "best_fit_reason": best_fit_reason if is_best_fit else "",
                 "message": message,
+                "message_basis": message_basis,
                 "research_attempted": is_best_fit and research_attempted,
                 "research_verified_count": len(research_for_founder),
             })
@@ -764,10 +978,20 @@ def build_entries(new_jobs: list[dict], scraped: dict[str, dict], client) -> lis
 
 # ── Step 5: Email digest ──────────────────────────────────────────────────────
 
+_MESSAGE_BASIS_LABELS = {
+    "researched": "founder-specific research ({count} fact(s) verified)",
+    "jd_only": "job description only — no verified founder-specific research",
+    "plain": "general blurb only — job description unavailable",
+    "none": "no founder data on the YC page",
+}
+
+
 def format_entry(e: dict) -> str:
     founder_line = f"Founder: {e['founder_name']}"
     if e.get("is_best_fit"):
         founder_line += "  [BEST FIT]"
+    if e.get("is_top_pick"):
+        founder_line += "  [TOP PICK]"
 
     lines = [
         f"Company: {e['company_name']} ({e['yc_batch']})",
@@ -777,20 +1001,98 @@ def format_entry(e: dict) -> str:
     ]
     if e.get("is_best_fit") and e.get("best_fit_reason"):
         lines.append(f"Why: {e['best_fit_reason']}")
+    if e.get("is_top_pick") and e.get("top_pick_reason"):
+        lines.append(f"Top pick because: {e['top_pick_reason']}")
     lines.append(f"LinkedIn: {e['linkedin_url']}")
     if e.get("email_address"):
         lines.append(f"Email: {e['email_address']} ({e['email_confidence']}% confidence)")
-    if e.get("research_attempted"):
-        count = e.get("research_verified_count", 0)
-        if count > 0:
-            lines.append(f"Research verified ({count} fact(s) checked for recency + sentiment)")
-        else:
-            lines.append("Research attempted, nothing verified — check claims manually before sending")
+    # Bug #2: every message used to look founder-personalized whether or not it
+    # actually was. This line states plainly what the message is actually
+    # grounded in, so "researched" can be trusted and "jd_only" isn't mistaken
+    # for it.
+    basis = e.get("message_basis", "plain")
+    label = _MESSAGE_BASIS_LABELS.get(basis, basis).format(
+        count=e.get("research_verified_count", 0)
+    )
+    lines.append(f"Message basis: {label}")
+    if e.get("persona_check_failed"):
+        lines.append("⚠ PERSONA CHECK FAILED — draft still reads third-person after a retry, rewrite before sending")
     lines.append(f"Product: {e['product_summary']}")
     lines.append("")
     lines.append(f"Message:\n{e['message']}")
 
     return "\n".join(lines) + "\n"
+
+
+def rank_top_leads(entries: list[dict], client) -> dict[str, str]:
+    """Ranks distinct (company, role) leads across the WHOLE digest — not just
+    within a company — and returns {role_url: reason} for the 2-3 most worth
+    same-day action. Returns {} (never raises) when there aren't enough
+    distinct leads to bother triaging (below MIN_ROLES_FOR_RANKING) or the call
+    fails; every entry just shows unelevated in that case, same as before this
+    existed. Doesn't remove or downrank anything — a 10-company, 20-founder
+    digest presenting every lead as equally worth acting on today was bug #4;
+    this only adds a flag on top of the top 2-3."""
+    by_role: dict[str, dict] = {}
+    for e in entries:
+        by_role.setdefault(e["role_url"], e)
+
+    if len(by_role) < MIN_ROLES_FOR_RANKING:
+        return {}
+
+    print(f"\n[4b] Ranking {len(by_role)} leads across the digest for same-day triage …")
+    leads_block = "\n".join(
+        f"- role_url: {url}\n"
+        f"  Company: {e['company_name']} ({e['yc_batch']}) — Role: {e['role_title']}\n"
+        f"  Best-fit founder: "
+        + (f"{e['founder_name']}" + (f" — {e['best_fit_reason']}" if e.get("best_fit_reason") else "")
+           if e.get("is_best_fit") else "no distinguishing signal")
+        + f"\n  Research: {e.get('research_verified_count', 0)} verified fact(s)\n"
+          f"  Product: {e['product_summary']}"
+        for url, e in by_role.items()
+    )
+    prompt = RANK_LEADS_PROMPT.format(n=len(by_role), leads_block=leads_block)
+    try:
+        msg = client.messages.create(
+            model=CLAUDE_MODEL,
+            max_tokens=400,
+            thinking=THINKING_DISABLED,
+            messages=[{"role": "user", "content": prompt}],
+        )
+        raw_text = msg.content[0].text.strip() if msg.content else ""
+        if not raw_text:
+            raise ValueError(
+                f"empty response text (stop_reason={getattr(msg, 'stop_reason', '?')})"
+            )
+        data = json.loads(raw_text)
+        picks = {}
+        for item in data.get("top_picks", [])[:3]:
+            url = item.get("role_url", "")
+            if url in by_role:
+                picks[url] = item.get("reason", "")
+        print(f"    {len(picks)} top pick(s) flagged")
+        return picks
+    except Exception as e:
+        print(f"  WARNING: lead ranking failed, digest will show every entry unelevated: {e}")
+        return {}
+
+
+def validate_entries(entries: list[dict]) -> list[dict]:
+    """Last-mile safety net run right before the digest sends: re-sanitizes URL
+    fields (bug #5 — a YC page emitted a doubled-scheme LinkedIn href,
+    'https:https://...') and flags any message that still contains
+    third-person Rajat language even after generate_message()'s own retry
+    (bug #1), rather than silently shipping either. Mutates and returns
+    entries."""
+    for e in entries:
+        e["linkedin_url"] = _clean_url(e.get("linkedin_url", ""))
+        cleaned_role_url = _clean_url(e.get("role_url", ""))
+        if cleaned_role_url:
+            e["role_url"] = cleaned_role_url
+        e["persona_check_failed"] = bool(
+            e.get("message") and _has_third_person_rajat(e["message"])
+        )
+    return entries
 
 
 def send_email(entries: list[dict]) -> bool:
@@ -814,7 +1116,21 @@ def send_email(entries: list[dict]) -> bool:
     distinct_roles = len({e["role_url"] for e in entries})
     role_word = "role" if distinct_roles == 1 else "roles"
     subject = f"YC GTM Monitor - {distinct_roles} new {role_word} ({len(entries)} founders) - {date_str}"
-    body = "\n---\n".join(format_entry(e) for e in entries)
+
+    body_parts = []
+    top_picks_by_role: dict[str, dict] = {}
+    for e in entries:
+        if e.get("is_top_pick"):
+            top_picks_by_role.setdefault(e["role_url"], e)
+    if top_picks_by_role:
+        header = ["TOP PICKS TODAY — worth same-day action:", ""]
+        for e in top_picks_by_role.values():
+            header.append(f"- {e['company_name']} — {e['role_title']}: {e.get('top_pick_reason', '')}")
+        header.append("")
+        header.append("=" * 60)
+        body_parts.append("\n".join(header))
+    body_parts.append("\n---\n".join(format_entry(e) for e in entries))
+    body = "\n\n".join(body_parts)
 
     print(f"\n[5] Sending email digest: {subject}")
     try:
@@ -925,6 +1241,14 @@ def main():
     client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
 
     entries = build_entries(new_jobs, scraped, client)
+
+    top_picks = rank_top_leads(entries, client)
+    for e in entries:
+        e["is_top_pick"] = e["role_url"] in top_picks
+        e["top_pick_reason"] = top_picks.get(e["role_url"], "")
+
+    entries = validate_entries(entries)
+
     email_sent = send_email(entries)
 
     if not email_sent:
