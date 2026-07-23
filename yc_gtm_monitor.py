@@ -113,7 +113,9 @@ _PERSONA_BULLET = (
 )
 
 # Bare fallback: no fetched job description, no research. Used only when both
-# are unavailable (see generate_message()).
+# are unavailable (see generate_message()) — genuinely nothing to build a
+# specific pilot plan from, so this stays a plain one-liner rather than forcing
+# a Day 1/Day 90 structure with nothing real to hang it on.
 MESSAGE_PROMPT = _PERSONA_INSTRUCTION + """
 
 Context:
@@ -134,11 +136,49 @@ Write a single LinkedIn message that:
 - Maximum 4 sentences
 - Do not use the words seamless, robust, leverage, streamline, innovative, or comprehensive"""
 
+# Shared shape for the two "there's real material to work with" tiers
+# (jd_only and researched): a specific 90-day pilot plan, not a JD-cite-then-
+# generic-pitch template. That cite-then-pitch pattern is what the previous
+# version produced and is exactly what reads as AI-generated — anyone can
+# quote a JD line back at a founder, it's zero signal. The fix is forcing a
+# concrete, company-specific Day 1 action and Day 90 outcome instead of a
+# generic capability list ("I build signal systems...") repeated verbatim
+# across every message regardless of company.
+#
+# Structured JSON output (message + grounded_in) rather than free text so the
+# digest can show exactly which fact or JD detail the plan is built on, in a
+# block above the message — not just a basis label. Reuses the same
+# _strip_json_fences() fix already required for verify_fact()/pick_best_founder(),
+# since this model wraps JSON in code fences too.
+_PILOT_PLAN_INSTRUCTIONS = """
+Your job is NOT to quote a detail back and then describe what you generally build. That pattern
+(cite a line, pivot to "I build GTM infrastructure including signal systems, automated sequences,
+and GTM agents") is saturated — every outbound message today does this, founders can tell, and
+it's zero signal since anyone can read the same posting and say the same thing.
+
+Instead, propose a specific, concrete 90-day pilot plan for THIS company: a real first action tied
+to their actual buyer/segment/channel, and a real, believable outcome scaled to their motion. Name
+the actual persona, trigger, or channel implied by the context above — never describe your
+capabilities in the abstract.
+
+Structure the message as four short, skimmable beats, each starting on its own new line (tight and
+scannable, like a short thread — not one dense paragraph):
+1. One line grounding the plan in the specific fact below — state it plainly and connect it
+   directly to why the pilot makes sense, don't just say "I saw that you..."
+2. A line starting with "Day 1:" — the concrete first action, naming the specific buyer/segment/
+   channel this company actually sells to or hires against
+3. A line starting with "Day 90:" — a specific, believable deliverable or metric the founder would
+   actually see by then, scaled to this company's stage and motion (not vague "pipeline" — a real
+   number or artifact they could picture)
+4. A soft yes or no ask
+
+Respond with ONLY valid JSON in this exact format, no other text before or after it:
+{{"message": "<the full four-beat message, with real line breaks between beats>", "grounded_in": "<one plain-language sentence stating exactly which fact or job-description detail beats 2 and 3 are built on, specific enough that a human can verify it before sending>"}}"""
+
 # Used when a job description was fetched but no verified, founder-specific
 # research exists for this founder (not attempted, or attempted and nothing
-# survived verification). Explicitly told NOT to imply personal knowledge of the
-# founder it doesn't have — that was bug #2: every hook was JD-only dressed up
-# as if the (supposedly added) research had grounded it.
+# survived verification) — the fallback pilot-plan tier. Explicitly told NOT to
+# imply personal knowledge of the founder it doesn't have.
 MESSAGE_PROMPT_JD_ONLY = _PERSONA_INSTRUCTION + """
 
 Context:
@@ -151,24 +191,21 @@ Context:
 {jd_text}
 
 You do NOT have any verified research on this specific founder — no confirmed public activity,
-background, or statements about them personally. Do not imply or claim any personal knowledge of
-the founder beyond what's in the job description above.
+background, or statements about them personally. The pilot plan below must be grounded only in the
+job description and product summary above — never imply personal knowledge of the founder you
+don't have, and never invent a company detail that isn't actually in the text above.
+""" + _PILOT_PLAN_INSTRUCTIONS + """
 
-Write a single LinkedIn message that:
-- Opens by referencing one specific, real detail from the job description above
-- Mentions that you currently work with a few YC startups building their GTM infrastructure from scratch including signal systems, automated sequences, and GTM agents
-- Says you could have something running in a week
-- Ends with a soft yes or no ask
-- Sounds like a real person wrote it, not a template
+Other requirements:
 """ + _PERSONA_BULLET + """
 - No em dashes, no ampersands, no special characters that LinkedIn might mangle
-- Maximum 4 sentences
-- Grounds its opening only in the job description above — never infer or invent a founder-specific detail you don't actually have
+- 6 to 7 sentences total across the four beats
 - Do not use the words seamless, robust, leverage, streamline, innovative, or comprehensive"""
 
 # Used only when there's at least one verified, founder-specific research fact
-# (see generate_message()) — this is the whole reason the research pipeline
-# exists, so the opening hook is required to use it, not just the JD.
+# (see generate_message()) — the primary pilot-plan tier, and the whole reason
+# the research pipeline exists: a plan grounded in something real and specific
+# to this founder, not just whatever's in the job posting.
 MESSAGE_PROMPT_RESEARCHED = _PERSONA_INSTRUCTION + """
 
 Context:
@@ -183,16 +220,15 @@ Context:
   it actually describes what it claims to — only reference items listed here, nothing else):
 {research_block}
 
-Write a single LinkedIn message that:
-- Opens by referencing one specific, founder-specific detail from the verified research above — not a generic line from the job description. This is the entire point of the research: use it.
-- Mentions that you currently work with a few YC startups building their GTM infrastructure from scratch including signal systems, automated sequences, and GTM agents
-- Says you could have something running in a week
-- Ends with a soft yes or no ask
-- Sounds like a real person wrote it, not a template
+Ground the pilot plan in the verified research above where it genuinely supports a specific,
+believable plan — fall back to the job description for the parts it doesn't cover. Never invent a
+detail beyond what's given above.
+""" + _PILOT_PLAN_INSTRUCTIONS + """
+
+Other requirements:
 """ + _PERSONA_BULLET + """
 - No em dashes, no ampersands, no special characters that LinkedIn might mangle
-- Maximum 5 sentences
-- Grounds every specific claim in the job description or verified research given above — never infer or invent a detail that isn't actually there
+- 6 to 7 sentences total across the four beats
 - Do not use the words seamless, robust, leverage, streamline, innovative, or comprehensive"""
 
 _PERSONA_RETRY_SUFFIX = (
@@ -761,21 +797,34 @@ def _format_research_block(research: list[dict]) -> str:
 
 def generate_message(client, founder_name: str, company_name: str, yc_batch: str,
                       role_title: str, product_summary: str,
-                      jd_text: str = "", research: list[dict] | None = None) -> tuple[str, str]:
-    """Returns (message, message_basis), message_basis one of "researched" (at
-    least one verified, founder-specific fact — the whole point of the research
-    pipeline, so this is the only tier allowed to claim founder-specific
-    knowledge), "jd_only" (a fetched job description but no verified research —
-    explicitly told not to imply personal knowledge it doesn't have), or "plain"
-    (neither available, the original one-liner-based prompt).
+                      jd_text: str = "", research: list[dict] | None = None) -> tuple[str, str, str]:
+    """Returns (message, message_basis, grounded_in).
+
+    message_basis is one of "researched" (a verified, founder-specific fact
+    grounds the Day 1/Day 90 pilot plan — the primary tier), "jd_only" (no
+    verified research, the plan falls back to the job description alone), or
+    "plain" (neither available — no material to build a specific plan from,
+    so this stays the original one-liner rather than a fabricated plan).
+
+    grounded_in is '' for the plain tier; otherwise a plain-language sentence
+    naming exactly which fact or job-description detail the plan is built on,
+    so it can be shown in the digest above the message for a human to verify
+    before sending — not just a fact count.
+
+    The jd_only/researched tiers ask for structured JSON (message +
+    grounded_in) rather than free text, parsed with the same
+    _strip_json_fences() fix verify_fact()/pick_best_founder() need — this
+    model wraps JSON replies in a Markdown code fence even when told not to.
 
     Re-checks its own output for third-person Rajat language and retries once
-    with a corrective prompt if it slips through — this was bug #1 in
-    production: the same run wrote one founder's message as Rajat and another's
-    about Rajat. Still lets a bad draft through after the retry rather than
-    dropping the entry; validate_entries() flags it in the digest as a final
-    safety net so it's never silently sent."""
+    with a corrective prompt if it slips through, or if the structured JSON
+    didn't parse — this was bug #1 in production: the same run wrote one
+    founder's message as Rajat and another's about Rajat. Still lets a bad
+    draft through after the retry rather than dropping the entry;
+    validate_entries() flags it in the digest as a final safety net so it's
+    never silently sent."""
     research = research or []
+    needs_json = bool(research or jd_text)
     if research:
         prompt = MESSAGE_PROMPT_RESEARCHED.format(
             founder_name=founder_name,
@@ -787,7 +836,7 @@ def generate_message(client, founder_name: str, company_name: str, yc_batch: str
             research_block=_format_research_block(research),
         )
         message_basis = "researched"
-        max_tokens = 400
+        max_tokens = 600
     elif jd_text:
         prompt = MESSAGE_PROMPT_JD_ONLY.format(
             founder_name=founder_name,
@@ -798,7 +847,7 @@ def generate_message(client, founder_name: str, company_name: str, yc_batch: str
             jd_text=jd_text[:JD_MAX_CHARS],
         )
         message_basis = "jd_only"
-        max_tokens = 350
+        max_tokens = 600
     else:
         prompt = MESSAGE_PROMPT.format(
             founder_name=founder_name,
@@ -810,7 +859,7 @@ def generate_message(client, founder_name: str, company_name: str, yc_batch: str
         message_basis = "plain"
         max_tokens = 350
 
-    text = ""
+    text, grounded_in, last_raw = "", "", ""
     for attempt in range(2):
         try:
             msg = client.messages.create(
@@ -822,18 +871,38 @@ def generate_message(client, founder_name: str, company_name: str, yc_batch: str
                     "content": prompt + (_PERSONA_RETRY_SUFFIX if attempt else ""),
                 }],
             )
-            text = msg.content[0].text.strip() if msg.content else ""
+            raw = msg.content[0].text.strip() if msg.content else ""
         except Exception as e:
             print(f"  ERROR generating message for {founder_name} @ {company_name}: {e}")
-            return "", message_basis
+            return "", message_basis, ""
+        last_raw = raw
+
+        if needs_json:
+            try:
+                data = json.loads(_strip_json_fences(raw))
+                text = (data.get("message") or "").strip()
+                grounded_in = (data.get("grounded_in") or "").strip()
+            except Exception as e:
+                print(f"    WARNING: could not parse structured message for {founder_name} "
+                      f"@ {company_name}, attempt {attempt + 1}: {e}")
+                text, grounded_in = "", ""
+        else:
+            text = raw
+
         if text and not _has_third_person_rajat(text):
-            return text, message_basis
+            return text, message_basis, grounded_in
         if attempt == 0:
             print(f"    Draft for {founder_name} @ {company_name} used third-person "
-                  f"Rajat language, retrying …")
-    print(f"    WARNING: persona check still failing after retry for {founder_name} "
+                  f"Rajat language or failed to parse, retrying …")
+
+    print(f"    WARNING: persona/parse check still failing after retry for {founder_name} "
           f"@ {company_name} — flagging for manual review")
-    return text, message_basis
+    if not text and last_raw:
+        # Structured parsing failed both times but there's still real text back
+        # from the model — surface it (flagged downstream) rather than send an
+        # empty entry.
+        text = last_raw
+    return text, message_basis, grounded_in
 
 
 def pick_best_founder(client, founders: list[dict], company_name: str, role_title: str) -> tuple[str, str]:
@@ -911,6 +980,7 @@ def build_entries(new_jobs: list[dict], scraped: dict[str, dict], client) -> lis
                 "product_summary": product_summary,
                 "message": "(no founder data found on YC page)",
                 "message_basis": "none",
+                "grounded_in": "",
                 "is_best_fit": False,
                 "best_fit_reason": "",
                 "research_attempted": False,
@@ -959,7 +1029,7 @@ def build_entries(new_jobs: list[dict], scraped: dict[str, dict], client) -> lis
             is_best_fit = bool(best_founder_name) and founder_name == best_founder_name
             research_for_founder = best_fit_research if is_best_fit else []
 
-            message, message_basis = generate_message(
+            message, message_basis, grounded_in = generate_message(
                 client, founder_name, company_name, yc_batch, role_title, product_summary,
                 jd_text=jd_text, research=research_for_founder,
             )
@@ -985,6 +1055,7 @@ def build_entries(new_jobs: list[dict], scraped: dict[str, dict], client) -> lis
                 "best_fit_reason": best_fit_reason if is_best_fit else "",
                 "message": message,
                 "message_basis": message_basis,
+                "grounded_in": grounded_in,
                 "research_attempted": is_best_fit and research_attempted,
                 "research_verified_count": len(research_for_founder),
             })
@@ -996,8 +1067,8 @@ def build_entries(new_jobs: list[dict], scraped: dict[str, dict], client) -> lis
 # ── Step 5: Email digest ──────────────────────────────────────────────────────
 
 _MESSAGE_BASIS_LABELS = {
-    "researched": "founder-specific research ({count} fact(s) verified)",
-    "jd_only": "job description only — no verified founder-specific research",
+    "researched": "researched pilot angle ({count} fact(s) verified)",
+    "jd_only": "job-description-only pilot angle (no verified founder research)",
     "plain": "general blurb only — job description unavailable",
     "none": "no founder data on the YC page",
 }
@@ -1032,6 +1103,11 @@ def format_entry(e: dict) -> str:
         count=e.get("research_verified_count", 0)
     )
     lines.append(f"Message basis: {label}")
+    # The pilot angle's source, in its own block above the message — so it's
+    # clear at a glance which specific fact or JD detail the Day 1/Day 90 plan
+    # is actually built on, not just that research was "attempted."
+    if e.get("grounded_in"):
+        lines.append(f"Pilot angle grounded in: {e['grounded_in']}")
     if e.get("persona_check_failed"):
         lines.append("⚠ PERSONA CHECK FAILED — draft still reads third-person after a retry, rewrite before sending")
     lines.append(f"Product: {e['product_summary']}")
