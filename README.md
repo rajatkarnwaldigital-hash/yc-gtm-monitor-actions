@@ -259,6 +259,43 @@ the honest version, in order:
    "we scaled fine" success story misread as a pain point. Both get caught automatically now
    instead of trusting a single pass to "be careful." See
    [Researching before you reach out](#researching-before-you-reach-out) above.
+10. **Bug: research verification silently failed 100% of the time** — every single verification
+    call came back as an empty, unparseable response ("Expecting value: line 1 column 1 (char 0)"),
+    across every fact, for days, so every digest entry read "nothing verified" regardless of what
+    Exa actually found. Root cause: the verification model defaults to adaptive extended thinking
+    when the `thinking` parameter is omitted, and the whole `max_tokens` budget was being consumed
+    by invisible reasoning before any visible answer token got emitted. Fixed by explicitly passing
+    `thinking={"type": "disabled"}` on every Claude call in the file — none of them need multi-step
+    reasoning (classify a fact, pick a name, draft a short message), and every call now also checks
+    for an empty response with a clear diagnostic instead of a cryptic JSON error if it recurs.
+11. **Bug: messages randomly switched between first and third person** — the prompt said a message
+    was written "on behalf of Rajat," which left it ambiguous whether to write as Rajat or about
+    him; two founders at the same company could get one of each in the same run. Fixed: every
+    message prompt now explicitly instructs first person only, and `generate_message()` checks its
+    own output for third-person language and retries once with a corrective prompt if it slips
+    through, flagging it plainly in the digest if it's still there after the retry.
+12. **Bug: every message looked founder-personalized whether it actually was** — the "verified
+    research" feature above existed, but every hook still just referenced the job description, and
+    nothing in the digest distinguished a message actually grounded in founder research from one
+    that wasn't. Fixed: `generate_message()` now only claims founder-specific knowledge when there's
+    at least one verified fact for that founder; otherwise it's explicitly told not to imply
+    personal knowledge it doesn't have, and every entry states plainly which basis its message used.
+13. **Bug: "best fit" reasoning was list order dressed up as a finding** — recommendations like
+    "listed first, likely CEO" or "alphabetically first with no differentiating info" were a default
+    presented as a signal, not an actual one, because the prompt told the model to always pick
+    someone even when nothing distinguished the founders. Fixed: the model is now told that's not a
+    signal, and to say "no distinguishing signal" honestly instead of manufacturing a reason — those
+    roles now fall back to every founder getting the same non-personalized message, with nobody
+    incorrectly flagged `[BEST FIT]`.
+14. **Feature: cross-lead triage** — a 10-company, 20-founder digest presented every lead as equally
+    worth acting on right now, with no way to tell what actually deserved same-day attention. Added
+    one extra ranking call (only once there are enough leads to bother triaging) that flags the 2-3
+    most worth acting on today with a one-line reason each, without removing or downranking anyone
+    else in the digest.
+15. **Bug: a malformed LinkedIn URL reached the digest** — a YC page emitted a founder's LinkedIn
+    href with a doubled scheme (`https:https://...`). Added URL validation both at the scrape source
+    and as a final pass right before the digest sends, dropping anything that doesn't parse as a
+    real absolute URL rather than forwarding it broken.
 
 ---
 
