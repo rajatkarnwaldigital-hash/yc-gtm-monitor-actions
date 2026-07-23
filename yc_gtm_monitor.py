@@ -303,6 +303,23 @@ def _clean_url(url: str) -> str:
     return url
 
 
+# The actual root cause of every "verification call failed: Expecting value:
+# line 1 column 1 (char 0)" in production: Claude wraps its JSON reply in a
+# Markdown code fence ("```json\n{...}\n```") even when told to respond with
+# ONLY JSON and nothing else. json.loads() on that raises exactly this error
+# at the leading backtick — confirmed with an isolated diagnostic call outside
+# the full pipeline. (Passing thinking={"type": "disabled"} on every call,
+# added in an earlier pass, was a real fix for a different, narrower failure
+# mode and is still correct to keep — it just wasn't the cause of this one.)
+_JSON_FENCE_RE = re.compile(r"^```(?:json)?\s*\n?(.*?)\n?```\s*$", re.DOTALL)
+
+
+def _strip_json_fences(text: str) -> str:
+    text = (text or "").strip()
+    m = _JSON_FENCE_RE.match(text)
+    return m.group(1).strip() if m else text
+
+
 def find_email(domain: str, first_name: str, last_name: str) -> tuple[str, int]:
     """Return (email, confidence_score) from Hunter's email-finder API.
     Returns ('', 0) when the key is unset, the domain is empty, or the lookup fails."""
@@ -688,7 +705,7 @@ def verify_fact(client, fact: dict) -> dict:
             thinking=THINKING_DISABLED,
             messages=[{"role": "user", "content": prompt}],
         )
-        raw_text = msg.content[0].text.strip() if msg.content else ""
+        raw_text = _strip_json_fences(msg.content[0].text) if msg.content else ""
         if not raw_text:
             raise ValueError(
                 f"empty response text (stop_reason={getattr(msg, 'stop_reason', '?')})"
@@ -842,7 +859,7 @@ def pick_best_founder(client, founders: list[dict], company_name: str, role_titl
             thinking=THINKING_DISABLED,
             messages=[{"role": "user", "content": prompt}],
         )
-        raw_text = msg.content[0].text.strip() if msg.content else ""
+        raw_text = _strip_json_fences(msg.content[0].text) if msg.content else ""
         if not raw_text:
             raise ValueError(
                 f"empty response text (stop_reason={getattr(msg, 'stop_reason', '?')})"
@@ -1059,7 +1076,7 @@ def rank_top_leads(entries: list[dict], client) -> dict[str, str]:
             thinking=THINKING_DISABLED,
             messages=[{"role": "user", "content": prompt}],
         )
-        raw_text = msg.content[0].text.strip() if msg.content else ""
+        raw_text = _strip_json_fences(msg.content[0].text) if msg.content else ""
         if not raw_text:
             raise ValueError(
                 f"empty response text (stop_reason={getattr(msg, 'stop_reason', '?')})"
