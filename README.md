@@ -30,12 +30,13 @@ This system does that grind for you:
    role is hiring for, then fact-checks every claim for recency and relevance before it's allowed
    anywhere near the message (see [Researching before you reach out](#researching-before-you-reach-out)
    below).
-6. **Drafts** a short, non-templated LinkedIn message for each founder via Claude, grounded in the
-   actual job description and any verified research, referencing the specific role and a one-week
-   build timeline.
+6. **Drafts** a concrete 90-day pilot plan for each founder via Claude, not a generic pitch — a
+   specific Day 1 action and Day 90 outcome tied to that company's actual buyer and motion, grounded
+   in the job description and any verified research (see
+   [Researching before you reach out](#researching-before-you-reach-out) below).
 7. **Emails you a digest** every morning with the role, the job link, the founder's LinkedIn, a
-   note on whether research was verified, and the ready-to-send message — you just need to decide
-   who to actually message.
+   line showing exactly which fact or JD detail the pilot plan is grounded in, and the ready-to-send
+   message — you just need to decide who to actually message.
 
 ## How it runs
 
@@ -98,10 +99,14 @@ No other code needs to change — the filter (`GTM_PATTERN`, built automatically
 is what every scraped job title gets checked against.
 
 You can also adjust:
-- **The outreach message itself** — edit the `MESSAGE_PROMPT` template (also near the top of
-  `yc_gtm_monitor.py`) to change the tone, length, or call to action. `MESSAGE_PROMPT_ENRICHED` is
-  the version used instead whenever there's a fetched job description and/or verified research to
-  work with — edit both if you're changing the tone.
+- **The outreach message itself** — there are three prompt templates near the top of
+  `yc_gtm_monitor.py`, one per tier: `MESSAGE_PROMPT` (bare fallback, used only when neither a job
+  description nor research is available), `MESSAGE_PROMPT_JD_ONLY` (a pilot plan grounded in the
+  job description alone), and `MESSAGE_PROMPT_RESEARCHED` (a pilot plan grounded in verified
+  founder research, falling back to the JD where research doesn't cover it). Edit all three
+  together if you're changing the tone or structure — see
+  [From research to a pilot plan, not a pitch](#from-research-to-a-pilot-plan-not-a-pitch) above
+  for what the latter two currently produce.
 - **The schedule** — edit the `cron:` line in `.github/workflows/yc_gtm_monitor.yml` (uses standard
   cron syntax, currently `30 3 * * *` = 3:30am UTC daily).
 
@@ -148,11 +153,29 @@ message prompt, checking two things specifically:
   rather than a success story or a "we solved this" resolution being misread as a problem?
 
 Unverified facts are discarded, not softened or passed through with a caveat. If nothing comes back
-verified — or Exa or the verification call errors out or times out — the message falls back to the
-same one-liner-based version the script always used; the entry is never dropped just because
-research failed. Every digest entry that went through this pipeline also gets a line in the email
-saying either "Research verified" or that nothing was confirmed and the claims should be checked by
-hand before sending.
+verified — or Exa or the verification call errors out or times out — the message falls back to
+being grounded in the job description alone instead of founder research; the entry is never dropped
+just because research failed.
+
+### From research to a pilot plan, not a pitch
+
+The message itself isn't a "saw your JD, here's what I build" template — that pattern is easy to
+spot as AI-written, and it's zero signal since anyone can read the same posting and say the same
+thing. Instead, each message proposes a specific 90-day pilot for that company:
+
+1. One line grounding the plan in the real fact or JD detail
+2. **Day 1:** a concrete first action naming the actual buyer, segment, or channel this company
+   sells to or hires against
+3. **Day 90:** a specific, believable outcome scaled to that company's stage — a real number or
+   artifact, not vague "pipeline"
+4. A soft yes or no ask
+
+Verified research is preferred as the grounding for beats 2 and 3 when it's available (the
+`researched` tier); the job description is the fallback when it isn't (`jd_only`). Either way, the
+digest shows a **"Pilot angle grounded in:"** line right above the message, stating in plain
+language exactly which fact or JD detail the plan is built on — not just a fact count — so you can
+verify it before sending, the same way the recency/sentiment checks above let you trust "Research
+verified" instead of taking it on faith.
 
 ## Required secrets
 
@@ -296,6 +319,23 @@ the honest version, in order:
     href with a doubled scheme (`https:https://...`). Added URL validation both at the scrape source
     and as a final pass right before the digest sends, dropping anything that doesn't parse as a
     real absolute URL rather than forwarding it broken.
+16. **Bug: verification was STILL failing after the "thinking" fix** — #10 above was a real fix, but
+    not the whole story: the very next production run showed the identical "Expecting value: line 1
+    column 1 (char 0)" error on every verification and lead-ranking call. Root cause, found with a
+    standalone diagnostic script that skipped the full company scrape and hit the API directly with
+    shaped test calls: Claude wraps its JSON replies in a Markdown code fence
+    (`` ```json\n{...}\n``` ``) even when told to respond with ONLY JSON — `json.loads()` on that
+    fails at the leading backtick. Fixed by stripping code fences before parsing everywhere the
+    script parses JSON out of a Claude response.
+17. **Feature: concrete Day 1/Day 90 pilot plans instead of cite-then-pitch messages** — messages
+    used to open by quoting a JD line or research fact, then pivot to a generic "I build signal
+    systems, automated sequences, and GTM agents" capability statement, identical across every
+    message regardless of company — exactly the pattern that reads as AI-written, since anyone can
+    quote the same JD line back. Replaced with a four-beat structure (a grounding line, a specific
+    `Day 1:` action naming the actual buyer/channel, a specific `Day 90:` outcome scaled to the
+    company's motion, and an ask), plus a "Pilot angle grounded in:" line in the digest showing
+    exactly which fact or JD detail the plan is built on. See
+    [From research to a pilot plan, not a pitch](#from-research-to-a-pilot-plan-not-a-pitch) above.
 
 ---
 
