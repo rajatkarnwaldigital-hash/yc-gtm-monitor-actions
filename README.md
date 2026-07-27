@@ -336,6 +336,53 @@ the honest version, in order:
     company's motion, and an ask), plus a "Pilot angle grounded in:" line in the digest showing
     exactly which fact or JD detail the plan is built on. See
     [From research to a pilot plan, not a pitch](#from-research-to-a-pilot-plan-not-a-pitch) above.
+18. **Bug: a repo secret existing isn't enough — it also has to be listed in the workflow's `env:`**
+    On the move from Railway to GitHub Actions, `HUNTER_API_KEY` (and briefly `EXA_API_KEY`) were
+    added as repo secrets but not added to the `env:` block under the "Run monitor" step in
+    [.github/workflows/yc_gtm_monitor.yml](.github/workflows/yc_gtm_monitor.yml). A secret existing
+    on the repo doesn't put it in the job's environment automatically — it only reaches
+    `os.environ` if it's explicitly mapped there. Both `find_email()` and `exa_search()` treat a
+    missing key as "silently return no results," not an error, so the symptom was quiet: emails
+    sent fine, digests looked normal, and every entry just came back with zero Hunter matches and no
+    research, with nothing in the logs pointing at the cause. Confirmed by checking Hunter's usage
+    dashboard, which showed 0 requests that day despite a nonzero credit balance — the credit count
+    alone doesn't tell you whether a key is actually being called. If you add a new optional secret,
+    check the `env:` block, not just Settings → Secrets, before assuming it's wired up.
+19. **Bug: founder bios and titles were never actually captured, which silently starved both
+    best-fit picking and Exa research** — `_parse_founders()` climbs from each founder's LinkedIn
+    link up to the nearest ancestor containing their name (a `text-xl` element), then reads title
+    and bio off that same ancestor. On YC's current markup, that ancestor only wraps the name and
+    social-link row — title (`text-gray-600`) and bio (`prose`) are siblings one level further up,
+    under a shared `min-w-0 flex-1` container, so both came back empty for every founder, every run.
+    This had a quiet knock-on effect: with no bios to compare, `pick_best_founder()` correctly (per
+    fix #13 above) refused to name a best fit for any company with more than one founder — and since
+    the Exa research gate is `if best_founder_name and EXA_API_KEY`, research silently never fired
+    for any multi-founder company, regardless of `EXA_API_KEY` being valid. Single-founder companies
+    were unaffected (no bio comparison needed there), which is what made this hard to spot from the
+    digest alone — some entries looked fully researched while most quietly weren't. Fixed by
+    stepping up one more parent before reading `title_el`/`bio_el`; verified against a live scrape
+    of a real company page before shipping. When a role's founder research is missing and you want
+    to know why, check whether the company has one founder or several before suspecting Exa itself.
+
+### Forcing a redo of already-seen roles
+
+Because `seen_jobs.json` tracks roles by URL, a role that's already in there is permanently "seen"
+as far as a normal run is concerned — fixing a bug like #19 above does nothing for entries that
+already went out under the old, broken behavior. To force specific roles through the pipeline
+again (e.g. after fixing a bug that affected how they were processed, not just re-sending the same
+output):
+
+1. Find the exact role URL(s) affected — re-scraping the company's live YC page is safer than
+   trusting an old log, since a company can rename a job's slug, which changes its URL/key even
+   though it's the same posting.
+2. Remove exactly those keys from `seen_jobs.json` (not the whole company — a company can have
+   other, unaffected roles tracked under the same file) and push the change.
+3. Trigger the workflow manually (`gh workflow run "YC GTM Monitor"`, or the Actions tab's "Run
+   workflow" button) rather than waiting for the next schedule.
+
+The next run will treat those roles as brand new: full founder re-scrape, best-fit re-pick, Exa
+research if a best fit is found, and a fresh message — landing in a follow-up digest alongside
+whatever else is genuinely new that day.
 
 ---
 
