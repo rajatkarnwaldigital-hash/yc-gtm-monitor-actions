@@ -453,6 +453,7 @@ def _parse_founders(soup: BeautifulSoup) -> list[dict]:
                 break
         if not card:
             continue
+        card = card.parent or card
 
         name_el = card.find(class_=re.compile(r"text-xl"))
         title_el = card.find(class_=re.compile(r"text-gray-600"))
