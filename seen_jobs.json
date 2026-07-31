@@ -34,7 +34,6 @@
   "Craftwork::Sales Development Representative (Weekend Shift)": "2026-06-25T23:53:02.750780+00:00",
   "Artie::Sales/Solutions Engineer": "2026-06-25T23:53:02.750801+00:00",
   "HyLight::Head of Business Development": "2026-06-25T23:53:02.750811+00:00",
-  "Clad::Founding BDR": "2026-06-25T23:53:02.750847+00:00",
   "Pylon::Sales Development Representative": "2026-06-25T23:53:02.750849+00:00",
   "Finic::Founding Account Executive / Head of Revenue": "2026-06-25T23:53:02.750857+00:00",
   "Truewind::Growth BDR": "2026-06-25T23:53:02.750866+00:00",
@@ -3255,5 +3254,55 @@
     "company": "PermitFlow",
     "title": "Enterprise Sales Manager",
     "first_seen": "2026-07-30T06:17:39.351178+00:00"
+  },
+  "https://www.ycombinator.com/companies/clad/jobs/YsnUPA9-founding-bdr": {
+    "company": "Clad",
+    "title": "Founding BDR",
+    "first_seen": "2026-06-25T23:53:02.750847+00:00"
+  },
+  "https://www.ycombinator.com/companies/tasklet-2/jobs/pX97K6l-sales-executive": {
+    "company": "Tasklet",
+    "title": "Sales Executive",
+    "first_seen": "2026-07-31T06:40:01.481531+00:00"
+  },
+  "https://www.ycombinator.com/companies/callab-ai/jobs/D1R25qE-head-of-sdr": {
+    "company": "Callab AI",
+    "title": "Head of SDR",
+    "first_seen": "2026-07-31T06:40:01.481553+00:00"
+  },
+  "https://www.ycombinator.com/companies/veritus/jobs/bcAsnPw-founding-account-executive": {
+    "company": "Veritus",
+    "title": "Founding Account Executive",
+    "first_seen": "2026-07-31T06:40:01.481558+00:00"
+  },
+  "https://www.ycombinator.com/companies/ergo/jobs/Ns5y2U0-founding-account-executive": {
+    "company": "Ergo",
+    "title": "Founding Account Executive",
+    "first_seen": "2026-07-31T06:40:01.481560+00:00"
+  },
+  "https://www.ycombinator.com/companies/rove/jobs/bJWUbv2-growth-engineer": {
+    "company": "Rove",
+    "title": "Growth Engineer",
+    "first_seen": "2026-07-31T06:40:01.481564+00:00"
+  },
+  "https://www.ycombinator.com/companies/roame/jobs/zIcqBhL-founding-growth-lead": {
+    "company": "Roame",
+    "title": "Founding Growth Lead",
+    "first_seen": "2026-07-31T06:40:01.481566+00:00"
+  },
+  "https://www.ycombinator.com/companies/superkalam/jobs/2ue7xrO-growth-marketing-internship-to-ppo-bangalore": {
+    "company": "SuperKalam",
+    "title": "Growth (& Marketing) - Internship (to PPO) - Bangalore",
+    "first_seen": "2026-07-31T06:40:01.481569+00:00"
+  },
+  "https://www.ycombinator.com/companies/superkalam/jobs/BrZT6CO-creative-strategist-script-performance-marketing-superkalam-bangalore": {
+    "company": "SuperKalam",
+    "title": "Creative Strategist - Script (Performance Marketing) - SuperKalam (Bangalore)",
+    "first_seen": "2026-07-31T06:40:01.481571+00:00"
+  },
+  "https://www.ycombinator.com/companies/gimo/jobs/yxH32RL-marketing-lead": {
+    "company": "GIMO",
+    "title": "Marketing Lead",
+    "first_seen": "2026-07-31T06:40:01.481574+00:00"
   }
 }
